@@ -16,8 +16,53 @@ class UsersTableSeeder extends Seeder {
 			array(
 				'email' => 'deven@genii.in',
 				'name' => 'Deven',
-				'password' => Hash::make('belkin321!')
-				)
+				'password' => Hash::make('peQ7Oe7Z')
+				),
+			array(
+				'email' => 'tarun@genii.in',
+				'name' => 'Tarun',
+				'password' => Hash::make('28W163yU')
+				),
+			array(
+				'email' => 'sidharath@genii.in',
+				'name' => 'Sidhu',
+				'password' => Hash::make('ULQ1JA2c')
+				),
+			array(
+				'email' => 'sasha@genii.in',
+				'name' => 'Sasha',
+				'password' => Hash::make('ma1Pc5zo')
+				),
+			array(
+				'email' => 'gandhali@genii.in',
+				'name' => 'Gandhali',
+				'password' => Hash::make('97C9zw4m')
+				),
+			array(
+				'email' => 'shoaib@genii.in',
+				'name' => 'Shoaib',
+				'password' => Hash::make('P738B3qR')
+				),
+			array(
+				'email' => 'aakash@genii.in',
+				'name' => 'Aakash',
+				'password' => Hash::make('9kZjq2hQ')
+				),
+			array(
+				'email' => 'rohitash@genii.in',
+				'name' => 'Rohitash',
+				'password' => Hash::make('7MO3438w')
+				),
+			array(
+				'email' => 'nitish@genii.in',
+				'name' => 'Nitish',
+				'password' => Hash::make('veeQ4qhW')
+				),
+			array(
+				'email' => 'aditya@genii.in',
+				'name' => 'Aditya',
+				'password' => Hash::make('8NcVS11D')
+				),
 		);
 
 		// Uncomment the below to run the seeder

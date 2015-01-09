@@ -27,7 +27,7 @@
 
     <header>
         <a href="{{ URL::to('/') }}"><h1 class="main_heading">Daily<i class="fa fa-pencil"></i>Art</h1></a>
-        <a href="{{ URL::to('login') }}" class="login-btn">Member Login</a>
+        <a href="{{ URL::to('login') }}" class="login-btn">Submission</a>
     </header>
 
     @yield('content')

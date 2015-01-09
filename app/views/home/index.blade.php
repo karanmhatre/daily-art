@@ -35,15 +35,15 @@
 @section('scripts')
 
 	<script type="text/javascript">
-	$(function(){
-		$('.images_container').each(function() {
-			$(this).masonry({
-			  itemSelector: '.item',
-			  "gutter": 5
+		$(window).load(function() {
+	    $('.images_container').each(function() {
+				$(this).masonry({
+				  itemSelector: '.item',
+				  "gutter": 5
+				});
 			});
 		});
-	});
-		
+
 	</script>
 
 @stop
