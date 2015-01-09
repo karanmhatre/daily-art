@@ -23,12 +23,17 @@ class HomeController extends BaseController {
 
 	public function login()
 	{
-		return View::make('home.login');
+		if(Auth::check()) {
+			return Redirect::to('user');
+		}
+		else {
+			return View::make('home.login');
+		}
 	}
 
 	public function do_login()
 	{
-		if(Auth::attempt(Input::except('_token')))
+		if(Auth::attempt(Input::except('_token'), true))
 			return Redirect::to('user');
 		else
 			return Redirect::back()->withInput()->with('message','Invalid credentials');

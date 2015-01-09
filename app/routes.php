@@ -12,9 +12,6 @@
 */
 
 Route::get('/', 'HomeController@index');
-Route::get('test', function() {
-	View::make('home.test');
-});
 
 Route::get('login', 'HomeController@login');
 Route::post('login', array('as' => 'login' ,'uses' => 'HomeController@do_login'));

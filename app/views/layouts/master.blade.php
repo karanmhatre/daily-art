@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Daily Art | One Square Pixel</title>
+    <title>Daily Art | Make art, daily.</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
@@ -16,7 +16,7 @@
     {{ HTML::style('css/foundation.min.css') }}
     {{ HTML::style('css/font-awesome.min.css') }}
     {{ HTML::style('css/dropzone.css') }}
-    
+
     {{ HTML::style('css/main.css') }}
   </head>
   <body>
@@ -27,6 +27,7 @@
 
     <header>
         <a href="{{ URL::to('/') }}"><h1 class="main_heading">Daily<i class="fa fa-pencil"></i>Art</h1></a>
+        <a href="{{ URL::to('login') }}" class="login-btn">Member Login</a>
     </header>
 
     @yield('content')
@@ -38,9 +39,9 @@
     {{ HTML::script('js/vendor/masonry.pkgd.min.js') }}
     {{ HTML::script('js/vendor/foundation.min.js') }}
     {{ HTML::script('js/vendor/dropzone.js') }}
-    
+
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    
+
     <script>
     $(document).foundation();
 
@@ -52,7 +53,10 @@
 
     <script type="text/javascript">
         Dropzone.options.myAwesomeDropzone = {
-          maxFiles: 1, 
+          maxFiles: 1,
+          complete: function() {
+            location.reload();
+          }
         }
     </script>
 

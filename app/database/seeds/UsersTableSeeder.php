@@ -9,24 +9,14 @@ class UsersTableSeeder extends Seeder {
 
 		$users = array(
 			array(
-				'email' => 'karan@onesquarepixel.com',
+				'email' => 'karan@genii.in',
 				'name' => 'Karan',
 				'password' => Hash::make('acer321')
 				),
 			array(
-				'email' => 'vyas.deven@gmail.com',
+				'email' => 'deven@genii.in',
 				'name' => 'Deven',
 				'password' => Hash::make('belkin321!')
-				),
-			array(
-				'email' => 'amanmahadeshwar@gmail.com',
-				'name' => 'Aman',
-				'password' => Hash::make('quickWeb21')
-				),
-			array(
-				'email' => 'bladefury3@gmail.com',
-				'name' => 'Sidharath',
-				'password' => Hash::make('vaioewq!')
 				)
 		);
 

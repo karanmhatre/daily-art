@@ -1,15 +1,30 @@
+.login-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: inline-block;
+  padding: 10px;
+  background-color: #000;
+  color: #fff;
+}
+
+a.login-btn:hover {
+  color: #fff;
+  background-color: #333;
+}
+
 body {
 	font-family: 'Open Sans', sans-serif;
 }
 
 .main_heading {
 	font-size: 64px;
-	letter-spacing: 54px;
+	letter-spacing: 34px;
 	font-weight: 800;
 	text-transform: uppercase;
 	text-align: center;
 	color: #333;
-	padding: 40px 0px; 
+	padding: 40px 0px;
 	margin-bottom: 0px;
 	border-bottom: 1px dashed #ccc;
 	transition: 0.3s;
@@ -43,8 +58,8 @@ h3.date {
 }
 
 .day_container {
-	padding-bottom: 50px; 
-	border-bottom: 1px dashed #999;	
+	padding-bottom: 50px;
+	border-bottom: 1px dashed #999;
 }
 
 .single_image {
@@ -164,11 +179,11 @@ button:hover, .button:hover {
     padding: 0;
     color: #fff;
 }
- 
+
 .item figcaption span:before {
     content: 'by ';
 }
- 
+
 .item figcaption a {
     text-align: center;
     padding: 5px 10px;

@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title></title>
+    <title>Daily Art | Login</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
@@ -29,10 +29,10 @@
 
         @if(Session::has('message'))
           <div class="alert-box danger">
-            {{ Session::get('message') }}            
+            {{ Session::get('message') }}
           </div>
         @endif
-        
+
 
         {{ Form::open(array('route' => 'login')) }}
           <div class="small-10 large-centered columns">
@@ -60,7 +60,8 @@
               <div class="small-3 columns">
               </div>
               <div class="small-9 columns">
-                <input type="submit" class="button" value="Login">
+                <input type="submit" class="button" value="Login"><br>
+                <p>Don't have an account. Email me at <a href="mailto:karan@genii.in">karan@genii.in</a> to get invited.</p>
               </div>
             </div>
           </div>
@@ -69,13 +70,13 @@
       </div>
     </div>
 
-    
+
     <!-- Scripts -->
 
     {{ HTML::script('js/vendor/modernizr-2.6.2.min.js') }}
     {{ HTML::script('js/vendor/jquery-1.9.0.min.js') }}
     {{ HTML::script('js/vendor/foundation.min.js') }}
-    
+
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
     $(document).foundation();
