@@ -63,6 +63,21 @@ class UsersTableSeeder extends Seeder {
 				'name' => 'Aditya',
 				'password' => Hash::make('8NcVS11D')
 				),
+			array(
+				'email' => 'vishanka_14@hotmail.com',
+				'name' => 'Vishanka',
+				'password' => Hash::make('1402t6zW')
+				),
+			array(
+				'email' => 'hetang@genii.in',
+				'name' => 'Hetang',
+				'password' => Hash::make('yK2HQ3tq')
+				),
+			array(
+				'email' => 'amanmahadeshwar@gmail.com',
+				'name' => 'Aman',
+				'password' => Hash::make('18d8ElIs')
+				),
 		);
 
 		// Uncomment the below to run the seeder
