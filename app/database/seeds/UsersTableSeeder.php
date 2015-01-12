@@ -79,7 +79,7 @@ class UsersTableSeeder extends Seeder {
 				'password' => Hash::make('18d8ElIs')
 				),
 			array(
-				'email' => 'rewakulkarnni@gmail.com',
+				'email' => 'rewakulkarni@gmail.com',
 				'name' => 'Rewa',
 				'password' => Hash::make('y6H19wPa')
 				),
