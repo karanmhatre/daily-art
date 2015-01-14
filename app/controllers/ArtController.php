@@ -8,7 +8,8 @@ class ArtController extends BaseController
 	
 	function show($id)
 	{
-		return true;
+		$art = Art::with('theme')->find($id);
+		return View::make('home.single', compact('art'));
 	}
 }
 
