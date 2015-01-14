@@ -10,22 +10,11 @@
 	<div class="day_container">
 		<div class="row">
 			<div class="large-12 columns">
-				<h3 class="date"> {{ date('d M, Y', strtotime($art->theme->date)) }} | <span class="theme">{{ $art->theme->theme }}</span></h3>
+				<h3 class="date"> {{ date('d M, Y', strtotime($art->theme->date)) }} | <span class="theme">{{ $art->theme->theme }}</span> by {{ $art->user->name }}</h3>
 			</div>
 		</div>
-		<div class="images_container">
-			<ul class="clearing" data-clearing >
-				<li class="item">
-					<figure>
-						<div>
-							{{ HTML::image($art->image, $art->caption) }}
-						</div>
-						<figcaption>
-              <span>{{ $art->user->name }}</span>
-              <a class="single_image" href="{{ URL::asset($art->image) }}">Take a look</a>
-            </figcaption>
-					</figure>
-			</ul>
+		<div>
+				{{ HTML::image($art->image, $art->caption) }}		
 		</div>
 	</div>
 @stop
