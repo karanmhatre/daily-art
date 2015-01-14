@@ -88,12 +88,10 @@
         <a class="pure-menu-heading" href="#">Admin Panel</a>
 
         <ul>
-          <li><a href="#">Example 1</a></li>
-          <li><a href="#">Example 2</a></li>
+          <li><a href="{{ URL::route('topics.index') }}">Theme</a></li>
+          <li><a href="{{ URL::to('admin/') }}">Invitations</a></li>
           <li class="menu-item-divided"></li>
-          <li><a href="#">Example 3</a></li>
-          <li><a href="#">Example 4</a></li>
-          <li class="menu-item-divided"></li>
+          
           
         </ul>
       </div>

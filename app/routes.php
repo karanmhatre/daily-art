@@ -36,4 +36,6 @@ Route::group(array('before' => 'auth'), function() {
 Route::group(array('prefix' => 'admin', 'before' => 'admin.auth'), function(){
 	Route::get('/', array('uses' => 'AdminController@invitePage', 'as' => 'get.user.invite'));
 	Route::post('user/invite', array('uses' => 'AdminController@inviteUser', 'as' => 'store.user.invite'));
+	Route::get('topics', array('uses' => 'TopicController@index', 'as' => 'topics.index'));
+	Route::post('topics', array('uses' => 'TopicController@store', 'as' => 'topics.store'));
 });

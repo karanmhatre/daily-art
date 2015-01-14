@@ -25,7 +25,7 @@
 									</div>
 									<figcaption>
 		                <h3>{{ $theme->theme }}</h3>
-		                <a href="{{ URL::route('user.profile', [$art->user->id, Str::slug($art->user->name)]) }}"><span>{{ $art->user->name }}</span></a>
+		                <a class="user_link" href="{{ URL::route('user.profile', [$art->user->id, Str::slug($art->user)]) }}"><span>{{ $art->user->name }}</span></a>
 		                <a class="single_image" href="{{ URL::asset($art->image) }}">Take a look</a>
 			            </figcaption>
 								</figure>
