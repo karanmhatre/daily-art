@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-	
+
  @if(Session::has('notice'))
     <div class="alert-box danger">
       {{ Session::get('notice') }}
@@ -16,19 +16,14 @@
 					</div>
 				</div>
 				<div class="images_container">
-					<ul class="clearing" data-clearing >
+					<ul>
 						@foreach ($theme->art as $art)
 							<li class="item">
-								<figure>
-									<div>
-										{{ HTML::image($art->image, $art->caption) }}
-									</div>
-									<figcaption>
-		                <h3>{{ $theme->theme }}</h3>
-		                <a class="user_link" href="{{ URL::route('user.profile', [$art->user->id, Str::slug($art->user)]) }}"><span>{{ $art->user->name }}</span></a>
-		                <a class="single_image" href="{{ URL::asset($art->image) }}">Take a look</a>
-			            </figcaption>
-								</figure>
+								<a class="single_image" href="{{ URL::route('art.show', $art->id) }}">
+									{{ HTML::image($art->image, $art->caption) }}
+								</a>
+		            <a class="user_link" href="{{ URL::route('user.profile', [$art->user->id, Str::slug($art->user->name)]) }}"><span>{{ $art->user->name }}</span></a>
+		           </li>
 						@endforeach
 					</ul>
 				</div>

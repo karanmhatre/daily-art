@@ -40,7 +40,20 @@
     {{ HTML::script('js/vendor/foundation.min.js') }}
     {{ HTML::script('js/vendor/dropzone.js') }}
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <!-- Add fancyBox main JS and CSS files -->
+    {{ HTML::script('js/vendor/fancy-source/jquery.fancybox.js?v=2.1.5') }}
+    {{ HTML::style('js/vendor/fancy-source/jquery.fancybox.css?v=2.1.5" media="screen') }}
+
+    <!-- Add Button helper (this is optional) -->
+    {{ HTML::style('js/vendor/fancy-source/helpers/jquery.fancybox-buttons.css?v=1.0.5') }}
+    {{ HTML::script('js/vendor/fancy-source/helpers/jquery.fancybox-buttons.js?v=1.0.5') }}
+
+    <!-- Add Thumbnail helper (this is optional) -->
+    {{ HTML::style('js/vendor/fancy-source/helpers/jquery.fancybox-thumbs.css?v=1.0.7') }}
+    {{ HTML::script('js/vendor/fancy-source/helpers/jquery.fancybox-thumbs.js?v=1.0.7') }}
+
+    <!-- Add Media helper (this is optional) -->
+    {{ HTML::script('js/vendor/fancy-source/helpers/jquery.fancybox-media.js?v=1.0.6') }}
 
     <script>
     $(document).foundation();

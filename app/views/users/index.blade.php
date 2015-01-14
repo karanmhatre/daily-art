@@ -20,7 +20,7 @@
 			@else
 				{{ HTML::image($art_today->image) }}
 			@endif
-			<p style="text-align: center;"><a href="{{ URL::to('logout') }}">Logout? Fine, leave!</a> But you don't really need to logout. You will be kept signed in and you won't have to remember your password. Which is good. So...</p>
+			<p style="text-align: center; margin-top: 15px;"><a href="{{ URL::to('logout') }}">Logout? Fine, leave!</a></p>
 		</div>
 	</div>
 @stop

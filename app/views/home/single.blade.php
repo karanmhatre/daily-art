@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-	
+
  @if(Session::has('notice'))
     <div class="alert-box danger">
       {{ Session::get('notice') }}
@@ -15,7 +15,7 @@
 			</div>
 		</div>
 		<div class="single-image">
-				{{ HTML::image($art->image, $art->caption) }}		
+				{{ HTML::image($art->image, $art->caption) }}
 		</div>
 	</div>
 @stop
