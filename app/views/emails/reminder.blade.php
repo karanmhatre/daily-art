@@ -846,7 +846,7 @@ body.outlook p {
                             <table>
                               <tr>
                                 <td>
-                                  <a href="{{ URL::route('art.show', $art->id) }}"><img src="{{URL::asset($art->image)}}" alt=""></a>
+                                  <a href="{{ URL::route('art.show', $art->id) }}"><img src="{{URL::asset($art->image)}}" style="width:200px" alt=""></a>
                                 </td>
                               </tr>
                             </table>                            
