@@ -45,4 +45,25 @@ class HomeController extends BaseController {
 		return Redirect::to('/');
 	}
 
+	public function getRegisterUser($token)
+	{
+		$theme = Theme::today()->theme;
+		$user = User::getRegisterUser($token);
+		if($user)
+		{
+			return View::make('home.register',compact('user','theme'));
+		}
+		else
+			return Redirect::to('/');
+	}
+
+	public function storeUser()
+	{
+		$input = Input::all();
+		$user = User::storeUser($input);
+		if($user)
+			return Redirect::to('/');
+		else
+			return Redirect::back()->with('message','There was some error in registration');
+	}
 }

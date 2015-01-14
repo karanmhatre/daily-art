@@ -1,7 +1,12 @@
 @extends('layouts.master')
 
 @section('content')
-
+	
+ @if(Session::has('notice'))
+    <div class="alert-box danger">
+      {{ Session::get('notice') }}
+    </div>
+  @endif
 	@foreach ($themes as $theme)
 		@if(count($theme->art))
 			<div class="day_container">

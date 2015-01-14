@@ -33,6 +33,15 @@ App::after(function($request, $response)
 |
 */
 
+Route::filter('admin.auth', function()
+{
+		if(isset(Auth::user()->admin) && Auth::user()->admin)
+		return;
+	else
+		return Redirect::to('/');
+
+});
+
 Route::filter('auth', function()
 {
 	if (Auth::guest()) return Redirect::guest('login');
