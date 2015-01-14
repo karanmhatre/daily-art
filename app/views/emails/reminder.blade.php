@@ -797,7 +797,7 @@ body.outlook p {
                           <tr>
                             <td class="six sub-columns center" align="center">
                               <center>
-                                <img src="http://i.imgur.com/JjfwsdP.jpg" style="float:left; min-width:100px; max-width:200px">
+                                <img src="http://i.imgur.com/JjfwsdP.jpg" style="float:left; max-width:400px">
                               <center>
                             </td>
                             <td class="expander"></td>
@@ -847,8 +847,10 @@ body.outlook p {
                           <td>
                             <table>
                               <tr>
-                                <td>
-                                  <a href="{{ URL::route('art.show', $art->id) }}"><img src="{{URL::asset($art->image)}}" style="width:200px" alt=""></a>
+                                <td class="center" align="center">
+                                  <center>
+                                    <a href="{{ URL::route('art.show', $art->id) }}"><img src="{{URL::asset($art->image)}}" style="width:400px" alt=""></a>
+                                  </center>
                                 </td>
                               </tr>
                             </table>                            
