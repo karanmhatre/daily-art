@@ -20,6 +20,7 @@
 						<a class="single_image" href="{{ URL::route('art.show', $art->id) }}">
 							{{ HTML::image($art->image, $art->caption) }}
 						</a>
+						<a class="user_link" href="#"><span>{{ $art->theme->theme }}</span></a>
           </li>
 				@endforeach
 			</ul>
