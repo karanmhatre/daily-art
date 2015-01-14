@@ -39,7 +39,7 @@ class dailyMailerCommand extends Command {
 	{
 		$theme = Theme::today()->theme;
 		$arts = Art::where('theme_id', Theme::today()->id - 1)->get();
-		$users = User::where('email','sidharath@genii.in')->get();
+		$users = User::all();
 		foreach ($users as $key => $user) {
 			$data['arts'] = $arts;
 			$data['name'] = $user->name;
