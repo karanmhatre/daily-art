@@ -23,6 +23,7 @@ Route::get('/request/invite', array('uses' => 'InviteController@requestInvite', 
 Route::post('/request/invite', array('uses' => 'InviteController@storeInvite', 'as' => 'user.storeInvite'));
 
 Route::get('art/{id}', array('uses' => 'ArtController@show', 'as' => 'art.show'));
+Route::get('users/{id}/{slug?}', array('uses' => 'UserController@show', 'as' => 'user.profile'));
 
 // LOGGED IN USER ACTIONS
 Route::group(array('before' => 'auth'), function() {

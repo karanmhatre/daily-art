@@ -33,4 +33,12 @@ class UserController extends \BaseController {
 
 		return Redirect::back();
 	}
+
+	public function show($id)
+	{
+		$user = User::find($id);
+		$arts = $user->artworks->lists('id');
+		$arts = Art::whereIn('id', $arts)->get();
+		return View::make('users.profile')->with(compact('arts','user'));
+	}
 }

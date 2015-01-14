@@ -7,6 +7,7 @@ class Theme extends Eloquent {
 	{
 		return $this->hasMany('Art');
 	}
+	
 
 	public static function today()
 	{

@@ -232,7 +232,15 @@ li.item {
     display: block;
     margin-top: 20px;
 }
-
+.single-image
+{
+	text-align: center;
+}
+.single-image > img
+{
+	margin: 0 auto;
+	width: 800px;
+}
 @media screen and (max-width: 768px) {
   .item { width: 100%; }
 }

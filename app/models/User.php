@@ -65,6 +65,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	    return 'remember_token';
 	}
 
+	public function artworks(){
+		return $this->hasMany('Art');
+	}
+
+
 
 	public static function invite($input)
 	{
