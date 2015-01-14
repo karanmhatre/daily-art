@@ -796,7 +796,7 @@ body.outlook p {
                         <table class="twelve columns">
                           <tr>
                             <td class="six sub-columns">
-                                <img src="http://i.imgur.com/JjfwsdP.jpg">
+                                <img src="http://i.imgur.com/JjfwsdP.jpg" style="min-width:100px; max-width:200px">
                             </td>
                             <td class="expander"></td>
                           </tr>
@@ -825,7 +825,7 @@ body.outlook p {
                             <h1>Hi, {{$name}}</h1>
                             <p class="lead">The topic for today's daily art is <b>{{ $theme }}</b></p>
                             <br />
-                            <h5>Recent Artworks</h5>
+                            <h4>Recent Artworks</h4>
                           </td>
                           <td class="expander"></td>
                         </tr>
@@ -840,7 +840,7 @@ body.outlook p {
                   <tr>
                     @foreach($arts as $art)
                       <td>
-                      <table class="six columns">
+                      <table class="twelve columns">
                         <tr>
                           <td>
                             <table>
