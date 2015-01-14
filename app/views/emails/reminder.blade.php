@@ -795,8 +795,10 @@ body.outlook p {
 
                         <table class="twelve columns">
                           <tr>
-                            <td class="six sub-columns">
-                                <img src="http://i.imgur.com/JjfwsdP.jpg" style="min-width:100px; max-width:200px">
+                            <td class="six sub-columns center" align="center">
+                              <center>
+                                <img src="http://i.imgur.com/JjfwsdP.jpg" style="float:left; min-width:100px; max-width:200px">
+                              <center>
                             </td>
                             <td class="expander"></td>
                           </tr>
@@ -837,9 +839,9 @@ body.outlook p {
 
                
                 <table class="row footer">
+                  @foreach($arts as $art)
                   <tr>
-                    @foreach($arts as $art)
-                      <td>
+                    <td>
                       <table class="twelve columns">
                         <tr>
                           <td>
@@ -856,8 +858,8 @@ body.outlook p {
                         </tr>
                       </table>
                     </td>
-                    @endforeach
                   </tr>
+                  @endforeach
                 </table>
 
 
