@@ -1,5 +1,26 @@
 @extends('layouts.master')
 
+@section('meta-tags')
+<meta name="description" content="Daily Art for {{ date('d M, Y', strtotime($art->theme->date)) }} on {{ $art->theme->name }}'s by {{ $art->theme->theme }}" />
+<meta name="keywords" content="{{ $art->theme }}, daily art" />
+
+<meta name="author" content="{{ $art->user->name }}" />
+
+
+<!-- for Facebook -->          
+<meta property="og:title" content="{{ $art->theme }}'s by {{ $art->user->name }}" />
+<meta property="og:type" content="article" />
+<meta property="og:image" content="{{ URL::asset($art->image) }}" />
+<meta property="og:url" content="{{URL::route('art.show', [$art->id])}}" />
+<meta property="og:description" content="Daily Art for {{ date('d M, Y', strtotime($art->theme->date)) }} on {{ $art->theme->name }}'s by {{ $art->theme->theme }}." />
+
+<!-- for Twitter -->          
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="{{ $art->theme }}'s by {{ $art->user->name }}" />
+<meta name="twitter:description" content="Daily Art for {{ date('d M, Y', strtotime($art->theme->date)) }} on {{ $art->theme->name }}'s by {{ $art->theme->theme }}." />
+<meta name="twitter:image" content="{{ URL::asset($art->image) }}" />
+@stop
+
 @section('content')
 
  @if(Session::has('notice'))

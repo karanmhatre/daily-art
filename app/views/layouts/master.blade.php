@@ -18,6 +18,7 @@
     {{ HTML::style('css/dropzone.css') }}
 
     {{ HTML::style('css/main.css') }}
+    @yield('meta-tags')
   </head>
   <body>
     <!--[if lt IE 7]>
