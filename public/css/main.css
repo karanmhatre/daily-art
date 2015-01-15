@@ -226,6 +226,39 @@ border: 0;
 box-shadow: 0;
 display: inline;
 }
+.pagination-block
+{
+	text-align: center;
+	margin: 10px 0px;
+}
+.pagination ul
+{
+	list-style-type: none;
+}
+.pagination ul a
+{
+	border-radius: 5px;
+	display: inline-block;
+	vertical-align: middle;
+	padding: 5px 15px;
+	width: auto;
+	background: #FFC200;
+	margin: 0px 5px;
+	color: #fff;
+}
+.pagination ul a.active
+{
+	color: black;
+}
+.pagination ul a
+{
+	color: #fff;
+}
+.pagination ul a:hover
+{
+	color: #000;
+}
+
 @media screen and (max-width: 768px) {
   .item { width: 100%; }
 }

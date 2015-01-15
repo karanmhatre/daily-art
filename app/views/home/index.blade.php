@@ -35,6 +35,14 @@
 			</div>
 		@endif
 	@endforeach
+	<div class="pagination-block">
+		<div class="row">
+			<div class="large-12 columns">
+				{{ $themes->links() }}		
+			</div>
+		</div>
+	</div>
+	
 @stop
 
 @section('scripts')
