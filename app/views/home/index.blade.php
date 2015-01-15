@@ -7,9 +7,11 @@
       {{ Session::get('notice') }}
     </div>
   @endif
+  @if(count($themes) == 0)
   <div class="day_container">
   	<h3 class="date">Todays topic “<b>{{ $theme }}</b>”.</h3> </h3>
   </div>
+  @endif
 	@foreach ($themes as $theme)
 		@if(count($theme->art))
 			<div class="day_container">
