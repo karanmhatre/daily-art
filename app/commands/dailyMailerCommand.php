@@ -38,7 +38,7 @@ class dailyMailerCommand extends Command {
 	public function fire()
 	{
 		$theme = Theme::today()->theme;
-		$arts = Art::where('theme_id', Theme::today()->id - 1)->get();
+		$arts = Art::where('theme_id', Theme::today()->id - 1)->take(5)->get();
 		$users = User::all();
 		foreach ($users as $key => $user) {
 			$data['arts'] = $arts;

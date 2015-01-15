@@ -14,4 +14,10 @@ class Theme extends Eloquent {
 		$theme = Theme::where('date', '>=', date('Y-m-d'))->where('date', '<=', date('Y-m-d', strtotime("+1 day", strtotime(date('Y-m-d')))))->first();
 		return $theme;
 	}
+
+	public static function oldCount()
+	{
+		$theme = Theme::where('date', '<=', \Carbon\Carbon::today())->get();
+		return count($theme);
+	}
 }

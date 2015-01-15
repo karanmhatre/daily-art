@@ -10,6 +10,11 @@
 	<div class="day_container">
 		<div class="row">
 			<div class="large-12 columns">
+				<div class="profile-div">
+					<span class="number">{{ $user->getDaysBunked($user) }}</span> <span class="profile-text">days bunked</span>
+					<img src="{{ URL::asset($user->avatar) }}" alt="" class="profile-picture">
+					<span class="number">3</span> <span class="profile-text">submissions</span>
+				</div>
 				<h3 class="date"> Artwork by {{$user->name}} </h3>
 			</div>
 		</div>

@@ -18,7 +18,8 @@ class HomeController extends BaseController {
 	public function index()
 	{
 		$themes = Theme::with('art')->with('art.user')->orderBy('date', 'DESC')->get();
-		return View::make('home.index')->with(compact('themes'));
+		$theme = Theme::today()->theme;
+		return View::make('home.index')->with(compact('themes','theme'));
 	}
 
 	public function login()

@@ -25,7 +25,7 @@
 
     <div class="row">
       <div class="small-6 large-centered columns" id="login-container">
-        <h2>Daily<i class="fa fa-pencil"></i>Art Login</h2>
+        <h2>Daily<i class="fa fa-pencil"></i>Art Reset Password</h2>
 
         @if(Session::has('message'))
           <div class="alert-box danger">
@@ -34,34 +34,34 @@
         @endif
 
 
-        {{ Form::open(array('route' => 'login')) }}
+        {{ Form::open(array('route' => 'save_reset_password')) }}
           <div class="small-10 large-centered columns">
             <div class="row">
               <div class="small-3 columns">
-                <label for="right-label" class="right inline">Email</label>
+                <label for="right-label" class="right inline">Password</label>
               </div>
               <div class="small-9 columns">
-                <input type="text" id="right-label" placeholder="Email" name="email">
+                <input type="password" id="right-label" placeholder="Password" name="password" min="6" required>
+              </div>
+            </div>
+          </div>
+          <input type="hidden" name="token" value="{{$reset_code}}">
+          <div class="small-10 large-centered columns">
+            <div class="row">
+              <div class="small-3 columns">
+                <label for="password" class="right inline">Confirm Password</label>
+              </div>
+              <div class="small-9 columns">
+                <input type="password" id="password" name="confirm_password" placeholder="Password Confirm" min="6" required>
               </div>
             </div>
           </div>
           <div class="small-10 large-centered columns">
             <div class="row">
               <div class="small-3 columns">
-                <label for="password" class="right inline">Password</label>
               </div>
               <div class="small-9 columns">
-                <input type="password" id="password" name="password">
-              </div>
-            </div>
-          </div>
-          <div class="small-10 large-centered columns">
-            <div class="row">
-              <div class="small-3 columns">
-              </div>
-              <div class="small-9 columns">
-                <input type="submit" class="button" value="Login"><br>
-                <p><a href="{{ URL::route('forgot_password') }}">Forgot Password?</a></p>
+                <input type="submit" class="button" value="Submit"><br>
                 <p>Don't have an account. Email me at <a href="mailto:karan@genii.in">karan@genii.in</a> to get invited.</p>
               </div>
             </div>

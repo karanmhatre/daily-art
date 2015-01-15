@@ -60,8 +60,27 @@ h3.date {
 .day_container {
 	padding-bottom: 50px;
 	border-bottom: 1px dashed #999;
+	text-align: center;
+}
+.number
+{
+	font-size: 20px;
+	font-weight: 600;
 }
 
+.profile-text
+{
+	font-size: 12px;
+	font-weight: 100;
+	color: grey;
+	position: absolute;
+	top: 55px;
+	margin-left: -35px;
+}
+.profile-text:nth-child(2)
+{
+	margin-left: -50px;
+}
 .single_image {
 	display: block;
 	overflow: hidden;
@@ -240,6 +259,12 @@ li.item {
 {
 	margin: 0 auto;
 	width: 800px;
+}
+.profile-picture
+{
+	border-radius: 300px;
+	width: 90px;
+	margin: 0px 80px;
 }
 @media screen and (max-width: 768px) {
   .item { width: 100%; }

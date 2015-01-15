@@ -824,7 +824,7 @@ body.outlook p {
                       <table class="twelve columns">
                         <tr>
                           <td>
-                            <h1>Hi, {{$name}}</h1>
+                            <h1>Hi {{$name}},</h1>
                             <p class="lead">The topic for today's daily art is <b>{{ $theme }}</b></p>
                             <p>Add your submission <a href="{{ URL::route('user.upload') }}">here</a></p>
                             <br />

@@ -41,4 +41,39 @@ class UserController extends \BaseController {
 		$arts = Art::whereIn('id', $arts)->get();
 		return View::make('users.profile')->with(compact('arts','user'));
 	}
+
+	public function forgotPassword()
+	{
+		return View::make('users.forgot_password');
+	}
+
+	public function resetPassword()
+	{
+		$input = Input::all();
+		$notice = User::resetPassword($input);
+		if($notice)
+			return Redirect::to('/')->with('notice','A password reset link has been sent to your mail');
+		else
+			return Redirect::back()->with('warning','The email was incorrect');
+	}
+
+	public function doResetPassword($token)
+	{
+		$user = User::checkResetPasswordToken($token);
+		$reset_code = $token;
+		if($user)
+			return View::make('users.passwordReset', compact('reset_code'));
+		else
+			return Redirect::to('/')->with('notice','Invalid password reset url');
+	}
+
+	public function saveResetPassword()
+	{
+		$input = Input::all();
+		$user = User::saveResetPassword($input);
+		if($user)
+			return Redirect::to('login')->with('notice','Password was reset successfully');
+		else
+			return Redirect::back()->with('notice','Password didn\'t match');
+	}
 }

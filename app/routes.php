@@ -15,6 +15,10 @@ Route::get('/', 'HomeController@index');
 
 Route::get('login', 'HomeController@login');
 Route::post('login', array('as' => 'login' ,'uses' => 'HomeController@do_login'));
+Route::get('forgot_password', array('uses' => 'UserController@forgotPassword', 'as' => 'forgot_password'));
+Route::post('reset_password', array('uses' => 'UserController@resetPassword', 'as' => 'reset_password'));
+Route::get('reset_password/{token}', array('uses' => 'UserController@doResetPassword', 'as' => 'do_reset_password'));
+Route::post('reset_password/new/password', array('uses' => 'UserController@saveResetPassword', 'as' => 'save_reset_password'));
 // REGISTER
 Route::get('/users/register/{token}', array('uses' => 'HomeController@getRegisterUser', 'as' => 'user.register'));
 Route::post('/users/store', array('uses' => 'HomeController@storeUser', 'as' => 'user.store'));

@@ -128,4 +128,52 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		Auth::login($user);
 		return true;
 	}
+	public function getDaysBunked($user)
+	{
+		$submitted = $user->getDaysSubmitted($user);
+		$theme = Theme::oldCount();
+		return ($theme - $submitted);
+	}
+
+	public function getDaysSubmitted($user)
+	{
+		return count($user->artworks);
+	}
+
+	public static function resetPassword($input)
+	{
+		$user = User::where('email', $input['email'])->first();
+		if(!is_null($user)){
+			$reset_code = bin2hex(mcrypt_create_iv(22, MCRYPT_DEV_URANDOM));
+			$data['reset_code'] = $reset_code;
+			$user->update(['forgot_token' => $reset_code]);
+			$data['name'] = $user->name;
+			$data['email'] = $user->email;
+			Mail::send('emails.reset', $data, function($message) use ($user){
+	      $message->to($user['email'], $user['name'])->subject('Password Reset Request');
+	    });
+	    return true;
+	  }
+	  else
+	  	return false;
+	}
+	public static function checkResetPasswordToken($token)
+	{
+		$user = User::where('forgot_token', $token)->first();
+		if(!is_null($user))
+			return true;
+		else
+			return false;
+	}
+	public static function saveResetPassword($input)
+	{
+		$user = User::where('forgot_token', $input['token'])->first();
+		if(!is_null($user) && $input['password'] == $input['confirm_password'])
+		{
+			$user->update(['forgot_token' => "", 'password' => Hash::make($input['password'])]);
+			return true;
+		}
+		else
+			return false;
+	}
 }
