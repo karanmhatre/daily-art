@@ -50,6 +50,7 @@
                 <a href="javascript:void(0);" class="icon-twitter"></a>
                 <a href="javascript:void(0);" class="icon-facebook"></a>
                 <a href="javascript:void(0);" class="icon-instagram"></a>
+                <a href="{{ URL::to('request/invite') }}">Request Invite</a>
             </div>
           </div>
           <div class="small-6 columns genii">
