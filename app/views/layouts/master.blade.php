@@ -50,11 +50,13 @@
                 <a href="javascript:void(0);" class="icon-twitter"></a>
                 <a href="javascript:void(0);" class="icon-facebook"></a>
                 <a href="javascript:void(0);" class="icon-instagram"></a>
-                <a href="{{ URL::to('request/invite') }}" class="invite-link">Request Invite</a>
             </div>
           </div>
           <div class="small-6 columns genii">
             <a href="http://genii.in" target="_blank"><img src="http://genii.in/assets/genii-logo.png" alt=""></a>
+          </div>
+          <div class="small-12 columns">
+              <a href="{{ URL::to('request/invite') }}" class="invite-link">Request Invite</a>
           </div>
         </div>
       </div>

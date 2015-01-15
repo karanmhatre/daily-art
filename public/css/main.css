@@ -296,6 +296,7 @@ div.social a {
 }
 .invite-link{
 	color: #000;
+	text-align: center;
 }
 div.social a:before {
   width: inherit;

@@ -35,7 +35,7 @@
 			</div>
 		@endif
 	@endforeach
-	<div class="pagination-block">
+	<div class="pagination-block day_container">
 		<div class="row">
 			<div class="large-12 columns">
 				{{ $themes->links() }}		
