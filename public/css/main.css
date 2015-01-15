@@ -242,6 +242,7 @@ display: inline;
 	vertical-align: middle;
 	padding: 5px 15px;
 	width: auto;
+	font-weight: 100;
 	background: #FFC200;
 	margin: 0px 5px;
 	color: #fff;
@@ -249,6 +250,7 @@ display: inline;
 .pagination ul a.active
 {
 	color: black;
+	font-weight: 400;
 }
 .pagination ul a
 {
