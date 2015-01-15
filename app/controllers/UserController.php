@@ -76,4 +76,26 @@ class UserController extends \BaseController {
 		else
 			return Redirect::back()->with('notice','Password didn\'t match');
 	}
+
+	public function profileEdit($id)
+	{
+		if($id == Auth::user()->id)
+		{
+			$user = User::find($id);
+			$theme = Theme::today()->theme;
+			return View::make('users.settings', compact('user','theme'));
+		}
+		return Redirect::to("/");
+	}
+
+	public function update($id)
+	{
+		$user = User::find($id);
+		$input = Input::all();
+		$result = $user->updateUser($input);
+		if($result)
+			return Redirect::back()->with('notice','Updated the profile');
+		else
+			return Redirect::back()->with('notice','There was some problem in update');
+	}
 }

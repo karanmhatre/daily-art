@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-	
+
  @if(Session::has('notice'))
     <div class="alert-box danger">
       {{ Session::get('notice') }}
@@ -15,12 +15,31 @@
 			</div>
 		</div>
 		<div class="single-image">
-				{{ HTML::image($art->image, $art->caption) }}		
+				{{ HTML::image($art->image, $art->caption) }}
 		</div>
+    <div class="share">
+    	<div class="row">
+    		<div class="large-12 columns">
+    			<a href="http://www.facebook.com/sharer.php?u={{URL::route('art.show', [$art->id])}}" target="_blank"><img src="http://www.simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" /></a>
+    			<a href="http://twitter.com/share?url={{URL::route('art.show', [$art->id])}}&text=Daily Art by {{ $art->user->name }}&hashtags=dailyart, genii" target="_blank"><img src="http://www.simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" /></a>
+
+    		</div>
+    		<div class="large-12 columns">
+    			<div class="fb-comments" data-href="{{URL::route('art.show', [$art->id])}}" data-numposts="5" data-colorscheme="light"></div>
+    		</div>
+    	</div>
+    </div>
 	</div>
 @stop
 
 @section('scripts')
-
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1523370727924834&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 @stop

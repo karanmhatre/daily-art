@@ -28,6 +28,9 @@
     <header>
         <a href="{{ URL::to('/') }}"><h1 class="main_heading">Daily<i class="fa fa-pencil"></i>Art</h1></a>
         <a href="{{ URL::to('login') }}" class="login-btn">Submission</a>
+        @if( Request::segment('2') == Auth::user()->id && Request::segment(3) == Str::slug(Auth::user()->name))
+            <a href="{{ URL::route('users.edit.profile', Auth::user()->id) }}" class="login-btn profile-btn">Edit Profile</a>
+        @endif
     </header>
 
     @yield('content')
@@ -40,7 +43,20 @@
     {{ HTML::script('js/vendor/foundation.min.js') }}
     {{ HTML::script('js/vendor/dropzone.js') }}
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <!-- Add fancyBox main JS and CSS files -->
+    {{ HTML::script('js/vendor/fancy-source/jquery.fancybox.js?v=2.1.5') }}
+    {{ HTML::style('js/vendor/fancy-source/jquery.fancybox.css?v=2.1.5" media="screen') }}
+
+    <!-- Add Button helper (this is optional) -->
+    {{ HTML::style('js/vendor/fancy-source/helpers/jquery.fancybox-buttons.css?v=1.0.5') }}
+    {{ HTML::script('js/vendor/fancy-source/helpers/jquery.fancybox-buttons.js?v=1.0.5') }}
+
+    <!-- Add Thumbnail helper (this is optional) -->
+    {{ HTML::style('js/vendor/fancy-source/helpers/jquery.fancybox-thumbs.css?v=1.0.7') }}
+    {{ HTML::script('js/vendor/fancy-source/helpers/jquery.fancybox-thumbs.js?v=1.0.7') }}
+
+    <!-- Add Media helper (this is optional) -->
+    {{ HTML::script('js/vendor/fancy-source/helpers/jquery.fancybox-media.js?v=1.0.6') }}
 
     <script>
     $(document).foundation();
@@ -61,5 +77,22 @@
     </script>
 
     @yield('scripts')
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1523370727924834',
+          xfbml      : true,
+          version    : 'v2.2'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
   </body>
 </html>

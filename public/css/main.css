@@ -7,7 +7,11 @@
   background-color: #000;
   color: #fff;
 }
-
+.profile-btn{
+	position: absolute;
+  right: 0;
+  top: 40px;
+}
 a.login-btn:hover {
   color: #fff;
   background-color: #333;
@@ -177,80 +181,10 @@ button:hover, .button:hover {
 	top: 0;
 }
 
-.item figure img {
-    max-width: 100%;
-    display: block;
-    transition: -webkit-transform 0.4s;
-    position: relative;
+.images_container ul li {
+  list-style: none;
 }
 
-.item figcaption {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 20px;
-    background: #2c3f52;
-    color: #FFC200;
-}
-
-.item figcaption h3 {
-    margin: 0;
-    padding: 0;
-    color: #fff;
-}
-
-.item figcaption span:before {
-    content: 'by ';
-}
-
-.item figcaption a {
-    text-align: center;
-    padding: 5px 10px;
-    border-radius: 2px;
-    display: inline-block;
-    background: #FFC200;
-    color: #fff;
-}
-
-li.item {
-    -webkit-perspective: 1700px;
-    -webkit-perspective-origin: 0 50%;
-}
-
-.item figure {
-    -webkit-transform-style: preserve-3d;
-}
-
-.item figure > div {
-    overflow: hidden;
-}
-
-.item figure:hover img {
-	-webkit-transform: translateX(25%);
-  transition: -webkit-transform 0.4s;
-}
-
-.item figcaption {
-    height: 100%;
-    width: 50%;
-    opacity: 0;
-    -webkit-backface-visibility: hidden;
-    -webkit-transform-origin: 0 0;
-    -webkit-transform: rotateY(-90deg);
-    transition: -webkit-transform 0.4s, opacity 0.1s 0.3s;
-}
-
-.item figure:hover figcaption {
-    opacity: 1;
-    -webkit-transform: rotateY(0deg);
-    transition: -webkit-transform 0.4s, opacity 0.1s;
-}
-
-.item figcaption a {
-    position: relative;
-    display: block;
-    margin-top: 20px;
-}
 .single-image
 {
 	text-align: center;
@@ -264,7 +198,30 @@ li.item {
 {
 	border-radius: 300px;
 	width: 90px;
+	height: 90px;
 	margin: 0px 80px;
+}
+
+a.user_link {
+	color: #000;
+	font-weight: bold;
+ 	background-color: rgba(255,255,255,0.8);
+	padding: 5px;
+	position: absolute;
+	bottom: 0px;
+	box-sizing: border-box;
+	width: 100%;
+}
+.share
+{
+	padding: 20px;
+}
+.share img {
+width: 35px;
+padding: 5px;
+border: 0;
+box-shadow: 0;
+display: inline;
 }
 @media screen and (max-width: 768px) {
   .item { width: 100%; }

@@ -176,4 +176,15 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		else
 			return false;
 	}
+
+	public function updateUser($input)
+	{
+		if($input['name'] != "")
+			$this->update(['name' => $input['name']]);
+		if($input['password'] != "")
+			$this->update(['password' => Hash::make($input['password'])]);
+		if(!is_null($input['avatar']))
+			$this->update(['avatar' => uploadFile(Input::file('avatar'))]);
+		return true;
+	}
 }

@@ -35,6 +35,8 @@ Route::group(array('before' => 'auth'), function() {
 	Route::get('logout', 'HomeController@logout');
 	Route::post('user/upload' , array('as' => 'user.upload', 'uses' => 'UserController@upload'));
 	Route::get('user/change/{id}' , array('as' => 'user.change', 'uses' => 'UserController@change'));
+	Route::get('user/edit/profile/{id}', array('uses' => 'UserController@profileEdit', 'as' => 'users.edit.profile'));
+	Route::post('users/update/{id}', array('uses' => 'UserController@update', 'as' => 'user.update'));
 });
 
 Route::group(array('prefix' => 'admin', 'before' => 'admin.auth'), function(){
