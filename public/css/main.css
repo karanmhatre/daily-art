@@ -260,6 +260,77 @@ display: inline;
 {
 	color: #000;
 }
+.footer
+{
+	height: 60px;
+	width: 100%;
+	background: black;
+}
+.genii
+{
+	color: white;
+	text-align: right;
+}
+.genii a img
+{
+	padding: 5px 20px
+}
+
+div.social {
+  width: 100%;
+  padding: 10px;
+}
+
+div.social a {
+  width: 35px;
+  height: 35px;
+  margin: 0px 5px;
+  display: inline-block;
+  border-radius: 5px;
+  font-family: "scicons";
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  color: #fff;
+  transition: background-color .2s linear, color .2s linear;
+}
+div.social a:before {
+  width: inherit;
+  height: inherit;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+div.social a.icon-twitter {
+  background-color: #00acee;
+}
+div.social a.icon-twitter:before {
+  content: "";
+}
+div.social a.icon-twitter:hover {
+  background-color: #fff;
+  color: #00acee;
+}
+div.social a.icon-facebook {
+  background-color: #3b5998;
+}
+div.social a.icon-facebook:before {
+  content: "";
+}
+div.social a.icon-facebook:hover {
+  background-color: #fff;
+  color: #3b5998;
+}
+div.social a.icon-instagram {
+  background-color: #3f729b;
+}
+div.social a.icon-instagram:before {
+  content: "";
+}
+div.social a.icon-instagram:hover {
+  background-color: #fff;
+  color: #3f729b;
+}
 
 @media screen and (max-width: 768px) {
   .item { width: 100%; }

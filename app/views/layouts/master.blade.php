@@ -12,6 +12,7 @@
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://files.azizarslan.com/scicons.css">
     {{ HTML::style('css/normalize.css') }}
     {{ HTML::style('css/foundation.min.css') }}
     {{ HTML::style('css/font-awesome.min.css') }}
@@ -41,7 +42,22 @@
     @yield('content')
 
     <!-- Scripts -->
-
+    <div class="footer">
+      <div class="row">
+        <div class="large-12 columns">
+          <div class="small-6 columns">
+            <div class="social">
+                <a href="javascript:void(0);" class="icon-twitter"></a>
+                <a href="javascript:void(0);" class="icon-facebook"></a>
+                <a href="javascript:void(0);" class="icon-instagram"></a>
+            </div>
+          </div>
+          <div class="small-6 columns genii">
+            <a href="http://genii.in" target="_blank"><img src="http://genii.in/assets/genii-logo.png" alt=""></a>
+          </div>
+        </div>
+      </div>
+    </div>
     {{ HTML::script('js/vendor/modernizr.js') }}
     {{ HTML::script('js/vendor/jquery.js') }}
     {{ HTML::script('js/vendor/masonry.pkgd.min.js') }}
