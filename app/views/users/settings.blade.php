@@ -13,7 +13,7 @@
 				<div class="profile-div">
 					<span class="number">{{ $user->getDaysBunked($user) }}</span> <span class="profile-text">days bunked</span>
 					<img src="{{ URL::asset($user->avatar) }}" alt="" class="profile-picture">
-					<span class="number">3</span> <span class="profile-text">submissions</span>
+					<span class="number">{{ $user->getDaysSubmitted($user) }}</span> <span class="profile-text">submissions</span>
 				</div>
 				<h3 class="date"> {{$user->name}}'s Profile </h3>
 			</div>
