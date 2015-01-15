@@ -294,6 +294,9 @@ div.social a {
   color: #fff;
   transition: background-color .2s linear, color .2s linear;
 }
+div.social a:last-child{
+	color: #000;
+}
 div.social a:before {
   width: inherit;
   height: inherit;
