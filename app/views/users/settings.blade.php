@@ -51,7 +51,7 @@
               </div>
             </div>
           </div>
-          <div class="small-10 large-centered columns">
+          <div class="small-10 large-centered columns" style="text-align:center">
             <div class="row">
               <div class="small-3 columns">
               </div>

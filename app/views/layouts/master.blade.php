@@ -32,6 +32,8 @@
         @if(Auth::user())
             @if( Request::segment('2') == Auth::user()->id && Request::segment(3) == Str::slug(Auth::user()->name))
                 <a href="{{ URL::route('users.edit.profile', Auth::user()->id) }}" class="login-btn profile-btn">Edit Profile</a>
+            @else
+                <a href="{{ URL::route('user.profile', Auth::user()->id) }}" class="login-btn profile-btn">View Profile</a>
             @endif
         @endif
     </header>
