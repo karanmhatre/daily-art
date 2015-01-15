@@ -30,7 +30,7 @@
         <a href="{{ URL::to('/') }}"><h1 class="main_heading">Daily<i class="fa fa-pencil"></i>Art</h1></a>
         <a href="{{ URL::to('login') }}" class="login-btn">Submission</a>
         @if(Auth::user())
-            @if( Request::segment('2') == Auth::user()->id && Request::segment(3) == Str::slug(Auth::user()->name))
+            @if( Request::segment('2') == Auth::user()->id && Request::segment('1') == "users")
                 <a href="{{ URL::route('users.edit.profile', Auth::user()->id) }}" class="login-btn profile-btn">Edit Profile</a>
             @else
                 <a href="{{ URL::route('user.profile', Auth::user()->id) }}" class="login-btn profile-btn">View Profile</a>
