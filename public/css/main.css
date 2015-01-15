@@ -64,14 +64,16 @@ h3.date {
 .day_container {
 	padding-bottom: 50px;
 	border-bottom: 1px dashed #999;
-	text-align: center;
+
 }
 .number
 {
 	font-size: 20px;
 	font-weight: 600;
 }
-
+.profile-div{
+	text-align: center;
+}
 .profile-text
 {
 	font-size: 12px;
