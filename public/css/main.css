@@ -264,11 +264,11 @@ display: inline;
 {
 	height: 60px;
 	width: 100%;
-	background: black;
+	background: white;
 }
 .genii
 {
-	color: white;
+	color: black;
 	text-align: right;
 }
 .genii a img
