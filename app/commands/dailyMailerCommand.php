@@ -59,8 +59,10 @@ class dailyMailerCommand extends Command {
 	protected function getArguments()
 	{
 		return array(
+			array('example', InputArgument::OPTIONAL, 'An example argument.'),
 		);
 	}
+
 
 	/**
 	 * Get the console command options.

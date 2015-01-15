@@ -826,7 +826,7 @@ body.outlook p {
                           <td>
                             <h1>Hi {{$name}},</h1>
                             <p class="lead">The topic for today's daily art is <b>{{ $theme }}</b></p>
-                            <p>Add your submission <a href="{{ URL::route('user.upload') }}">here</a></p>
+                            <p>Add your submission <a href="{{ URL::to('user') }}">here</a></p>
                             <br />
                             <h4>Recent Artworks</h4>
                           </td>
