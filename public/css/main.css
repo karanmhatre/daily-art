@@ -196,14 +196,19 @@ button:hover, .button:hover {
 	margin: 0 auto;
 	width: 800px;
 }
-.profile-picture
+.profile-picture, .light-box-picture
 {
 	border-radius: 300px;
 	width: 90px;
 	height: 90px;
 	margin: 0px 80px;
 }
-
+.light-box-picture
+{
+	width: 50px;
+	height: 50px;
+	margin: 0px;
+}
 a.user_link {
 	color: #000;
 	font-weight: bold;
