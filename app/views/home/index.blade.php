@@ -25,7 +25,7 @@
 						@foreach ($theme->art as $art)
 							<li class="item">
 								<a rel="gallery-{{$index}}" class="single_image swipebox" href="{{ URL::asset($art->image) }}" title="<a href={{ URL::route('art.show', $art->id) }}>{{ $theme->theme }}</a> by <a href={{ URL::route('user.profile', [$art->user->id, Str::slug($art->user->name)]) }}><img src={{ URL::asset($art->user->avatar) }} class='profile-picture light-box-picture'></a>">
-									{{ HTML::image($art->image, $art->caption) }}
+									{{ HTML::image($art->image, $art->caption, ['title' => ''] ) }}
 								</a>
 		           </li>
 						@endforeach
