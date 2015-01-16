@@ -131,7 +131,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	public function getDaysBunked($user)
 	{
 		$submitted = $user->getDaysSubmitted($user);
-		$theme = Theme::oldCount();
+		$theme = Theme::oldCount($user->created_at);
 		return ($theme - $submitted);
 	}
 

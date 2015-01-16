@@ -15,9 +15,14 @@ class Theme extends Eloquent {
 		return $theme;
 	}
 
-	public static function oldCount()
+	public static function oldCount($date)
 	{
-		$theme = Theme::where('date', '<=', \Carbon\Carbon::today())->get();
+		if(empty($date))
+		{
+			$date = \Carbon\Carbon::today();
+			$theme = Theme::where('date', '<=', \Carbon\Carbon::today())->get();
+		}else
+			$theme = Theme::where('date', '<=', \Carbon\Carbon::today())->where('date', '>=', $date)->get();
 		return count($theme);
 	}
 }
