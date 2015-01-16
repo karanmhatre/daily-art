@@ -24,7 +24,7 @@
 					<ul>
 						@foreach ($theme->art as $art)
 							<li class="item">
-								<a rel="gallery-{{$index}}" class="single_image swipebox" href="{{ URL::asset($art->image) }}" title="<a href={{ URL::route('art.show', $art->id) }}>{{ $theme->theme }}</a> by <a href={{ URL::route('user.profile', [$art->user->id, Str::slug($art->user->name)]) }}>{{ $art->user->name }}</a>" onmouseover="this.setAttribute('org_title', this.title'); this.title='';" onmouseout="this.title = this.getAttribute('org_title');">
+								<a rel="gallery-{{$index}}" class="single_image swipebox" href="{{ URL::asset($art->image) }}" title="<a href={{ URL::route('art.show', $art->id) }}>{{ $theme->theme }}</a> by <a href={{ URL::route('user.profile', [$art->user->id, Str::slug($art->user->name)]) }}><img src={{ URL::asset($art->user->avatar) }} class='profile-picture'></a>">
 									{{ HTML::image($art->image, $art->caption) }}
 								</a>
 		           </li>
