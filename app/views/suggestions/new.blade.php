@@ -29,7 +29,7 @@
         </fieldset>
       </form>
     </div>
-    {{ HTML::script('js/vendor/jquery-1.9.0.min.js') }}
+    {{ HTML::script('js/vendor/jquery.js') }}
     {{ HTML::script('js/vendor/polyfiller.js') }}
     <script>
         webshims.setOptions('forms', {
