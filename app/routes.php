@@ -26,8 +26,13 @@ Route::post('/users/store', array('uses' => 'HomeController@storeUser', 'as' => 
 Route::get('/request/invite', array('uses' => 'InviteController@requestInvite', 'as' => 'user.requestInvite'));
 Route::post('/request/invite', array('uses' => 'InviteController@storeInvite', 'as' => 'user.storeInvite'));
 
+// SINGLE ART PAGE
 Route::get('art/{id}', array('uses' => 'ArtController@show', 'as' => 'art.show'));
+// PUBLIC PROFILE
 Route::get('users/{id}/{slug?}', array('uses' => 'UserController@show', 'as' => 'user.profile'));
+// ARCHIVES PER MONTH
+Route::get('archives', array('uses' => 'ArchivesController@index', 'as' => 'archives.index'));
+Route::get('archives/{year}/{month}', array('uses' => 'ArchivesController@show', 'as' => 'archives.show'));
 
 // LOGGED IN USER ACTIONS
 Route::group(array('before' => 'auth'), function() {

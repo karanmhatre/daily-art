@@ -256,7 +256,7 @@ display: inline;
 {
 	color: #fff;
 }
-.pagination ul a:hover
+.pagination ul a:hover, .footer li a:hover
 {
 	color: #000;
 }
@@ -277,6 +277,7 @@ display: inline;
 }
 
 div.social {
+	text-align: center;
   width: 100%;
   padding: 10px;
 }
@@ -293,10 +294,6 @@ div.social a {
   text-decoration: none;
   color: #fff;
   transition: background-color .2s linear, color .2s linear;
-}
-.invite-link{
-	color: #000;
-	text-align: center;
 }
 div.social a:before {
   width: inherit;
@@ -335,7 +332,21 @@ div.social a.icon-instagram:hover {
   background-color: #fff;
   color: #3f729b;
 }
-
+.footer-list
+{
+	padding-top: 10px;
+	list-style-type: none;
+	color: #999;
+	text-align: center;
+}
+.footer-list > li
+{
+	display: inline-block;
+}
+.footer li a
+{
+	color: #999;
+}
 @media screen and (max-width: 768px) {
   .item { width: 100%; }
 }
