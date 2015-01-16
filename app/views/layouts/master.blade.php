@@ -17,6 +17,7 @@
     {{ HTML::style('css/foundation.min.css') }}
     {{ HTML::style('css/font-awesome.min.css') }}
     {{ HTML::style('css/dropzone.css') }}
+    {{ HTML::style('css/swipebox.min.css') }}
 
     {{ HTML::style('css/main.css') }}
     @yield('meta-tags')
@@ -69,7 +70,7 @@
     {{ HTML::script('js/vendor/masonry.pkgd.min.js') }}
     {{ HTML::script('js/vendor/foundation.min.js') }}
     {{ HTML::script('js/vendor/dropzone.js') }}
-
+    {{ HTML::script('js/vendor/jquery.swipebox.min.js') }}
     <!-- Add fancyBox main JS and CSS files -->
     {{ HTML::script('js/vendor/fancy-source/jquery.fancybox.js?v=2.1.5') }}
     {{ HTML::style('js/vendor/fancy-source/jquery.fancybox.css?v=2.1.5" media="screen') }}
@@ -84,7 +85,6 @@
 
     <!-- Add Media helper (this is optional) -->
     {{ HTML::script('js/vendor/fancy-source/helpers/jquery.fancybox-media.js?v=1.0.6') }}
-
     <script>
     $(document).foundation();
 

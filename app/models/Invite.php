@@ -14,7 +14,7 @@ class Invite extends Eloquent {
 			if($inviteStatus)
 				{
 					$invite = Invite::create(['name' => $input['name'], 'email' => $input['email']]);	
-					$data['user'] = $invite->name
+					$data['name'] = $invite->name;
 					Mail::send('emails.request', $data, function($message) use ($invite){
 			      $message->to($invite['email'], $invite['name'])->subject('Invite Request Submitted!');
 			    });					

@@ -24,10 +24,9 @@
 					<ul>
 						@foreach ($theme->art as $art)
 							<li class="item">
-								<a class="single_image" href="{{ URL::route('art.show', $art->id) }}">
+								<a class="single_image swipebox" href="{{ URL::route('art.show', $art->id) }}" title="<a href='#'>{{ $theme->theme }}</a> by <a href='#'>{{ $art->user->name }}</a>">
 									{{ HTML::image($art->image, $art->caption) }}
 								</a>
-		            <a class="user_link" href="{{ URL::route('user.profile', [$art->user->id, Str::slug($art->user->name)]) }}"><span>{{ $art->user->name }}</span></a>
 		           </li>
 						@endforeach
 					</ul>
@@ -58,5 +57,12 @@
 		});
 
 	</script>
+	<script type="text/javascript">
+;( function( $ ) {
+
+	$( '.swipebox' ).swipebox();
+
+} )( jQuery );
+</script>
 
 @stop

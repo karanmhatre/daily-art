@@ -4,7 +4,8 @@ class AdminController extends BaseController {
 
 	public function invitePage()
 	{
-		return View::make('admin.invite.index');
+		$invites = Invite::all();
+		return View::make('admin.invite.index', compact('invites'));
 	}
 
 	public function inviteUser()
