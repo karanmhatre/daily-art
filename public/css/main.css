@@ -209,6 +209,10 @@ button:hover, .button:hover {
 	height: 50px;
 	margin: 0px;
 }
+.modal-share
+{
+	height: 30px;
+}
 a.user_link {
 	color: #000;
 	font-weight: bold;
