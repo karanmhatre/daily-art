@@ -12,7 +12,7 @@
   	<h3 class="date">Todays topic “<b>{{ $theme->theme }}</b>”.</h3> </h3>
   </div>
   @endif
-	@foreach ($themes as $theme)
+	@foreach ($themes as $index => $theme)
 		@if(count($theme->art))
 			<div class="day_container">
 				<div class="row">
@@ -24,7 +24,7 @@
 					<ul>
 						@foreach ($theme->art as $art)
 							<li class="item">
-								<a class="single_image swipebox" href="{{ URL::asset($art->image) }}" title="<a href={{ URL::route('art.show', $art->id) }}>{{ $theme->theme }}</a> by <a href={{ URL::route('user.profile', [$art->user->id, Str::slug($art->user->name)]) }}>{{ $art->user->name }}</a>">
+								<a rel="gallery-{{$index}}" class="single_image swipebox" href="{{ URL::asset($art->image) }}" title="<a href={{ URL::route('art.show', $art->id) }}>{{ $theme->theme }}</a> by <a href={{ URL::route('user.profile', [$art->user->id, Str::slug($art->user->name)]) }}>{{ $art->user->name }}</a>" onmouseover="this.setAttribute('org_title', this.title'); this.title='';" onmouseout="this.title = this.getAttribute('org_title');">
 									{{ HTML::image($art->image, $art->caption) }}
 								</a>
 		           </li>
