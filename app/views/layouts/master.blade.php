@@ -48,7 +48,7 @@
           <div class="small-4 columns">
             <ul class="footer-list">
               <li><a href="{{ URL::to('request/invite') }}" class="invite-link">Request Invite</a> | </li>
-              <li><a href="{{ URL::to('request/archies') }}" class="invite-link">Archives</a></li>              
+              <li><a href="{{ URL::route('archives.index') }}" class="invite-link">Archives</a></li>              
           </div>
           <div class="small-4 columns">
             <div class="social">
