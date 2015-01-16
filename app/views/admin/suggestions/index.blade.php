@@ -14,7 +14,7 @@
                 <th>#</th>
                 <th>Name</th>
                 <th>Date</th>
-                <th></th>
+                <th>  </th>
             </thead>
             <tbody>
                 @foreach($suggestions as  $suggestion)
