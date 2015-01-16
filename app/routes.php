@@ -42,6 +42,8 @@ Route::group(array('before' => 'auth'), function() {
 	Route::get('user/change/{id}' , array('as' => 'user.change', 'uses' => 'UserController@change'));
 	Route::get('user/edit/profile/{id}', array('uses' => 'UserController@profileEdit', 'as' => 'users.edit.profile'));
 	Route::post('users/update/{id}', array('uses' => 'UserController@update', 'as' => 'user.update'));
+	Route::get('suggestions', array('uses' => 'SuggestionsController@create', 'as' => 'suggestions.new'));
+	Route::post('suggestions', array('uses' => 'SuggestionsController@store', 'as' => 'suggestions.store'));
 });
 
 Route::group(array('prefix' => 'admin', 'before' => 'admin.auth'), function(){
@@ -49,4 +51,6 @@ Route::group(array('prefix' => 'admin', 'before' => 'admin.auth'), function(){
 	Route::post('user/invite', array('uses' => 'AdminController@inviteUser', 'as' => 'store.user.invite'));
 	Route::get('topics', array('uses' => 'TopicController@index', 'as' => 'topics.index'));
 	Route::post('topics', array('uses' => 'TopicController@store', 'as' => 'topics.store'));
+	Route::get('suggestions', array('uses' => 'SuggestionsController@index', 'as' => 'suggestions.index'));
+	Route::post('suggestion/{id}', array('uses' => 'SuggestionsController@delete', 'as' => 'suggestions.delete'));
 });

@@ -2,7 +2,6 @@
 =            LOGIN PAGE            =
 ==================================*/
 .login{
-  background: url('/img/login.jpg');
   background-size: cover;
 }
 .overlay{
@@ -26,6 +25,15 @@ a {
   margin-top: 200px;
   width: 200px;
   z-index: 3;
+}
+.suggestion{
+  position: relative;
+  margin-top: 20px;
+  width: 80%;
+}
+.suggestion-form{
+  width: 200px;
+  margin: 0 auto;
 }
 .center button{
   width: 100%;

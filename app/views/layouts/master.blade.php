@@ -45,19 +45,20 @@
     <div class="footer">
       <div class="row">
         <div class="large-12 columns">
-          <div class="small-4 columns">
+          <div class="small-12 large-4 columns">
             <ul class="footer-list">
               <li><a href="{{ URL::to('request/invite') }}" class="invite-link">Request Invite</a> | </li>
               <li><a href="{{ URL::route('archives.index') }}" class="invite-link">Archives</a></li>              
+              <li><a href="{{ URL::route('suggestions.new') }}" class="invite-link">Submit Suggestion</a></li>
           </div>
-          <div class="small-4 columns">
+          <div class="small-12 large-4 columns">
             <div class="social">
                 <a href="javascript:void(0);" class="icon-twitter"></a>
                 <a href="javascript:void(0);" class="icon-facebook"></a>
                 <a href="javascript:void(0);" class="icon-instagram"></a>
             </div>
           </div>
-          <div class="small-4 columns genii">
+          <div class="small-12 large-4 columns genii">
             <a href="http://genii.in" target="_blank"><img src="http://genii.in/assets/genii-logo.png" alt=""></a>
           </div>
         </div>

@@ -90,6 +90,7 @@
         <ul>
           <li><a href="{{ URL::route('topics.index') }}">Theme</a></li>
           <li><a href="{{ URL::to('admin/') }}">Invitations</a></li>
+          <li><a href="{{ URL::route('suggestions.index') }}">Suggestions</a></li>
           <li class="menu-item-divided"></li>
           
           

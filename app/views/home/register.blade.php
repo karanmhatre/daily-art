@@ -105,6 +105,7 @@
 
     //start polyfilling
     webshims.polyfill('forms');
+    webshim.polyfill('es5 mediaelement forms');
     </script>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
