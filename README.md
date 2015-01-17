@@ -1,5 +1,5 @@
 # Daily Art
-Daily Art is an invite-based system where a daily topic is given and members can submit in their artworks. The service side programming is done using Laravel.
+Daily Art is an invite-based system where a daily topic is given and members can submit in their artworks. The system is built using Laravel.
 
 ## Deployment
 - Setting up composer and xampp
