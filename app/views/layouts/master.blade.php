@@ -29,42 +29,43 @@
 
 
     <header>
+        <nav>
+          <ul>
+            <li>
+              <a href="{{ URL::to('login') }}">Submission</a>
+              @if(Auth::user())
+                @if( Request::segment('2') == Auth::user()->id && Request::segment('1') == "users")
+                  <a href="{{ URL::route('users.edit.profile', Auth::user()->id) }}">Edit Profile</a>
+                @else
+                  <a href="{{ URL::route('user.profile', Auth::user()->id) }}">View Profile</a>
+                @endif
+              @endif
+            </li>
+          </ul>
+        </nav>
         <a href="{{ URL::to('/') }}"><h1 class="main_heading">Daily<i class="fa fa-pencil"></i>Art</h1></a>
-        <a href="{{ URL::to('login') }}" class="login-btn">Submission</a>
-        @if(Auth::user())
-            @if( Request::segment('2') == Auth::user()->id && Request::segment('1') == "users")
-                <a href="{{ URL::route('users.edit.profile', Auth::user()->id) }}" class="login-btn profile-btn">Edit Profile</a>
-            @else
-                <a href="{{ URL::route('user.profile', Auth::user()->id) }}" class="login-btn profile-btn">View Profile</a>
-            @endif
-        @endif
     </header>
 
     @yield('content')
 
-    <!-- Scripts -->
-    <div class="footer">
+
+    <footer>
       <div class="row">
         <div class="large-12 columns">
-          <div class="small-12 large-4 columns">
-            <ul class="footer-list">
-              <li><a href="{{ URL::to('request/invite') }}" class="invite-link">Request Invite</a> | </li>
-              <li><a href="{{ URL::route('archives.index') }}" class="invite-link">Archives</a></li>              
-              <li><a href="{{ URL::route('suggestions.new') }}" class="invite-link">Submit Suggestion</a></li>
+          <div class="small-12 large-6 columns footer-links">
+            <a href="{{ URL::to('request/invite') }}" class="invite-link">Request Invite</a> |
+            <a href="{{ URL::route('archives.index') }}" class="invite-link">Archives</a> |
+            <a href="{{ URL::route('suggestions.new') }}" class="invite-link">Submit Suggestion</a>
           </div>
-          <div class="small-12 large-4 columns">
-            <div class="social">
-                <a href="javascript:void(0);" class="icon-twitter"></a>
-                <a href="javascript:void(0);" class="icon-facebook"></a>
-                <a href="javascript:void(0);" class="icon-instagram"></a>
-            </div>
-          </div>
-          <div class="small-12 large-4 columns genii">
-            <a href="http://genii.in" target="_blank"><img src="http://genii.in/assets/genii-logo.png" alt=""></a>
+          <div class="small-12 large-6 columns">
+            <a href="http://genii.in" class="logo"><img src="{{ URL::asset('img/genii-logo.png')}}" alt="Genii"></a>
           </div>
         </div>
       </div>
-    </div>
+    </footer>
+
+    <!-- Scripts -->
+
     {{ HTML::script('js/vendor/modernizr.js') }}
     {{ HTML::script('js/vendor/jquery.js') }}
     {{ HTML::script('js/vendor/masonry.pkgd.min.js') }}
@@ -120,6 +121,13 @@
          js.src = "//connect.facebook.net/en_US/sdk.js";
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
+
+
+      $('.main_heading').hover(function() {
+        $(this).children('i').removeClass('fa-pencil').addClass('fa-home');
+      }, function() {
+        $(this).children('i').removeClass('fa-home').addClass('fa-pencil');
+      });
     </script>
   </body>
 </html>

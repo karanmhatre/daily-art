@@ -8,14 +8,14 @@
 <meta name="author" content="{{ $art->user->name }}" />
 
 
-<!-- for Facebook -->          
+<!-- for Facebook -->
 <meta property="og:title" content="{{ $art->theme->theme }}'s by {{ $art->user->name }}" />
 <meta property="og:type" content="article" />
 <meta property="og:image" content="{{ URL::asset($art->image) }}" />
 <meta property="og:url" content="{{URL::route('art.show', [$art->id])}}" />
 <meta property="og:description" content="Daily Art for {{ date('d M, Y', strtotime($art->theme->date)) }} on {{ $art->theme->name }}'s by {{ $art->user->name }}." />
 
-<!-- for Twitter -->          
+<!-- for Twitter -->
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="{{ $art->theme->theme }}'s by {{ $art->user->name }}" />
 <meta name="twitter:description" content="Daily Art for {{ date('d M, Y', strtotime($art->theme->date)) }} on {{ $art->theme->name }}'s by {{ $art->user->name }}." />
@@ -32,25 +32,58 @@
 
 	<div class="day_container">
 		<div class="row">
-			<div class="large-12 columns">
-				<h3 class="date"> {{ date('d M, Y', strtotime($art->theme->date)) }} | <span class="theme">{{ $art->theme->theme }}</span> by <a href="{{ URL::route('user.profile', [$art->user->id, Str::slug($art->user->name)]) }}">{{ $art->user->name }}</a></h3>
+      <div class="large-9 columns">
+        <div class="single-image">
+          {{ HTML::image($art->image, $art->caption) }}
+        </div>
+      </div>
+			<div class="large-3 columns">
+        <div class="row">
+          <div class="large-4 small-6 columns">
+            @if(empty($art->user->avatar))
+              <a href="{{ URL::route('user.profile', [$art->user->id, Str::slug($art->user->name)]) }}"><img src="{{ URL::asset('img/default-avatar.png') }}" alt="Default avatar" class="rounded"></a>
+            @else
+              <a href="{{ URL::route('user.profile', [$art->user->id, Str::slug($art->user->name)]) }}"><img src="{{ URL::asset($art->user->avatar) }}" alt="{{ $art->user->name }}" class="rounded"></a>
+            @endif
+          </div>
+          <div class="large-8 small-6 columns">
+            <p><span class="theme">{{ $art->theme->theme }}</span> by <a href="{{ URL::route('user.profile', [$art->user->id, Str::slug($art->user->name)]) }}">{{ $art->user->name }}</a><br>
+            {{ date('d M, Y', strtotime($art->theme->date)) }}
+            </p>
+          </div>
+        </div>
+        <hr>
+        <a class="facebook_share share_btn" href="http://www.facebook.com/sharer.php?u={{URL::route('art.show', [$art->id])}}" target="_blank">Facebook Share karo</a>
+        <a class="twitter_share share_btn" href="http://twitter.com/share?url={{URL::route('art.show', [$art->id])}}&text=Daily Art by {{ $art->user->name }}&hashtags=dailyart, genii" target="_blank">Tweet karo</a>
+
+        <div class="row">
+          <div class="large-12 columns">
+            <hr>
+            <h5>More of "{{ $art->theme->theme }}"</h5>
+          </div>
+          <div class="large-6 small-6 columns">
+            @if(is_object($prev))
+              <a href="{{ URL::to('art', $prev->id) }}" class="paginate-btn">
+                <img src="{{ URL::asset($prev->image) }}" alt="">
+                <div class="hover_arrow"><i class="fa fa-chevron-left"></i></div>
+              </a>
+            @else
+              <img src="{{ URL::asset('img/blank.png') }}" alt="">
+            @endif
+          </div>
+          <div class="large-6 small-6 columns">
+            @if(is_object($next))
+              <a href="{{ URL::to('art', $next->id) }}" class="paginate-btn">
+                <img src="{{ URL::asset($next->image) }}" alt="">
+                <div class="hover_arrow"><i class="fa fa-chevron-right"></i></div>
+              </a>
+            @else
+              <img src="{{ URL::asset('img/blank.png') }}" alt="">
+            @endif
+          </div>
+        </div>
 			</div>
 		</div>
-		<div class="single-image">
-				{{ HTML::image($art->image, $art->caption) }}
-		</div>
-    <div class="share">
-    	<div class="row">
-    		<div class="large-12 columns">
-    			<a href="http://www.facebook.com/sharer.php?u={{URL::route('art.show', [$art->id])}}" target="_blank"><img src="http://www.simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" /></a>
-    			<a href="http://twitter.com/share?url={{URL::route('art.show', [$art->id])}}&text=Daily Art by {{ $art->user->name }}&hashtags=dailyart, genii" target="_blank"><img src="http://www.simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" /></a>
-
-    		</div>
-    		<div class="large-12 columns">
-    			<div class="fb-comments" data-href="{{URL::route('art.show', [$art->id])}}" data-numposts="5" data-colorscheme="light"></div>
-    		</div>
-    	</div>
-    </div>
 	</div>
 @stop
 

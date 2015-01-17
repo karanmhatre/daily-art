@@ -1,18 +1,24 @@
-.login-btn {
-  position: absolute;
-  right: 0;
-  top: 0;
-  display: inline-block;
-  padding: 10px;
+nav {
   background-color: #000;
+}
+
+nav ul{
+  list-style: none;
+  margin: 0;
+  overflow: hidden;
+}
+
+nav ul li a {
+  padding: 10px;
   color: #fff;
+  display: block;
+  float: right;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
 }
-.profile-btn{
-	position: absolute;
-  right: 0;
-  top: 40px;
-}
-a.login-btn:hover {
+
+nav ul li a:hover {
   color: #fff;
   background-color: #333;
 }
@@ -22,13 +28,13 @@ body {
 }
 
 .main_heading {
-	font-size: 64px;
+	font-size: 44px;
 	letter-spacing: 34px;
 	font-weight: 800;
 	text-transform: uppercase;
 	text-align: center;
 	color: #333;
-	padding: 40px 0px;
+	padding: 30px 0px;
 	margin-bottom: 0px;
 	border-bottom: 1px dashed #ccc;
 	transition: 0.3s;
@@ -62,10 +68,16 @@ h3.date {
 }
 
 .day_container {
-	padding-bottom: 50px;
-	border-bottom: 1px dashed #999;
-
+  padding-bottom: 40px;
+  margin-top: 30px;
+  border-bottom: 1px dashed #ddd;
 }
+
+.fb-comments {
+  width: 100%;
+  margin-top: 30px;
+}
+
 .number
 {
 	font-size: 20px;
@@ -87,6 +99,14 @@ h3.date {
 {
 	margin-left: -50px;
 }
+
+.profile-picture, .light-box-picture {
+  border-radius: 300px;
+  width: 90px;
+  height: 90px;
+  margin: 0px 80px;
+}
+
 .single_image {
 	display: block;
 	overflow: hidden;
@@ -97,22 +117,6 @@ h3.date {
 	color: #666;
 	font-size: 13px;
 	margin-bottom: 30px;
-}
-
-[data-clearing] li {
-	margin-right: 0px;
-}
-
-.clearing-blackout {
-	background-color: rgba(0,0,0,0.9);
-}
-
-.clearing-assembled .clearing-container .visible-img {
-	background-color: transparent;
-}
-
-.clearing-assembled .clearing-container .carousel {
-	background-color: rgba(0,0,0,0.6);
 }
 
 #login-container {
@@ -190,51 +194,35 @@ button:hover, .button:hover {
 .single-image
 {
 	text-align: center;
+  margin-bottom: 30px;
 }
+
 .single-image > img
 {
 	margin: 0 auto;
 	width: 800px;
 }
-.profile-picture, .light-box-picture
-{
-	border-radius: 300px;
-	width: 90px;
-	height: 90px;
-	margin: 0px 80px;
+
+a.share_btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  float: left;
+  background-color: #ddd;
+  color: #fff;
+  font-size: 12px;
 }
-.light-box-picture
-{
-	width: 50px;
-	height: 50px;
-	margin: 0px;
+
+a.facebook_share {
+  background-color: #2151ff;
+  margin-bottom: 10px;
 }
-.modal-share
-{
-	height: 30px;
+
+a.twitter_share {
+  background-color: #04c4ff;
 }
-a.user_link {
-	color: #000;
-	font-weight: bold;
- 	background-color: rgba(255,255,255,0.8);
-	padding: 5px;
-	position: absolute;
-	bottom: 0px;
-	box-sizing: border-box;
-	width: 100%;
-}
-.share
-{
-	padding: 20px;
-	text-align: center;
-}
-.share img {
-width: 35px;
-padding: 5px;
-border: 0;
-box-shadow: 0;
-display: inline;
-}
+
 .pagination-block
 {
 	text-align: center;
@@ -246,116 +234,106 @@ display: inline;
 }
 .pagination ul a
 {
-	border-radius: 5px;
+  box-sizing: border-box;
+  height: 50px;
+  width: 50px;
+	border-radius: 100px;
 	display: inline-block;
-	vertical-align: middle;
-	padding: 5px 15px;
-	width: auto;
+  text-align: center;
+  font-size: 24px;
+	padding-top: 6px;
 	font-weight: 100;
-	background: #FFC200;
-	margin: 0px 5px;
+	background: #ddd;
 	color: #fff;
+  margin-right: 20px;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
 }
-.pagination ul a.active
-{
-	color: black;
-	font-weight: 400;
-}
-.pagination ul a
-{
-	color: #fff;
-}
+
 .pagination ul a:hover, .footer li a:hover
 {
-	color: #000;
+	color: #fff;
+  background-color: #333;
 }
-.footer
+
+footer
 {
-	height: 60px;
 	width: 100%;
-	background: white;
-}
-.genii
-{
-	color: black;
-	text-align: right;
-}
-.genii a img
-{
-	padding: 5px 20px
+	background: #000;
+  margin: 0;
+  margin-top: 40px;
+  padding: 20px;
+  font-size: 14px;
+  color: #999;
+
 }
 
-div.social {
-	text-align: center;
-  width: 100%;
-  padding: 10px;
+footer a {
+  color: #999;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
 }
 
-div.social a {
-  width: 35px;
-  height: 35px;
-  margin: 0px 5px;
-  display: inline-block;
-  border-radius: 5px;
-  font-family: "scicons";
-  font-style: normal;
-  font-weight: normal;
-  text-decoration: none;
+footer a:hover {
   color: #fff;
-  transition: background-color .2s linear, color .2s linear;
 }
-div.social a:before {
-  width: inherit;
-  height: inherit;
-  display: table-cell;
+
+.hover_arrow {
+  position: absolute;
   text-align: center;
-  vertical-align: middle;
+  color: #000;
+  background-color: #FFF;
+  width: 102%;
+  height: 103%;
+  top: -1px;
+  opacity: 0;
+  line-height: 60px;
+  font-size: 24px;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
 }
-div.social a.icon-twitter {
-  background-color: #00acee;
+
+.paginate-btn {
+  position:relative;
+  display:block;
 }
-div.social a.icon-twitter:before {
-  content: "";
+
+.paginate-btn:hover .hover_arrow {
+  opacity: 0.8;
 }
-div.social a.icon-twitter:hover {
-  background-color: #fff;
-  color: #00acee;
+
+.todays-topic {
+  width: 100%;
+  background-color: #efefef;
+  color: #999;
+  padding: 10px;
+  font-size: 14px;
+  text-align: center;
 }
-div.social a.icon-facebook {
-  background-color: #3b5998;
+
+.todays-topic p {
+  margin: 0;
 }
-div.social a.icon-facebook:before {
-  content: "";
+
+.disabled {
+  display: none;
 }
-div.social a.icon-facebook:hover {
-  background-color: #fff;
-  color: #3b5998;
+
+.logo {
+  float: right;
 }
-div.social a.icon-instagram {
-  background-color: #3f729b;
+
+.logo img {
+  height: 30px;
 }
-div.social a.icon-instagram:before {
-  content: "";
+
+.footer-links {
+  padding-top: 6px;
 }
-div.social a.icon-instagram:hover {
-  background-color: #fff;
-  color: #3f729b;
-}
-.footer-list
-{
-	padding-top: 10px;
-	list-style-type: none;
-	color: #999;
-	text-align: center;
-}
-.footer-list > li
-{
-	display: inline-block;
-}
-.footer li a
-{
-	color: #999;
-}
-@media screen and (max-width: 768px) {
-  .item { width: 100%; }
+
+.rounded {
+  border-radius: 500px;
 }
