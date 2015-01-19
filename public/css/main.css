@@ -78,33 +78,87 @@ h3.date {
   margin-top: 30px;
 }
 
-.number
-{
-	font-size: 20px;
-	font-weight: 600;
-}
-.profile-div{
-	text-align: center;
-}
-.profile-text
-{
-	font-size: 12px;
-	font-weight: 100;
-	color: grey;
-	position: absolute;
-	top: 55px;
-	margin-left: -35px;
-}
-.profile-text:nth-child(2)
-{
-	margin-left: -50px;
+.profile-picture-container {
+  width: 50%;
+  float: left;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
-.profile-picture, .light-box-picture {
-  border-radius: 300px;
-  width: 90px;
-  height: 90px;
-  margin: 0px 80px;
+.profile-stats {
+  width: 50%;
+  height: 100%;
+  float: left;
+}
+
+.profile-name {
+  height: 50%;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 20px;
+}
+
+.profile-numbers {
+  height: 50%;
+}
+
+.profile-single-number {
+  height: 100%;
+  width: 50%;
+  text-align: center;
+  float: left;
+  border-right: 1px solid #ddd;
+  padding-top: 20px;
+}
+
+.profile-single-number {
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 18px;
+}
+
+.profile-single-number .stat-meta {
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.profile-single-number:last-child {
+  border-right: none;
+}
+
+.profile-picture {
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.profile-date {
+  margin-top: -10px;
+  font-size: 12px;
+  color: #999;
+}
+
+.profile-container {
+  box-sizing: border-box;
+  height: 160px;
+  background-color: #efefef;
+  padding: 30px;
+  position: relative;
+  margin-bottom: 70px;
+}
+
+.profile-inner-box {
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 5px;
+  position: absolute;
+  width: 450px;
+  height: 160px;
+  left: 50%;
+  margin-left: -225px;
+  bottom: -30px;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
 }
 
 .single_image {
@@ -536,4 +590,9 @@ footer a:hover {
 .bottom-right {
   bottom: 0;
   right: 0;
+}
+
+
+.inner-top {
+  padding-top: 20px;
 }

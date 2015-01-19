@@ -1,23 +1,35 @@
 @extends('layouts.master')
 
 @section('content')
-	
+
  @if(Session::has('notice'))
     <div class="alert-box danger">
       {{ Session::get('notice') }}
     </div>
   @endif
+  <div class="profile-container">
+    <div class="profile-inner-box">
+      <div class="profile-picture-container">
+        @if(empty($user->avatar))
+          <img src="{{ URL::asset('img/default-avatar.png') }}" alt="Default avatar" class="profile-picture">
+        @else
+          <img src="{{ URL::asset($user->avatar) }}" alt="{{ $user->name }}" class="profile-picture"><br>
+          <a href="">Edit Profile</a>
+        @endif
+      </div>
+      <div class="profile-stats">
+        <div class="profile-name">
+          <h4>{{ $user->name }}</h4>
+          <p class="profile-date">Joined {{ date('d M, Y', strtotime($user->created_at)) }}</p>
+        </div>
+        <div class="profile-numbers">
+          <div class="profile-single-number">{{ $user->getDaysSubmitted($user) }}<br><span class="stat-meta">Arts</span></div>
+          <div class="profile-single-number">{{ $user->getDaysBunked($user) }}<br><span class="stat-meta">Bunks</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
 	<div class="day_container">
-		<div class="row">
-			<div class="large-12 columns">
-				<div class="profile-div">
-					<span class="number">{{ $user->getDaysBunked($user) }}</span> <span class="profile-text">days bunked</span>
-					<img src="{{ URL::asset($user->avatar) }}" alt="" class="profile-picture">
-					<span class="number">{{ $user->getDaysSubmitted($user) }}</span> <span class="profile-text">submissions</span>
-				</div>
-				<h3 class="date"> {{$user->name}}'s Profile </h3>
-			</div>
-		</div>
 		<div class="row">
 			<div class="large-12 columns">
 				{{ Form::open(array('route' => ['user.update', $user->id],'files' => 'true')) }}
@@ -64,6 +76,7 @@
         {{ Form::close() }}
 			</div>
 		</div>
+  </div>
 @stop
 
 @section('scripts')
