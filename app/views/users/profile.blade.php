@@ -8,6 +8,11 @@
     </div>
   @endif
   	<div class="profile-container">
+      <div class="image-bg">
+        @foreach($random as $random_single)
+          <img src="{{ URL::asset($arts_array[$random_single]['image']) }}" alt="">
+        @endforeach
+      </div>
       <div class="profile-inner-box">
         <div class="profile-picture-container">
           @if(empty($user->avatar))
