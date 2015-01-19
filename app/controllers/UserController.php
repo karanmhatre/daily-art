@@ -40,7 +40,7 @@ class UserController extends \BaseController {
 		$arts = $user->artworks;
 		$arts_array = $user->artworks->toArray();
 		$count = count($arts_array) < 3 ? count($arts_array) : 3;
-		$random = array_rand($arts_array, count($arts_array));
+		$random = rand(0, ($count-1));
 		return View::make('users.profile')->with(compact('arts','user', 'random', 'arts_array'));
 	}
 
