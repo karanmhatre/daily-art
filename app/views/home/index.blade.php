@@ -25,54 +25,63 @@
 					<ul>
 						@foreach ($theme->art as $art)
 							<li class="item">
-								<a rel="gallery-{{$index}}" class="single_image swipebox" href="{{ URL::to('art', $art->id) }}">
-									{{ HTML::image($art->image, $art->caption, ['title' => ''] ) }}
-								</a>
-		           </li>
+								<div class="item-inner">
+									<a rel="gallery-{{$index}}" class="single_image swipebox" href="{{ URL::to('art', $art->id) }}">
+										{{ HTML::image($art->image, $art->caption, ['title' => ''] ) }}
+									</a>
+									<a class="item-meta" href="{{ URL::route('user.profile', [$art->user->id, Str::slug($art->user->name)]) }}">
+										@if(empty($art->user->avatar))
+					            <img src="{{ URL::asset('img/default-avatar.png') }}" alt="Default avatar">
+					          @else
+					            <img src="{{ URL::asset($art->user->avatar) }}" alt="{{ $art->user->name }}">
+					          @endif
+										{{ $art->user->name }}
+									</a>
+								</div>
+		          </li>
 						@endforeach
 					</ul>
 				</div>
+				<div class="loader">
+						<div class="cube">
+							<div class="plane-1">
+								<div class="top-left"></div>
+								<div class="top-middle"></div>
+								<div class="top-right"></div>
+								<div class="middle-left"></div>
+								<div class="middle-middle"></div>
+								<div class="middle-right"></div>
+								<div class="bottom-left"></div>
+								<div class="bottom-middle"></div>
+								<div class="bottom-right"></div>
+							</div>
+							<div class="plane-2">
+								<div class="top-left"></div>
+								<div class="top-middle"></div>
+								<div class="top-right"></div>
+								<div class="middle-left"></div>
+								<div class="middle-middle"></div>
+								<div class="middle-right"></div>
+								<div class="bottom-left"></div>
+								<div class="bottom-middle"></div>
+								<div class="bottom-right"></div>
+							</div>
+							<div class="plane-3">
+								<div class="top-left"></div>
+								<div class="top-middle"></div>
+								<div class="top-right"></div>
+								<div class="middle-left"></div>
+								<div class="middle-middle"></div>
+								<div class="middle-right"></div>
+								<div class="bottom-left"></div>
+								<div class="bottom-middle"></div>
+								<div class="bottom-right"></div>
+							</div>
+						</div>
+					</div>
 			</div>
 		@endif
 	@endforeach
-
-	<div class="loader">
-		<div class="cube">
-			<div class="plane-1">
-				<div class="top-left"></div>
-				<div class="top-middle"></div>
-				<div class="top-right"></div>
-				<div class="middle-left"></div>
-				<div class="middle-middle"></div>
-				<div class="middle-right"></div>
-				<div class="bottom-left"></div>
-				<div class="bottom-middle"></div>
-				<div class="bottom-right"></div>
-			</div>
-			<div class="plane-2">
-				<div class="top-left"></div>
-				<div class="top-middle"></div>
-				<div class="top-right"></div>
-				<div class="middle-left"></div>
-				<div class="middle-middle"></div>
-				<div class="middle-right"></div>
-				<div class="bottom-left"></div>
-				<div class="bottom-middle"></div>
-				<div class="bottom-right"></div>
-			</div>
-			<div class="plane-3">
-				<div class="top-left"></div>
-				<div class="top-middle"></div>
-				<div class="top-right"></div>
-				<div class="middle-left"></div>
-				<div class="middle-middle"></div>
-				<div class="middle-right"></div>
-				<div class="bottom-left"></div>
-				<div class="bottom-middle"></div>
-				<div class="bottom-right"></div>
-			</div>
-		</div>
-	</div>
 
 	<div class="pagination-block">
 		<div class="row">
@@ -88,11 +97,13 @@
 
 	<script type="text/javascript">
 
-		$('.day_container').hide();
+		$('.images_container').hide();
 
 		$(window).load(function() {
-			$('.day_container').fadeIn();
+
+			$('.images_container').fadeIn();
 			$('.loader').hide();
+
 	    $('.images_container').each(function() {
 				$(this).masonry({
 				  itemSelector: '.item',

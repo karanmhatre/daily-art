@@ -237,6 +237,7 @@ button:hover, .button:hover {
 }
 
 .item {
+  min-width: 400px;
 	width: 33%;
 	margin-top: 5px;
 }
@@ -264,16 +265,34 @@ button:hover, .button:hover {
   list-style: none;
 }
 
-.single-image
-{
-	text-align: center;
-  margin-bottom: 30px;
+.item-inner {
+  margin: 20px;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid #ddd;
 }
 
-.single-image > img
-{
-	margin: 0 auto;
-	width: 800px;
+.item-meta {
+  padding: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #999;
+  display: block;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
+a.item-meta:hover {
+  color: #000;
+  background-color: #efefef;
+}
+
+.item-meta img {
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+  margin-right: 10px;
 }
 
 a.share_btn {
