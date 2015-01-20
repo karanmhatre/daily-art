@@ -1,25 +1,25 @@
 @extends('layouts.master')
 
 @section('meta-tags')
-<title></title>
-<meta name="description" content="Daily Art for {{ date('d M, Y', strtotime($art->theme->date)) }} on {{ $art->theme->name }}'s by {{ $art->user->name }}" />
-<meta name="keywords" content="{{ $art->theme }}, daily art" />
 
-<meta name="author" content="{{ $art->user->name }}" />
+  <meta name="description" content="Daily Art for {{ date('d M, Y', strtotime($art->theme->date)) }} on {{ $art->theme->name }}'s by {{ $art->user->name }}" />
+  <meta name="keywords" content="{{ $art->theme }}, daily art" />
+
+  <meta name="author" content="{{ $art->user->name }}" />
 
 
-<!-- for Facebook -->
-<meta property="og:title" content="{{ $art->theme->theme }}'s by {{ $art->user->name }}" />
-<meta property="og:type" content="article" />
-<meta property="og:image" content="{{ URL::asset($art->image) }}" />
-<meta property="og:url" content="{{URL::route('art.show', [$art->id])}}" />
-<meta property="og:description" content="Daily Art for {{ date('d M, Y', strtotime($art->theme->date)) }} on {{ $art->theme->name }}'s by {{ $art->user->name }}." />
+  <!-- for Facebook -->
+  <meta property="og:title" content="'{{ $art->theme->theme }}' by {{ $art->user->name }}" />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="{{ URL::asset($art->image) }}" />
+  <meta property="og:url" content="{{URL::route('art.show', [$art->id])}}" />
+  <meta property="og:description" content="Daily Art for {{ date('d M, Y', strtotime($art->theme->date)) }} on '{{ $art->theme->name }}' by {{ $art->user->name }}." />
 
-<!-- for Twitter -->
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="{{ $art->theme->theme }}'s by {{ $art->user->name }}" />
-<meta name="twitter:description" content="Daily Art for {{ date('d M, Y', strtotime($art->theme->date)) }} on {{ $art->theme->name }}'s by {{ $art->user->name }}." />
-<meta name="twitter:image" content="{{ URL::asset($art->image) }}" />
+  <!-- for Twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="{{ $art->theme->theme }}'s by {{ $art->user->name }}" />
+  <meta name="twitter:description" content="Here's my Daily Art submission for {{ $art->theme->name }}'. #dailyArt" />
+  <meta name="twitter:image" content="{{ URL::asset($art->image) }}" />
 @stop
 
 @section('content')
@@ -54,7 +54,7 @@
         </div>
         <hr>
         <a class="facebook_share share_btn" href="http://www.facebook.com/sharer.php?u={{URL::route('art.show', [$art->id])}}" target="_blank">Facebook Share karo</a>
-        <a class="twitter_share share_btn" href="http://twitter.com/share?url={{URL::route('art.show', [$art->id])}}&text=Daily Art by {{ $art->user->name }}&hashtags=dailyart, genii" target="_blank">Tweet karo</a>
+        <a class="twitter_share share_btn" href="http://twitter.com/share?url={{URL::route('art.show', [$art->id])}}&text=Daily Art submission by {{ $art->user->name }}&hashtags=dailyart, genii" target="_blank">Tweet karo</a>
 
         <div class="row">
           <div class="large-12 columns">

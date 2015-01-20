@@ -9,7 +9,7 @@
   @endif
 
   <div class="todays-topic">
-  	<p>Todays topic is “<b>{{ $theme->theme }}</b>”</p>
+  	<p>Today's topic is “<b>{{ $theme->theme }}</b>”</p>
   </div>
 
 
