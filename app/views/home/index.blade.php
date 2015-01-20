@@ -105,10 +105,12 @@
 			$('.loader').hide();
 
 	    $('.images_container').each(function() {
-				$(this).masonry({
-				  itemSelector: '.item',
-				  "gutter": 5
-				});
+
+	    	$(this).masonry({
+		       itemSelector : '.item',
+		       "gutter" : 5
+		   	});
+
 			});
 		});
 

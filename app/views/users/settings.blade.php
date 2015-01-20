@@ -63,13 +63,12 @@
               </div>
             </div>
           </div>
-          <div class="small-10 large-centered columns" style="text-align:center">
+          <div class="small-10 large-centered columns">
             <div class="row">
               <div class="small-3 columns">
               </div>
-              <div class="small-12 columns">
+              <div class="small-9 columns">
                 <input type="submit" class="button" value="Update"><br>
-                <p>Todays topic “<b>{{ $theme }}</b>”.</p>
               </div>
             </div>
           </div>

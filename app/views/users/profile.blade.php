@@ -17,13 +17,18 @@
             <img src="{{ URL::asset('img/default-avatar.png') }}" alt="Default avatar" class="profile-picture">
           @else
             <img src="{{ URL::asset($user->avatar) }}" alt="{{ $user->name }}" class="profile-picture"><br>
-            <a href="">Edit Profile</a>
           @endif
         </div>
         <div class="profile-stats">
           <div class="profile-name">
             <h4>{{ $user->name }}</h4>
-            <p class="profile-date">Joined {{ date('d M, Y', strtotime($user->created_at)) }}</p>
+            @if(Auth::check())
+              @if(Auth::user()->id == $user->id)
+                <p class="profile-date"><a href="{{ URL::route('users.edit.profile', Auth::user()->id) }}">Edit Profile</a></p>
+              @else
+                <p class="profile-date">Joined {{ date('d M, Y', strtotime($user->created_at)) }}</p>
+              @endif
+            @endif
           </div>
           <div class="profile-numbers">
             <div class="profile-single-number">{{ $user->getDaysSubmitted($user) }}<br><span class="stat-meta">Arts</span></div>
@@ -36,10 +41,15 @@
   	<div class="images_container">
   		<ul>
   			@foreach ($arts as $art)
-  				<li class="item">
-  					<a class="single_image" href="{{ URL::route('art.show', $art->id) }}">
-  						{{ HTML::image($art->image, $art->caption) }}
-  					</a>
+          <li class="item">
+            <div class="item-inner">
+              <a class="single_image swipebox" href="{{ URL::to('art', $art->id) }}">
+                {{ HTML::image($art->image, $art->caption, ['title' => ''] ) }}
+              </a>
+              <a class="item-meta" href="#">
+                {{ $art->theme->theme }}
+              </a>
+            </div>
           </li>
   			@endforeach
   		</ul>
