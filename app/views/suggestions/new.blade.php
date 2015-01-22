@@ -11,7 +11,7 @@
     {{ HTML::style('css/admin/font-awesome.min.css')}}
     {{ HTML::style('css/main.css') }}
   </head>
-  <body class="login" style="background-image: url('../../img/{{$number}}.jpg'); background-size: cover;">
+  <body class="login" style="background-image: url('../../img/test/{{$number}}.jpg'); background-size: cover;">
     <div class="overlay"></div>
     <div class="center suggestion">
           <a href="{{ URL::to('/') }}"><h1 class="main_heading">Daily<i class="fa fa-pencil"></i>Art</h1></a>
