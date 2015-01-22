@@ -7,34 +7,53 @@
       {{ Session::get('notice') }}
     </div>
   @endif
-	<div class="day_container">
-		<div class="row">
-			<div class="large-12 columns">
-				<div class="profile-div">
-					<span class="number">{{ $user->getDaysBunked($user) }}</span> <span class="profile-text">days bunked</span>
+  	<div class="profile-container">
+      <div class="image-bg">
+        <img src="{{ URL::asset($arts_array[$random]['image']) }}" alt="">
+      </div>
+      <div class="profile-inner-box">
+        <div class="profile-picture-container">
           @if(empty($user->avatar))
-					  <img src="{{ URL::asset('img/default-avatar.png') }}" alt="Default avatar" class="profile-picture">
+            <img src="{{ URL::asset('img/default-avatar.png') }}" alt="Default avatar" class="profile-picture">
           @else
-            <img src="{{ URL::asset($user->avatar) }}" alt="{{ $user->name }}" class="profile-picture">
+            <img src="{{ URL::asset($user->avatar) }}" alt="{{ $user->name }}" class="profile-picture"><br>
           @endif
-					<span class="number">{{ $user->getDaysSubmitted($user) }}</span> <span class="profile-text">submissions</span>
-				</div>
-				<h3 class="date"> Artwork by {{$user->name}} </h3>
-			</div>
-		</div>
-		<div class="images_container">
-			<ul>
-				@foreach ($arts as $art)
-					<li class="item">
-						<a class="single_image" href="{{ URL::route('art.show', $art->id) }}">
-							{{ HTML::image($art->image, $art->caption) }}
-						</a>
+        </div>
+        <div class="profile-stats">
+          <div class="profile-name">
+            <h4>{{ $user->name }}</h4>
+            @if(Auth::check())
+              @if(Auth::user()->id == $user->id)
+                <p class="profile-date"><a href="{{ URL::route('users.edit.profile', Auth::user()->id) }}">Edit Profile</a></p>
+              @else
+                <p class="profile-date">Joined {{ date('d M, Y', strtotime($user->created_at)) }}</p>
+              @endif
+            @endif
+          </div>
+          <div class="profile-numbers">
+            <div class="profile-single-number">{{ $user->getDaysSubmitted($user) }}<br><span class="stat-meta">Arts</span></div>
+            <div class="profile-single-number">{{ $user->getDaysBunked($user) }}<br><span class="stat-meta">Bunks</span></div>
+          </div>
+        </div>
+      </div>
+  	</div>
+    <h3 class="date"> Artwork by {{$user->name}} </h3>
+  	<div class="images_container">
+  		<ul>
+  			@foreach ($arts as $art)
+          <li class="item">
+            <div class="item-inner">
+              <a class="single_image swipebox" href="{{ URL::to('art', $art->id) }}">
+                {{ HTML::image($art->image, $art->caption, ['title' => ''] ) }}
+              </a>
+              <a class="item-meta" href="#">
+                {{ $art->theme->theme }}
+              </a>
+            </div>
           </li>
-				@endforeach
-			</ul>
-		</div>
-	</div>
-</div>
+  			@endforeach
+  		</ul>
+  	</div>
 @stop
 
 @section('scripts')

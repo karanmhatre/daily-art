@@ -1,3 +1,34 @@
+html,
+body {
+  margin:0;
+  padding:0;
+  height:100%;
+}
+
+#wrapper {
+  min-height:100%;
+  position:relative;
+}
+
+#content {
+  padding-bottom: 70px;   /* Height of the footer element */
+}
+
+footer {
+  width:100%;
+  height: 70px;
+  position:absolute;
+  bottom:0;
+  left:0;
+  background: #000;
+  margin: 0;
+  margin-top: 40px;
+  padding: 20px;
+  font-size: 14px;
+  color: #999;
+}
+
+
 nav {
   background-color: #000;
 }
@@ -78,33 +109,106 @@ h3.date {
   margin-top: 30px;
 }
 
-.number
-{
-	font-size: 20px;
-	font-weight: 600;
-}
-.profile-div{
-	text-align: center;
-}
-.profile-text
-{
-	font-size: 12px;
-	font-weight: 100;
-	color: grey;
-	position: absolute;
-	top: 55px;
-	margin-left: -35px;
-}
-.profile-text:nth-child(2)
-{
-	margin-left: -50px;
+.profile-picture-container {
+  width: 50%;
+  float: left;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
-.profile-picture, .light-box-picture {
-  border-radius: 300px;
-  width: 90px;
-  height: 90px;
-  margin: 0px 80px;
+.profile-stats {
+  width: 50%;
+  height: 100%;
+  float: left;
+}
+
+.profile-name {
+  height: 50%;
+  border-bottom: 1px solid #ddd;
+  padding: 26px 42px;
+}
+
+.profile-numbers {
+  height: 50%;
+}
+
+.profile-single-number {
+  height: 100%;
+  width: 50%;
+  text-align: center;
+  float: left;
+  border-right: 1px solid #ddd;
+  padding-top: 34px;
+}
+
+.profile-single-number {
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 18px;
+}
+
+.profile-single-number .stat-meta {
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.profile-single-number:last-child {
+  border-right: none;
+}
+
+.profile-picture {
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.profile-date {
+  margin-top: -10px;
+  font-size: 12px;
+  color: #999;
+}
+
+.profile-container {
+  box-sizing: border-box;
+  height: 250px;
+  background-color: #000;
+  position: relative;
+  margin-bottom: 70px;
+}
+
+.image-bg {
+  height: 100%;
+  overflow: hidden;
+}
+
+.image-bg > img {
+  width: 100%;
+  position: relative;
+  top: -50px;
+  opacity: 0.8;
+  margin: 0;
+  display: block;
+  float: left;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+
+.profile-inner-box {
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 5px;
+  position: absolute;
+  width: 450px;
+  height: 220px;
+  left: 50%;
+  margin-left: -225px;
+  bottom: -30px;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
 }
 
 .single_image {
@@ -120,7 +224,7 @@ h3.date {
 }
 
 #login-container {
-	margin-top: 150px;
+	margin-top: 100px;
 }
 
 #login-container h2 {
@@ -128,7 +232,7 @@ h3.date {
 	font-size: 24px;
 	text-transform: uppercase;
 	text-align: center;
-	margin-bottom: 40px;
+	margin-bottom: 30px;
 }
 
 button, .button {
@@ -164,6 +268,7 @@ button:hover, .button:hover {
 }
 
 .item {
+  min-width: 400px;
 	width: 33%;
 	margin-top: 5px;
 }
@@ -191,16 +296,34 @@ button:hover, .button:hover {
   list-style: none;
 }
 
-.single-image
-{
-	text-align: center;
-  margin-bottom: 30px;
+.item-inner {
+  margin: 20px;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid #ddd;
 }
 
-.single-image > img
-{
-	margin: 0 auto;
-	width: 800px;
+.item-meta {
+  padding: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #999;
+  display: block;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
+a.item-meta:hover {
+  color: #000;
+  background-color: #efefef;
+}
+
+.item-meta img {
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+  margin-right: 10px;
 }
 
 a.share_btn {
@@ -221,6 +344,10 @@ a.facebook_share {
 
 a.twitter_share {
   background-color: #04c4ff;
+}
+
+.pagination {
+  margin-bottom: 40px;
 }
 
 .pagination-block
@@ -255,18 +382,6 @@ a.twitter_share {
 {
 	color: #fff;
   background-color: #333;
-}
-
-footer
-{
-	width: 100%;
-	background: #000;
-  margin: 0;
-  margin-top: 40px;
-  padding: 20px;
-  font-size: 14px;
-  color: #999;
-
 }
 
 footer a {
@@ -536,4 +651,17 @@ footer a:hover {
 .bottom-right {
   bottom: 0;
   right: 0;
+}
+
+.inner-top {
+  padding-top: 20px;
+}
+
+.small-links {
+  float: right;
+  font-size: 12px;
+  position: absolute;
+  padding-top: 20px;
+  right: 0;
+  text-align: right;
 }

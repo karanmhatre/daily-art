@@ -27,8 +27,8 @@
         <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
     <![endif]-->
 
-
-    <header>
+    <div id="wrapper">
+      <header>
         <nav>
           <ul>
             <li>
@@ -44,25 +44,28 @@
           </ul>
         </nav>
         <a href="{{ URL::to('/') }}"><h1 class="main_heading">Daily<i class="fa fa-pencil"></i>Art</h1></a>
-    </header>
+      </header>
 
-    @yield('content')
+      <div id="content">
+        @yield('content')
+      </div>
 
 
-    <footer>
-      <div class="row">
-        <div class="large-12 columns">
-          <div class="small-12 large-6 columns footer-links">
-            <a href="{{ URL::to('request/invite') }}" class="invite-link">Request Invite</a> |
-            <a href="{{ URL::route('archives.index') }}" class="invite-link">Archives</a> |
-            <a href="{{ URL::route('suggestions.new') }}" class="invite-link">Submit Suggestion</a>
-          </div>
-          <div class="small-12 large-6 columns">
-            <a href="http://genii.in" class="logo"><img src="{{ URL::asset('img/genii-logo.png')}}" alt="Genii"></a>
+      <footer>
+        <div class="row">
+          <div class="large-12 columns">
+            <div class="small-12 large-6 columns footer-links">
+              <a href="{{ URL::to('request/invite') }}" class="invite-link">Request Invite</a> |
+              <a href="{{ URL::route('archives.index') }}" class="invite-link">Archives</a> |
+              <a href="{{ URL::route('suggestions.new') }}" class="invite-link">Submit Suggestion</a>
+            </div>
+            <div class="small-12 large-6 columns">
+              <a href="http://genii.in" class="logo"><img src="{{ URL::asset('img/genii-logo.png')}}" alt="Genii"></a>
+            </div>
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </div>
 
     <!-- Scripts -->
 
