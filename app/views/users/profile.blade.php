@@ -9,7 +9,9 @@
   @endif
   	<div class="profile-container">
       <div class="image-bg">
-        <img src="{{ URL::asset($arts_array[$random]['image']) }}" alt="">
+        @if($arts_array)
+          <img src="{{ URL::asset($arts_array[$random]['image']) }}" alt="">
+        @endif
       </div>
       <div class="profile-inner-box">
         <div class="profile-picture-container">
