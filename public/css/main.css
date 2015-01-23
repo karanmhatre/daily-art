@@ -665,3 +665,11 @@ footer a:hover {
   right: 0;
   text-align: right;
 }
+
+.alert-box {
+  margin-bottom: 0;
+  text-align: center;
+  background-color: #76BA00;
+  font-size: 14px;
+  border: none;
+}

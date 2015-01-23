@@ -2,7 +2,7 @@
 
 @section('content')
   <div class="row">
-    <div class="small-6 large-centered columns" id="login-container">
+    <div class="small-12 large-6 large-centered columns" id="login-container">
       <h2>Login</h2>
 
       @if(Session::has('message'))

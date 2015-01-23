@@ -56,8 +56,8 @@
           <div class="large-12 columns">
             <div class="small-12 large-6 columns footer-links">
               <a href="{{ URL::to('request/invite') }}" class="invite-link">Request Invite</a> |
-              <a href="{{ URL::route('archives.index') }}" class="invite-link">Archives</a> |
-              <a href="{{ URL::route('suggestions.new') }}" class="invite-link">Submit Suggestion</a>
+              <!-- <a href="{{ URL::route('archives.index') }}" class="invite-link">Archives</a> | -->
+              <a href="{{ URL::route('suggestions.new') }}" class="invite-link">Suggest a topic</a>
             </div>
             <div class="small-12 large-6 columns">
               <a href="http://genii.in" class="logo"><img src="{{ URL::asset('img/genii-logo.png')}}" alt="Genii"></a>
@@ -74,21 +74,7 @@
     {{ HTML::script('js/vendor/masonry.pkgd.min.js') }}
     {{ HTML::script('js/vendor/foundation.min.js') }}
     {{ HTML::script('js/vendor/dropzone.js') }}
-    {{ HTML::script('js/vendor/jquery.swipebox.min.js') }}
-    <!-- Add fancyBox main JS and CSS files -->
-    {{ HTML::script('js/vendor/fancy-source/jquery.fancybox.js?v=2.1.5') }}
-    {{ HTML::style('js/vendor/fancy-source/jquery.fancybox.css?v=2.1.5" media="screen') }}
 
-    <!-- Add Button helper (this is optional) -->
-    {{ HTML::style('js/vendor/fancy-source/helpers/jquery.fancybox-buttons.css?v=1.0.5') }}
-    {{ HTML::script('js/vendor/fancy-source/helpers/jquery.fancybox-buttons.js?v=1.0.5') }}
-
-    <!-- Add Thumbnail helper (this is optional) -->
-    {{ HTML::style('js/vendor/fancy-source/helpers/jquery.fancybox-thumbs.css?v=1.0.7') }}
-    {{ HTML::script('js/vendor/fancy-source/helpers/jquery.fancybox-thumbs.js?v=1.0.7') }}
-
-    <!-- Add Media helper (this is optional) -->
-    {{ HTML::script('js/vendor/fancy-source/helpers/jquery.fancybox-media.js?v=1.0.6') }}
     <script>
     $(document).foundation();
 

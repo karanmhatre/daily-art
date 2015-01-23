@@ -1,11 +1,11 @@
-<?php 
+<?php
 
 /**
 * SuggestionControlelr
 */
 class SuggestionsController extends BaseController
 {
-	
+
 	public function index()
 	{
 		$suggestions =  Suggestion::get();
@@ -30,14 +30,14 @@ class SuggestionsController extends BaseController
 		if(!empty($input['topic']))
 		{
 			Suggestion::create(['user_id' => Auth::user()->id, 'topic' => $input['topic']]);
-			return Redirect::to('/')->with('notice', 'Your suggestion has been submitted');	
+			return Redirect::to('/')->with('notice', 'Your suggestion has been submitted. Thank you!');
 		}
 		else{
 			return Redirect::back()->with('notice', "Please give a suggestion that isn't so abstract");
 		}
-		
+
 	}
-	
+
 }
 
  ?>
