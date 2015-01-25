@@ -18,6 +18,19 @@
 					<input type="file" name="file" />
 				</form>
 			@else
+				<hr>
+				<form action="{{ URL::route('updateCaption') }}" method="POST">
+					<div class="row">
+						<div class="large-10 columns">
+							<label for=""><b>Caption</b></label>
+							<input type="text" name="caption" placeholder="Add a caption to your artwork" value="{{ $art_today->caption }}"/>
+						</div>
+						<div class="large-2 columns">
+							<button type="submit">Save</button>
+						</div>
+					</div>
+				</form>
+				<hr>
 				{{ HTML::image($art_today->image) }}
 			@endif
 			<p style="text-align: center; margin-top: 15px;"><a href="{{ URL::to('logout') }}">Logout? Fine, leave!</a></p>

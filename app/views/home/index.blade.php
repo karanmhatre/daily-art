@@ -2,12 +2,6 @@
 
 @section('content')
 
- @if(Session::has('notice'))
-    <div class="alert-box danger">
-      {{ Session::get('notice') }}
-    </div>
-  @endif
-
   <div class="todays-topic">
   	<p>Today's topic is “<b>{{ $theme->theme }}</b>”</p>
   </div>
@@ -26,17 +20,29 @@
 						@foreach ($theme->art as $art)
 							<li class="item">
 								<div class="item-inner">
-									<a rel="gallery-{{$index}}" class="single_image swipebox" href="{{ URL::to('art', $art->id) }}">
-										{{ HTML::image($art->image, $art->caption, ['title' => ''] ) }}
+									<a rel="gallery-{{$index}}" class="item-image-container swipebox" href="{{ URL::to('art', $art->id) }}">
+										@if(!empty($art->caption))
+											<div class="item-caption">
+												<p>{{ $art->caption }}</p>
+											</div>
+										@endif
+										{{ HTML::image($art->image, $art->caption) }}
 									</a>
-									<a class="item-meta" href="{{ URL::route('user.profile', [$art->user->id, Str::slug($art->user->name)]) }}">
+									<div class="item-meta">
 										@if(empty($art->user->avatar))
 					            <img src="{{ URL::asset('img/default-avatar.png') }}" alt="Default avatar">
 					          @else
 					            <img src="{{ URL::asset($art->user->avatar) }}" alt="{{ $art->user->name }}">
 					          @endif
-										{{ $art->user->name }}
-									</a>
+					          <a href="{{ URL::route('user.profile', [$art->user->id, Str::slug($art->user->name)]) }}">{{ $art->user->name }}</a>
+
+										@if(Auth::check())
+											<a href="javascript:void(0);" data-id="{{ $art->id }}" data-likes="{{ $art->likes }}" class="like-btn heart {{ ((array_search(Auth::user()->id, $art->like_users->lists('user_id')) !== false ) ? 'heart-filled' : 'heart-empty') }}"><i class="fa fa-heart"></i> <span class="likes-count">{{ $art->likes }}</span></a>
+										@else
+											<a href="javascript:void(0);" class="heart heart-empty"><i class="fa fa-heart"></i> <span class="likes-count">{{ $art->likes }}</span></a>
+										@endif
+
+									</div>
 								</div>
 		          </li>
 						@endforeach
@@ -113,6 +119,27 @@
 
 			});
 		});
+
+		$('.like-btn').click(function() {
+
+      var $this = $(this),
+          likes = parseInt($this.children('.likes-count').html());
+
+      if($this.hasClass('heart-empty'))
+      {
+        $.post("{{ URL::to('like') }}", { id :  $(this).data('id') }, function() {
+          $this.removeClass('heart-empty').addClass('heart-filled');
+          $this.children('.likes-count').html(likes + 1);
+        });
+      }
+      else
+      {
+        $.post("{{ URL::to('unlike') }}", { id :  $(this).data('id') }, function() {
+          $this.removeClass('heart-filled').addClass('heart-empty');
+          $this.children('.likes-count').html(likes - 1);
+        });
+      }
+    });
 
 	</script>
 

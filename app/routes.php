@@ -39,11 +39,17 @@ Route::group(array('before' => 'auth'), function() {
 	Route::get('user', 'UserController@index');
 	Route::get('logout', 'HomeController@logout');
 	Route::post('user/upload' , array('as' => 'user.upload', 'uses' => 'UserController@upload'));
+
+	Route::post('updateCaption', array('as' => 'updateCaption', 'uses' => 'UserController@updateCaption'));
+
 	Route::get('user/change/{id}' , array('as' => 'user.change', 'uses' => 'UserController@change'));
 	Route::get('user/edit/profile/{id}', array('uses' => 'UserController@profileEdit', 'as' => 'users.edit.profile'));
 	Route::post('users/update/{id}', array('uses' => 'UserController@update', 'as' => 'user.update'));
 	Route::get('suggestions', array('uses' => 'SuggestionsController@create', 'as' => 'suggestions.new'));
 	Route::post('suggestions', array('uses' => 'SuggestionsController@store', 'as' => 'suggestions.store'));
+
+	Route::post('like', array('as' => 'like', 'uses' => 'ArtController@like'));
+	Route::post('unlike', array('as' => 'unlike', 'uses' => 'ArtController@unlike'));
 });
 
 Route::group(array('prefix' => 'admin', 'before' => 'admin.auth'), function(){

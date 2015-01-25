@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateArtsTable extends Migration {
+class CreateUserLikeTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,11 @@ class CreateArtsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('arts', function(Blueprint $table)
+		Schema::create('like_user', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->integer('user_id');
-			$table->integer('theme_id');
-			$table->string('image');
-			$table->integer('likes')->default(0);
-			$table->string('caption')->nullable();
+			$table->integer('art_id');
 			$table->timestamps();
 		});
 	}
@@ -31,7 +28,7 @@ class CreateArtsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('arts');
+		Schema::drop('like_user');
 	}
 
 }

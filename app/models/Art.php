@@ -13,6 +13,11 @@ class Art extends Eloquent {
 		return $this->belongsTo('Theme');
 	}
 
+	public function like_users()
+	{
+		return $this->hasMany('LikeUser');
+	}
+
 	public static function today()
 	{
 		$art = Art::whereUserId(Auth::user()->id)->where('created_at', '>=', date('Y-m-d'))->where('created_at', '<=', date('Y-m-d', strtotime("+1 day", strtotime(date('Y-m-d')))))->first();

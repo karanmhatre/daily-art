@@ -211,9 +211,10 @@ h3.date {
   box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
 }
 
-.single_image {
+.single-image {
 	display: block;
 	overflow: hidden;
+  position: relative;
 }
 
 .meta {
@@ -297,7 +298,7 @@ button:hover, .button:hover {
 }
 
 .item-inner {
-  margin: 20px;
+  margin: 10px;
   border-radius: 5px;
   overflow: hidden;
   border: 1px solid #ddd;
@@ -307,16 +308,37 @@ button:hover, .button:hover {
   padding: 10px;
   font-size: 12px;
   font-weight: bold;
-  color: #999;
   display: block;
+}
+
+.item-meta a {
+  color: #333;
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
 }
 
-a.item-meta:hover {
-  color: #000;
-  background-color: #efefef;
+.item-meta a:hover {
+  color: #FFC200;
+}
+
+.item-meta a.heart {
+  float: right;
+  font-size: 18px;
+  padding-top: 6px;
+  padding-right: 10px;
+  color: #ccc;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.item-meta a.heart.heart-filled {
+  color: red;
+}
+
+.item-meta a.heart:hover {
+  color: red;
 }
 
 .item-meta img {
@@ -672,4 +694,98 @@ footer a:hover {
   background-color: #76BA00;
   font-size: 14px;
   border: none;
+}
+
+.controls {
+  opacity: 0.2;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.controls a {
+  position: absolute;
+  display: block;
+  padding: 20px 10px;
+  background-color: rgba(0, 0, 0, 1);
+  opacity: 0.8;
+  color: #FFF;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.controls a.next-arrow-btn {
+  right: 0;
+}
+
+.controls a.prev-arrow-btn {
+  left: 0;
+}
+
+.single-image:hover .controls {
+  opacity: 1;
+}
+
+.caption p {
+  font-size: 14px;
+}
+
+.item-caption {
+  width: 80%;
+  height: 80%;
+  box-sizing: border-box;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  background-color: rgba(0,0,0,0.4);
+  padding: 20px;
+  opacity: 0;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  transform: scale(0.5);
+}
+
+.item:hover .item-caption {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.item-caption p {
+  font-size: 14px;
+  color: #fff;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.item-image-container {
+  position: relative;
+  display: block;
+}
+
+.image-stats a {
+  font-size: 24px;
+  color: #ccc;
+}
+
+.heart-empty {
+  color: #ccc;
+}
+
+.heart-empty:hover {
+  color: red;
+}
+
+.image-stats a.heart-filled {
+  color: red;
+}
+
+.image-details p {
+  padding-top: 15px;
+  font-size: 14px;
 }

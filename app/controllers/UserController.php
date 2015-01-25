@@ -100,4 +100,12 @@ class UserController extends \BaseController {
 		else
 			return Redirect::back()->with('notice','There was some problem in update');
 	}
+
+	public function updateCaption()
+	{
+		$caption = Input::get('caption');
+		$art = Art::today()->update(['caption' => $caption]);
+
+		return Redirect::back()->with('notice', 'Your caption has been saved');
+	}
 }

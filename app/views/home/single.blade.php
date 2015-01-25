@@ -32,12 +32,20 @@
 
 	<div class="day_container">
 		<div class="row">
-      <div class="large-9 columns">
+      <div class="large-8 columns">
         <div class="single-image">
           {{ HTML::image($art->image, $art->caption) }}
+          <div class="controls">
+            @if(is_object($prev))
+              <a class="prev-arrow-btn" href="{{ URL::to('art', $prev->id) }}"><i class="fa fa-chevron-left"></i></a>
+            @endif
+            @if(is_object($next))
+              <a class="next-arrow-btn" href="{{ URL::to('art', $next->id) }}"><i class="fa fa-chevron-right"></i></a>
+            @endif
+          </div>
         </div>
       </div>
-			<div class="large-3 columns">
+			<div class="large-4 columns">
         <div class="row">
           <div class="large-4 small-6 columns">
             @if(empty($art->user->avatar))
@@ -46,55 +54,69 @@
               <a href="{{ URL::route('user.profile', [$art->user->id, Str::slug($art->user->name)]) }}"><img src="{{ URL::asset($art->user->avatar) }}" alt="{{ $art->user->name }}" class="rounded"></a>
             @endif
           </div>
-          <div class="large-8 small-6 columns">
+          <div class="large-8 small-6 columns image-details">
             <p><span class="theme">{{ $art->theme->theme }}</span> by <a href="{{ URL::route('user.profile', [$art->user->id, Str::slug($art->user->name)]) }}">{{ $art->user->name }}</a><br>
             {{ date('d M, Y', strtotime($art->theme->date)) }}
             </p>
           </div>
         </div>
+        @if(!empty($art->caption))
+          <div class="caption">
+            <hr>
+            <p>{{ $art->caption }}</p>
+          </div>
+        @endif
+        <hr>
+        <div class="image-stats">
+          @if(Auth::check())
+            <a href="javascript:void(0);" data-id="{{ $art->id }}" class ="like-btn {{ (($liked) ? 'heart-filled' : 'heart-empty') }}"><i class="fa fa-heart"></i> <span class="likes-count">{{ $art->likes }}</span></a>
+          @else
+            <a href="javascript:void(0);" data-id="{{ $art->id }}" class ="{{ (($liked) ? 'heart-filled' : 'heart-empty') }}"><i class="fa fa-heart"></i> <span class="likes-count">{{ $art->likes }}</span></a>
+          @endif
+        </div>
         <hr>
         <a class="facebook_share share_btn" href="http://www.facebook.com/sharer.php?u={{URL::route('art.show', [$art->id])}}" target="_blank">Facebook Share karo</a>
         <a class="twitter_share share_btn" href="http://twitter.com/share?url={{URL::route('art.show', [$art->id])}}&text=Daily Art submission by {{ $art->user->name }}&hashtags=dailyart, genii" target="_blank">Tweet karo</a>
-
-        <div class="row">
-          <div class="large-12 columns">
-            <hr>
-            <h5>More of "{{ $art->theme->theme }}"</h5>
-          </div>
-          <div class="large-6 small-6 columns">
-            @if(is_object($prev))
-              <a href="{{ URL::to('art', $prev->id) }}" class="paginate-btn">
-                <img src="{{ URL::asset($prev->image) }}" alt="">
-                <div class="hover_arrow"><i class="fa fa-chevron-left"></i></div>
-              </a>
-            @else
-              <img src="{{ URL::asset('img/blank.png') }}" alt="">
-            @endif
-          </div>
-          <div class="large-6 small-6 columns">
-            @if(is_object($next))
-              <a href="{{ URL::to('art', $next->id) }}" class="paginate-btn">
-                <img src="{{ URL::asset($next->image) }}" alt="">
-                <div class="hover_arrow"><i class="fa fa-chevron-right"></i></div>
-              </a>
-            @else
-              <img src="{{ URL::asset('img/blank.png') }}" alt="">
-            @endif
-          </div>
-        </div>
 			</div>
 		</div>
 	</div>
 @stop
 
 @section('scripts')
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1523370727924834&version=v2.0";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+  <div id="fb-root"></div>
+  <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1523370727924834&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
 
+  <script>
+
+  $(function() {
+    $('.like-btn').click(function() {
+
+      var $this = $(this),
+          likes = parseInt($('.likes-count').html());
+
+      if($this.hasClass('heart-empty'))
+      {
+        $.post("{{ URL::to('like') }}", { id :  $(this).data('id') }, function() {
+          $this.removeClass('heart-empty').addClass('heart-filled');
+          $('.likes-count').html(likes + 1);
+        });
+      }
+      else
+      {
+        $.post("{{ URL::to('unlike') }}", { id :  $(this).data('id') }, function() {
+          $this.removeClass('heart-filled').addClass('heart-empty');
+          $('.likes-count').html(likes - 1);
+        });
+      }
+    });
+  });
+  </script>
 @stop

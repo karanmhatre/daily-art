@@ -12,7 +12,6 @@
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="http://files.azizarslan.com/scicons.css">
     {{ HTML::style('css/normalize.css') }}
     {{ HTML::style('css/foundation.min.css') }}
     {{ HTML::style('css/font-awesome.min.css') }}
@@ -47,6 +46,12 @@
       </header>
 
       <div id="content">
+        @if(Session::has('notice'))
+          <div class="alert-box danger">
+            {{ Session::get('notice') }}
+          </div>
+        @endif
+
         @yield('content')
       </div>
 
