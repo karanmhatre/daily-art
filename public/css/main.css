@@ -739,7 +739,7 @@ footer a:hover {
   position: absolute;
   top: 10%;
   left: 10%;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0,0,0,0.8);
   padding: 20px;
   opacity: 0;
   -webkit-transition: 0.3s;
