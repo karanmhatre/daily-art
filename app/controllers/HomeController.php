@@ -24,11 +24,13 @@ class HomeController extends BaseController {
 
 	public function login()
 	{
+		$arts = Art::orderBy('created_at', 'DESC')->take(50)->get();
+
 		if(Auth::check()) {
 			return Redirect::to('user');
 		}
 		else {
-			return View::make('home.login');
+			return View::make('home.login')->with(compact('arts'));
 		}
 	}
 

@@ -1,21 +1,18 @@
 @extends('layouts.master')
 
 @section('content')
-
+  <div class="invite-bg">
+    @foreach ($arts as $art)
+      <div class="art">
+        <a href="{{ URL::to('art', $art->id) }}">
+          <img src="{{ URL::asset($art->image) }}" alt="{{ $art->caption }}">
+        </a>
+      </div>
+    @endforeach
+  </div>
   <div class="row">
     <div class="small-6 large-centered columns" id="login-container">
-      <h2>Request Invite</h2>
-
-      @if(Session::has('message'))
-        <div class="alert-box danger">
-          {{ Session::get('message') }}
-        </div>
-      @endif
-      @if(Session::has('notice'))
-        <div class="alert-box">
-          {{ Session::get('message') }}
-        </div>
-      @endif
+      <h2>Request an Invite</h2>
 
       {{ Form::open(array('route' => 'user.storeInvite','files' => 'true')) }}
         <div class="small-10 large-centered columns">

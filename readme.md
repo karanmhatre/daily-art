@@ -8,10 +8,10 @@ Daily Art is an invite-based system where a daily topic is given and members can
 - Seed the Database with dummy content
 
 ## Roapmap
-- Design for "About Daily Art" page
+- About "Daily Art" page
 - Design for "Invite" page
-- Design for "Suggestions" page
-- Design for "Archives" page
+- Design for suggestions page
+- Design for Archives
 - Make "Topic" for each day sticky on scroll. Like name on instagram.
 - Native commenting system
 - Members listing page

@@ -11,6 +11,7 @@ body {
 }
 
 #content {
+  position: relative;
   padding-bottom: 70px;   /* Height of the footer element */
 }
 
@@ -225,7 +226,12 @@ h3.date {
 }
 
 #login-container {
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 20px;
+  border: 1px dashed #ccc;
 	margin-top: 100px;
+  margin-bottom: 50px;
 }
 
 #login-container h2 {
@@ -788,4 +794,42 @@ footer a:hover {
 .image-details p {
   padding-top: 15px;
   font-size: 14px;
+}
+
+.suggestion-topics {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  min-height: 400px;
+}
+
+ul.topics {
+  margin: 0;
+}
+
+.topics li {
+  box-sizing: border-box;
+  list-style: none;
+  width: 90%;
+  padding: 10px;
+  font-size: 18px;
+  border-bottom: 1px solid #ccc;
+}
+
+.art {
+  width: 20%;
+  height: 150px;
+  float: left;
+  overflow: hidden;
+  opacity: 0.6;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.invite-bg {
+  position: absolute;
+  z-index: -1;
+  background-color: #000;
+  height: 100%;
+  overflow: hidden;
 }

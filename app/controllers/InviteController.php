@@ -4,8 +4,9 @@ class InviteController extends BaseController {
 
 	public function requestInvite()
 	{
-		$theme = Theme::today()->theme;
-		return View::make('home.invite', compact('theme'));
+		$arts = Art::orderBy('created_at', 'DESC')->take(50)->get();
+
+		return View::make('home.invite', compact('arts'));
 	}
 
 	public function storeInvite()

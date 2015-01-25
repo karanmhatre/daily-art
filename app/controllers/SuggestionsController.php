@@ -20,8 +20,8 @@ class SuggestionsController extends BaseController
 
 	public function create()
 	{
-		$number = rand(1,14);
-		return View::make('suggestions.new', compact('number'));
+		$themes = Theme::get();
+		return View::make('suggestions.new', compact('themes'));
 	}
 
 	public function store()

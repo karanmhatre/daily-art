@@ -46,9 +46,14 @@
       </header>
 
       <div id="content">
-        @if(Session::has('notice'))
+        @if(Session::has('message'))
           <div class="alert-box danger">
-            {{ Session::get('notice') }}
+            {{ Session::get('message') }}
+          </div>
+        @endif
+        @if(Session::has('notice'))
+          <div class="alert-box">
+            {{ Session::get('message') }}
           </div>
         @endif
 
