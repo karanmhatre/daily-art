@@ -218,6 +218,10 @@ h3.date {
   position: relative;
 }
 
+.single-image img {
+  width: 100%;
+}
+
 .meta {
 	padding: 10px 0;
 	color: #666;
@@ -833,8 +837,8 @@ ul.topics {
 }
 
 .art {
-  width: 20%;
-  height: 150px;
+  width: 10%;
+  height: 100px;
   float: left;
   overflow: hidden;
   opacity: 0.6;
