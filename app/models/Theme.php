@@ -7,11 +7,12 @@ class Theme extends Eloquent {
 	{
 		return $this->hasMany('Art');
 	}
-	
+
 
 	public static function today()
 	{
-		$theme = Theme::where('date', '>=', date('Y-m-d'))->where('date', '<=', date('Y-m-d', strtotime("+1 day", strtotime(date('Y-m-d')))))->first();
+		$today_date = date('H') < 3 ? date('Y-m-d', strtotime('-1 day')) : date('Y-m-d');
+		$theme = Theme::where('date', '=', $today_date)->first();
 		return $theme;
 	}
 
