@@ -18,9 +18,20 @@
 					<input type="file" name="file" id="file_upload"/>
 				</form>
 
-				<form action="{{ URL::route('user.upload') }}" method="POST" enctype="multipart/form-data" id="mobile-image-capture">
-					<input type="file" name="file" accept="image/*" capture="camera" id="capture-field" />
-				</form>
+				<div class="row">
+					<div class="small-6 columns">
+						<form action="{{ URL::route('user.upload') }}" method="POST" enctype="multipart/form-data" id="mobile-image-capture">
+							<label>Take a Photo</label>
+							<input type="file" name="file" accept="image/*" capture="camera" id="capture-field" />
+						</form>
+					</div>
+					<div class="small-6 columns">
+						<form action="{{ URL::route('user.upload') }}" method="POST" enctype="multipart/form-data" id="mobile-image-gallery">
+							<label>Upload from Gallery</label>
+							<input type="file" name="file" accept="image/*" id="mobile-upload-field" />
+						</form>
+					</div>
+				</div>
 			@else
 				<hr>
 				<form action="{{ URL::route('updateCaption') }}" method="POST">
@@ -52,14 +63,20 @@
 				$('#mobile-image-capture').submit();
 			});
 
+			$('#mobile-upload-field').change(function() {
+				$('#mobile-image-gallery').submit();
+			});
+
 	    var isMobile = window.matchMedia("only screen and (max-width: 760px)");
 
 	    if (isMobile.matches) {
 	    	$('#my-awesome-dropzone').hide();
 	    	$('#mobile-image-capture').show();
+	    	$('#mobile-image-gallery').show();
 	    }
 	    else {
 	    	$('#mobile-image-capture').hide();
+	    	$('#mobile-image-gallery').hide();
 	    	Dropzone.options.myAwesomeDropzone = {
 		      maxFiles: 1,
 		      complete: function() {
