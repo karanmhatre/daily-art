@@ -59,6 +59,7 @@
 	    	$('#mobile-image-capture').show();
 	    }
 	    else {
+	    	$('#mobile-image-capture').hide();
 	    	Dropzone.options.myAwesomeDropzone = {
 		      maxFiles: 1,
 		      complete: function() {
