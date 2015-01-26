@@ -94,15 +94,6 @@
     //   s.parentNode.insertBefore(g,s)}(document,'script'));
     </script>
 
-    <script type="text/javascript">
-        Dropzone.options.myAwesomeDropzone = {
-          maxFiles: 1,
-          complete: function() {
-            location.reload();
-          }
-        }
-    </script>
-
     @yield('scripts')
 
     <script>

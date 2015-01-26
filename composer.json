@@ -6,6 +6,7 @@
 	"require": {
 		"laravel/framework": "4.2.*",
 		"way/generators": "~2.0",
+		"orchestra/imagine": "3.0.*@dev"
 	},
 	"autoload": {
 		"classmap": [

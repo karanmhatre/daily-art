@@ -1,5 +1,8 @@
 <?php
 
+use Imagine\Image\Box;
+use Imagine\Image\ImageInterface;
+
 class Art extends Eloquent {
 	public $guarded = array();
 
@@ -45,5 +48,15 @@ class Art extends Eloquent {
 		$endDate = \Carbon\Carbon::create($year, $month, $startDate->daysInMonth);
 		$themes = Theme::with(['art', 'art.user'])->where('date', '>=', $startDate)->where('date', '<=', $endDate)->where('date', '<=', \Carbon\Carbon::today())->paginate(4);
 		return $themes;
+	}
+
+	public static function resizeImage($path)
+	{
+    $image = Imagine::open(public_path() . '/' . $path);
+    $image = $image->resize($image->getSize()->widen(700));
+
+    $destination = public_path() . '/' . $path;
+
+    $image->save($destination);
 	}
 }

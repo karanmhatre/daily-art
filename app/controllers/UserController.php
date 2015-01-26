@@ -20,6 +20,7 @@ class UserController extends \BaseController {
 		$art->user_id = Auth::user()->id;
 		$art->image = uploadFile(Input::file('file'));
 		$art->save();
+		Art::resizeImage($art->image);
 
 		return "true";
 	}

@@ -107,6 +107,7 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
+		'Orchestra\Imagine\ImagineServiceProvider'
 	),
 	/*
 	|--------------------------------------------------------------------------
@@ -168,5 +169,6 @@ return array(
 		'URL'               => 'Illuminate\Support\Facades\URL',
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
+		'Imagine' 					=> 'Orchestra\Imagine\Facade'
 	),
 );
