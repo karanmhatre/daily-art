@@ -19,7 +19,7 @@
 				</form>
 
 				<form action="{{ URL::route('user.upload') }}" method="POST" enctype="multipart/form-data" id="mobile-image-capture">
-					<input type="file" accept="image/*" capture="camera" />
+					<input type="file" accept="image/*" capture="camera" id="capture-field" />
 				</form>
 			@else
 				<hr>
@@ -47,6 +47,11 @@
 	<script type="text/javascript">
 
 		$( document ).ready(function() {
+
+			$('#capture-field').change(function() {
+				$('#mobile-image-capture').submit();
+			});
+
 	    var isMobile = window.matchMedia("only screen and (max-width: 760px)");
 
 	    if (isMobile.matches) {
