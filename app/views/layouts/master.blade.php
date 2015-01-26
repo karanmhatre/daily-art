@@ -67,15 +67,13 @@
 
       <footer>
         <div class="row">
-          <div class="large-12 columns">
-            <div class="small-12 large-6 columns footer-links">
-              <a href="{{ URL::to('request/invite') }}" class="invite-link">Request Invite</a> |
-              <!-- <a href="{{ URL::route('archives.index') }}" class="invite-link">Archives</a> | -->
-              <a href="{{ URL::route('suggestions.new') }}" class="invite-link">Suggest a topic</a>
-            </div>
-            <div class="small-12 large-6 columns">
-              <a href="http://genii.in" class="logo"><img src="{{ URL::asset('img/genii-logo.png')}}" alt="Genii"></a>
-            </div>
+          <div class="small-10 large-6 columns footer-links">
+            <a href="{{ URL::to('request/invite') }}" class="invite-link">Request Invite</a> |
+            <!-- <a href="{{ URL::route('archives.index') }}" class="invite-link">Archives</a> | -->
+            <a href="{{ URL::route('suggestions.new') }}" class="invite-link">Suggest a topic</a>
+          </div>
+          <div class="small-2 large-6 columns">
+            <a href="http://genii.in" class="logo"><img src="{{ URL::asset('img/genii-logo.png')}}" alt="Genii"></a>
           </div>
         </div>
       </footer>

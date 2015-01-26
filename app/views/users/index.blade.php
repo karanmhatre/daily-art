@@ -15,7 +15,11 @@
 		<div class="large-12 columns">
 			@if(is_null($art_today))
 				<form action="{{ URL::route('user.upload') }}" class="dropzone" method="POST" enctype="multipart/form-data" id="my-awesome-dropzone">
-					<input type="file" name="file" />
+					<input type="file" name="file" id="file_upload"/>
+				</form>
+
+				<form action="{{ URL::route('user.upload') }}" method="POST" enctype="multipart/form-data" id="mobile-image-capture">
+					<input type="file" accept="image/*" capture="camera" />
 				</form>
 			@else
 				<hr>
@@ -41,12 +45,23 @@
 @section('scripts')
 
 	<script type="text/javascript">
-      Dropzone.options.myAwesomeDropzone = {
-        maxFiles: 1,
-        complete: function() {
-          location.reload();
-        }
-      }
+
+		$( document ).ready(function() {
+	    var isMobile = window.matchMedia("only screen and (max-width: 760px)");
+
+	    if (isMobile.matches) {
+	    	$('#my-awesome-dropzone').hide();
+	    	$('#mobile-image-capture').show();
+	    }
+	    else {
+	    	Dropzone.options.myAwesomeDropzone = {
+		      maxFiles: 1,
+		      complete: function() {
+		        location.reload();
+		      }
+    		}
+	    }
+	 	});
   </script>
 
 @stop

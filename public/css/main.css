@@ -279,7 +279,7 @@ button:hover, .button:hover {
 }
 
 .item {
-  min-width: 400px;
+  min-width: 350px;
 	width: 33%;
 	margin-top: 5px;
 }
@@ -1092,23 +1092,6 @@ ul.topics {
   border-radius: 3px;
 }
 
-/** =====================
- * Responsive
- ========================*/
-@media only screen and (max-width: 766px) {
-  .comments-container {
-    width: 480px;
-  }
-
-  .comments-list .comment-box {
-    width: 390px;
-  }
-
-  .reply-list .comment-box {
-    width: 320px;
-  }
-}
-
 .comment-bg {
   background-color: #efefef;
   margin-top: 40px;
@@ -1128,7 +1111,7 @@ ul.topics {
 button.btn {
   float: left;
   border-radius: 5px;
-
+  margin-bottom: 0;
   border: none;
   background-color: #000;
   color: #fff;
@@ -1204,5 +1187,101 @@ button.btn {
     -webkit-transform: scale(1.0);
     -moz-transform: scale(1.0);
     opacity: 1.0;
+  }
+}
+
+.show-on-mobile {
+  display: none;
+}
+
+
+/** =====================
+ * Responsive
+ ========================*/
+@media only screen and (max-width: 500px) {
+
+  .hide-on-mobile {
+    display: none !important;
+  }
+
+  .show-on-mobile {
+    display: block;
+  }
+
+  .comments-container {
+    width: 480px;
+  }
+
+  .comments-list .comment-box {
+    width: 390px;
+  }
+
+  .reply-list .comment-box {
+    width: 320px;
+  }
+
+  .item {
+    width: 100%;
+    margin: auto;
+    float: none;
+  }
+
+  .main_heading {
+    font-size: 24px;
+    letter-spacing: 16px;
+  }
+
+  .user-info {
+    margin-top: 20px;
+  }
+
+  .image-details p {
+    padding-top: 10px;
+  }
+
+  .image-stats {
+    text-align: center;
+  }
+
+  .comments-mobile ul {
+    margin: 0;
+  }
+
+  .comments-mobile li {
+    font-size: 14px;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 3px;
+    list-style: none;
+    margin-bottom: 15px;
+    overflow: hidden;
+    border-bottom: 1px solid #ddd;
+  }
+
+  #comment-field {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  .comment-bg {
+    background-color: #fff;
+  }
+
+  .profile-inner-box  {
+    width: 350px;
+    height: 170px;
+    margin-left: -175px;
+  }
+
+  .profile-name {
+    padding: 16px 22px;
+  }
+
+  .logo img {
+    height: auto;
+  }
+
+  #my-awesome-dropzone {
+    overflow: hidden;
   }
 }

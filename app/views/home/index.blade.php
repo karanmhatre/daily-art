@@ -17,7 +17,7 @@
 				</div>
 				<div class="images_container">
 					<ul>
-						@foreach ($theme->art as $art)
+						@foreach ($theme->art()->orderBy('likes', 'DESC')->get() as $art)
 							<li class="item">
 								<div class="item-inner">
 									<a class="item-image-container" href="{{ URL::to('art', $art->id) }}">
@@ -37,7 +37,7 @@
 					          <a href="{{ URL::route('user.profile', [$art->user->id, Str::slug($art->user->name)]) }}">{{ $art->user->name }}</a>
 
 										@if(Auth::check())
-											<a href="javascript:void(0);" data-id="{{ $art->id }}" data-likes="{{ $art->likes }}" class="like-btn heart {{ ((array_search(Auth::user()->id, $art->like_users->lists('user_id')) !== false ) ? 'heart-filled' : 'heart-empty') }}"><i class="fa fa-heart"></i> <span class="likes-count">{{ $art->likes }}</span></a>
+											<a href="javascript:void(0);" data-id="{{ $art->id }}" data-likes="{{ $art->likes }}" class="like-btn heart {{ ((array_search(Auth::user()->id, $art->like_users()->lists('user_id')) !== false ) ? 'heart-filled' : 'heart-empty') }}"><i class="fa fa-heart"></i> <span class="likes-count">{{ $art->likes }}</span></a>
 										@else
 											<a href="javascript:void(0);" class="heart heart-empty"><i class="fa fa-heart"></i> <span class="likes-count">{{ $art->likes }}</span></a>
 										@endif

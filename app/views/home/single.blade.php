@@ -46,18 +46,20 @@
         </div>
       </div>
 			<div class="large-4 columns">
-        <div class="row">
-          <div class="large-4 small-6 columns">
-            @if(empty($art->user->avatar))
-              <a href="{{ URL::route('user.profile', [$art->user->id, Str::slug($art->user->name)]) }}"><img src="{{ URL::asset('img/default-avatar.png') }}" alt="Default avatar" class="rounded"></a>
-            @else
-              <a href="{{ URL::route('user.profile', [$art->user->id, Str::slug($art->user->name)]) }}"><img src="{{ URL::asset($art->user->avatar) }}" alt="{{ $art->user->name }}" class="rounded"></a>
-            @endif
-          </div>
-          <div class="large-8 small-6 columns image-details">
-            <p><span class="theme">{{ $art->theme->theme }}</span> by <a href="{{ URL::route('user.profile', [$art->user->id, Str::slug($art->user->name)]) }}">{{ $art->user->name }}</a><br>
-            {{ date('d M, Y', strtotime($art->theme->date)) }}
-            </p>
+        <div class="user-info">
+          <div class="row">
+            <div class="large-4 small-3 columns">
+              @if(empty($art->user->avatar))
+                <a href="{{ URL::route('user.profile', [$art->user->id, Str::slug($art->user->name)]) }}"><img src="{{ URL::asset('img/default-avatar.png') }}" alt="Default avatar" class="rounded"></a>
+              @else
+                <a href="{{ URL::route('user.profile', [$art->user->id, Str::slug($art->user->name)]) }}"><img src="{{ URL::asset($art->user->avatar) }}" alt="{{ $art->user->name }}" class="rounded"></a>
+              @endif
+            </div>
+            <div class="large-8 small-9 columns image-details">
+              <p><span class="theme">{{ $art->theme->theme }}</span> by <a href="{{ URL::route('user.profile', [$art->user->id, Str::slug($art->user->name)]) }}">{{ $art->user->name }}</a><br>
+              {{ date('d M, Y', strtotime($art->theme->date)) }}
+              </p>
+            </div>
           </div>
         </div>
         @if(!empty($art->caption))
@@ -81,8 +83,8 @@
 		</div>
     <div class="comment-bg">
       <div class="row">
-        <div class="large-8 columns">
-          <div class="comments-container">
+        <div class="large-8 small-12 columns">
+          <div class="comments-container hide-on-mobile">
             <h1>Comments</h1>
             @if(!count($art->comments))
               <div class="empty-section">
@@ -122,6 +124,33 @@
                         <button class="btn btn-primary" id="comment-submit">Comment</button>
                       </div>
                     </div>
+                  </div>
+                </li>
+              @endif
+            </ul>
+          </div>
+          <h2>Comments</h2>
+          <div class="comments-mobile show-on-mobile">
+            @if(!count($art->comments))
+              <div class="empty-section">
+                <p>No comments have been posted yet. Show some love, start a conversation.</p>
+              </div>
+            @endif
+            <ul>
+              <div class="comments-mobile-real">
+                @if(count($art->comments))
+                  @foreach ($art->comments as $comment)
+                    <li>
+                      <a href="{{ URL::route('user.profile', [$comment->user->id, Str::slug($comment->user->name)]) }}">{{ $comment->user->name }}</a> - {{{ $comment->body }}}
+                    </li>
+                  @endforeach
+                @endif
+              </div>
+              @if(Auth::check())
+                <li>
+                  <div>
+                    <textarea name="comment" id="comment-mobile-field" cols="30" rows="15" placeholder="Leave a comment"></textarea>
+                    <button class="btn btn-primary" id="comment-mobile-submit">Comment</button>
                   </div>
                 </li>
               @endif
@@ -201,6 +230,31 @@
       }
 
     });
+
+    $('#comment-submit').click(function() {
+      var value = $('#comment-field').val();
+
+      if(value.trim() != '') {
+        $.post('{{ URL::route("comment") }}', { id : "{{ $art->id }}", body : value }, function(data) {
+          $('.comments-real').append(data);
+          $('#comment-field').val('');
+          $('.comments-real li:last-child').flash();
+        });
+      }
+    });
+
+    $('#comment-mobile-submit').click(function() {
+      var value = $('#comment-mobile-field').val();
+
+      if(value.trim() != '') {
+        $.post('{{ URL::route("comment_mobile") }}', { id : "{{ $art->id }}", body : value }, function(data) {
+          $('.comments-mobile-real').append(data);
+          $('#comment-field').val('');
+          $('.comments-mobile-real li:last-child').flash();
+        });
+      }
+    });
+
   });
   </script>
 @stop

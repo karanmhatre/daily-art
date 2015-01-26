@@ -66,6 +66,24 @@ class ArtController extends BaseController
 
     return View::make('layouts.comment')->with(compact('comment', 'art'));
   }
+
+  public function comment_mobile()
+  {
+    $id = Input::get('id');
+    $body = Input::get('body');
+
+    $comment = Comment::create([
+      'art_id' => $id,
+      'user_id' => Auth::user()->id,
+      'body' => $body
+    ]);
+
+    $art = Art::find($id);
+
+    $layout = '<li><a href="' . URL::route("user.profile", [$comment->user->id, Str::slug($comment->user->name)]) . '">' . $comment->user->name . '</a> - ' . $comment->body . '</li>';
+
+    return $layout;
+  }
 }
 
  ?>

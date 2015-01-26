@@ -52,6 +52,8 @@ Route::group(array('before' => 'auth'), function() {
 
 	Route::post('comment', array('as' => 'comment', 'uses' => 'ArtController@comment'));
 
+	Route::post('comment_mobile', array('as' => 'comment_mobile', 'uses' => 'ArtController@comment_mobile'));
+
 	Route::post('unlike', array('as' => 'unlike', 'uses' => 'ArtController@unlike'));
 });
 

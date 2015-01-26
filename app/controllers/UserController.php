@@ -38,7 +38,7 @@ class UserController extends \BaseController {
 	public function show($id)
 	{
 		$user = User::find($id);
-		$arts = $user->artworks;
+		$arts = $user->artworks()->orderBy('likes', 'DESC')->get();
 
 		//For random background image
 
