@@ -321,6 +321,12 @@ button:hover, .button:hover {
   display: block;
 }
 
+a.theme-meta {
+  display: inline-block;
+  float: left;
+  padding: 10px 0px 15px 10px;
+}
+
 .item-meta a {
   color: #333;
   -webkit-transition: 0.3s;
@@ -349,6 +355,12 @@ button:hover, .button:hover {
 
 .item-meta a.heart:hover {
   color: red;
+}
+
+a.like-btn:hover i {
+  -webkit-animation-name: pulse;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-iteration-count: 2;
 }
 
 .item-meta img {
@@ -410,6 +422,16 @@ a.twitter_share {
   transition: 0.3s;
 }
 
+.pagination ul a.disabled {
+  opacity: 0.4;
+}
+
+.pagination ul a.disabled:hover {
+  background: #ddd;
+  color: #fff;
+  cursor: default;
+}
+
 .pagination ul a:hover, .footer li a:hover
 {
 	color: #fff;
@@ -447,6 +469,8 @@ footer a:hover {
   position:relative;
   display:block;
 }
+
+
 
 .paginate-btn:hover .hover_arrow {
   opacity: 0.8;
@@ -1145,4 +1169,40 @@ button.btn {
 
 .empty-section p {
   margin: 0;
+}
+
+@-webkit-keyframes pulse {
+  from {
+    -webkit-transform: scale(1.0);
+    -moz-transform : scale(1.0);
+    opacity: 1.0;
+  }
+  50% {
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    opacity: 1.0;
+  }
+  to {
+    -webkit-transform: scale(1.0);
+    -moz-transform: scale(1.0);
+    opacity: 1.0;
+  }
+}
+
+@keyframes pulse {
+  from {
+    -webkit-transform: scale(1.0);
+    -moz-transform : scale(1.0);
+    opacity: 1.0;
+  }
+  50% {
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    opacity: 1.0;
+  }
+  to {
+    -webkit-transform: scale(1.0);
+    -moz-transform: scale(1.0);
+    opacity: 1.0;
+  }
 }

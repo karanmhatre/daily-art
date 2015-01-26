@@ -20,7 +20,7 @@
 						@foreach ($theme->art as $art)
 							<li class="item">
 								<div class="item-inner">
-									<a rel="gallery-{{$index}}" class="item-image-container swipebox" href="{{ URL::to('art', $art->id) }}">
+									<a class="item-image-container" href="{{ URL::to('art', $art->id) }}">
 										@if(!empty($art->caption))
 											<div class="item-caption">
 												<p>{{ $art->caption }}</p>
@@ -103,65 +103,19 @@
 
 	<script type="text/javascript">
 
-		// $('.images_container').hide();
+		$('.images_container').each(function() {
+			var $container = $(this);
 
-		// $(window).load(function() {
+			$container.imagesLoaded(function() {
+				$container.masonry({
+	        itemSelector : '.item',
+	        "gutter" : 5
+	   		});
 
-		// 	$('.images_container').fadeIn();
-		// 	$('.loader').hide();
+	   		$container.siblings('.loader').hide();
+	   	});
 
-	 //    $('.images_container').each(function() {
-
-	 //    	$(this).masonry({
-		//        itemSelector : '.item',
-		//        "gutter" : 5
-		//    	});
-
-		// 	});
-		// });
-
-		// $('#content').masonry({
-		//   columnWidth: 320,
-		//   itemSelector: '.item'
-  // 		}).imagesLoaded(function() {
-  //  			$('#content').masonry('reload');
-  // 	});
-
-			$('.images_container').each(function() {
-				var $container = $(this);
-
-				$container.imagesLoaded(function() {
-					$container.masonry({
-		        itemSelector : '.item',
-		        "gutter" : 5
-		   		});
-
-		   		$container.siblings('.loader').hide();
-		   	});
-
-			});
-
-
-		$('.like-btn').click(function() {
-
-      var $this = $(this),
-          likes = parseInt($this.children('.likes-count').html());
-
-      if($this.hasClass('heart-empty'))
-      {
-        $.post("{{ URL::to('like') }}", { id :  $(this).data('id') }, function() {
-          $this.removeClass('heart-empty').addClass('heart-filled');
-          $this.children('.likes-count').html(likes + 1);
-        });
-      }
-      else
-      {
-        $.post("{{ URL::to('unlike') }}", { id :  $(this).data('id') }, function() {
-          $this.removeClass('heart-filled').addClass('heart-empty');
-          $this.children('.likes-count').html(likes - 1);
-        });
-      }
-    });
+		});
 
 	</script>
 

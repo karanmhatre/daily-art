@@ -6,8 +6,12 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Daily Art | Make art, daily.</title>
-    <meta name="description" content="">
+    @if(isset($title))
+      <title>Daily Art | {{ $title }}</title>
+    @else
+      <title>Daily Art | Make art, daily.</title>
+    @endif
+    <meta name="description" content="The idea behind Daily Art is to make something around a daily theme. Be it a sketch, graphic design, photograph, origami, or even a dance interpretation. We want you to get creative!">
     <meta name="viewport" content="width=device-width">
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -130,6 +134,27 @@
         $(this).children('i').removeClass('fa-pencil').addClass('fa-home');
       }, function() {
         $(this).children('i').removeClass('fa-home').addClass('fa-pencil');
+      });
+
+      $('.like-btn').click(function() {
+
+        var $this = $(this),
+            likes = parseInt($this.children('.likes-count').html());
+
+        if($this.hasClass('heart-empty'))
+        {
+          $.post("{{ URL::to('like') }}", { id :  $(this).data('id') }, function() {
+            $this.removeClass('heart-empty').addClass('heart-filled');
+            $this.children('.likes-count').html(likes + 1);
+          });
+        }
+        else
+        {
+          $.post("{{ URL::to('unlike') }}", { id :  $(this).data('id') }, function() {
+            $this.removeClass('heart-filled').addClass('heart-empty');
+            $this.children('.likes-count').html(likes - 1);
+          });
+        }
       });
     </script>
   </body>

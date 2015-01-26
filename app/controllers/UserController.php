@@ -39,10 +39,16 @@ class UserController extends \BaseController {
 	{
 		$user = User::find($id);
 		$arts = $user->artworks;
+
+		//For random background image
+
 		$arts_array = $user->artworks->toArray();
 		$count = count($arts_array) < 3 ? count($arts_array) : 3;
 		$random = rand(0, ($count-1));
-		return View::make('users.profile')->with(compact('arts','user', 'random', 'arts_array'));
+
+		$title = $user->name;
+
+		return View::make('users.profile')->with(compact('arts','user', 'random', 'arts_array', 'title'));
 	}
 
 	public function forgotPassword()

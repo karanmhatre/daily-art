@@ -45,11 +45,24 @@
   			@foreach ($arts as $art)
           <li class="item">
             <div class="item-inner">
-              <a class="single_image swipebox" href="{{ URL::to('art', $art->id) }}">
-                {{ HTML::image($art->image, $art->caption, ['title' => ''] ) }}
+              <a class="item-image-container" href="{{ URL::to('art', $art->id) }}">
+                @if(!empty($art->caption))
+                  <div class="item-caption">
+                    <p>{{ $art->caption }}</p>
+                  </div>
+                @endif
+                {{ HTML::image($art->image, $art->caption) }}
               </a>
+
               <div class="item-meta">
-                {{ $art->theme->theme }}
+                <a href="#" class="theme-meta">{{ $art->theme->theme }}</a>
+
+                @if(Auth::check())
+                  <a href="javascript:void(0);" data-id="{{ $art->id }}" data-likes="{{ $art->likes }}" class="like-btn heart {{ ((array_search(Auth::user()->id, $art->like_users()->lists('user_id')) !== false ) ? 'heart-filled' : 'heart-empty') }}"><i class="fa fa-heart"></i> <span class="likes-count">{{ $art->likes }}</span></a>
+                @else
+                  <a href="javascript:void(0);" class="heart heart-empty"><i class="fa fa-heart"></i> <span class="likes-count">{{ $art->likes }}</span></a>
+                @endif
+
               </div>
             </div>
           </li>
