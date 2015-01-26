@@ -1284,4 +1284,27 @@ button.btn {
   #my-awesome-dropzone {
     overflow: hidden;
   }
+
+  #mobile-image-capture {
+    padding: 10px;
+    border: 1px dashed #ccc;
+  }
+
+  #mobile-image-gallery {
+    padding: 10px;
+    border: 1px dashed #ccc;
+  }
+
+  #mobile-image-capture label, #mobile-image-gallery label {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  #mobile-image-capture i, #mobile-image-gallery i {
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 54px;
+    color: #ddd;
+    text-align: center;
+  }
 }

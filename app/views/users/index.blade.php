@@ -17,17 +17,16 @@
 				<form action="{{ URL::route('user.upload') }}" class="dropzone" method="POST" enctype="multipart/form-data" id="my-awesome-dropzone">
 					<input type="file" name="file" id="file_upload"/>
 				</form>
-
 				<div class="row">
 					<div class="small-6 columns">
 						<form action="{{ URL::route('user.upload') }}" method="POST" enctype="multipart/form-data" id="mobile-image-capture">
-							<label>Take a Photo</label>
+							<label for="capture-field"><i class="fa fa-camera"></i><br>Take a Photo</label>
 							<input type="file" name="file" accept="image/*" capture="camera" id="capture-field" />
 						</form>
 					</div>
 					<div class="small-6 columns">
 						<form action="{{ URL::route('user.upload') }}" method="POST" enctype="multipart/form-data" id="mobile-image-gallery">
-							<label>Upload from Gallery</label>
+							<label for="mobile-upload-field"><i class="fa fa-picture-o"></i><br>Upload from Gallery</label>
 							<input type="file" name="file" accept="image/*" id="mobile-upload-field" />
 						</form>
 					</div>

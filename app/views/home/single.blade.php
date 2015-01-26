@@ -210,6 +210,7 @@
 
       if(value.trim() != '') {
         $.post('{{ URL::route("comment") }}', { id : "{{ $art->id }}", body : value }, function(data) {
+          $('.empty-section').hide();
           $('.comments-real').append(data);
           $('#comment-field').val('');
           $('.comments-real li:last-child').flash();
@@ -222,7 +223,9 @@
       var value = $('#comment-field').val();
 
       if(e.keyCode == 13 && value.trim() != '') {
+
         $.post('{{ URL::route("comment") }}', { id : "{{ $art->id }}", body : value }, function(data) {
+          $('.empty-section').hide();
           $('.comments-real').append(data);
           $('#comment-field').val('');
           $('.comments-real li:last-child .comment-box .comment-content').flash();
@@ -236,6 +239,7 @@
 
       if(value.trim() != '') {
         $.post('{{ URL::route("comment") }}', { id : "{{ $art->id }}", body : value }, function(data) {
+          $('.empty-section').hide();
           $('.comments-real').append(data);
           $('#comment-field').val('');
           $('.comments-real li:last-child').flash();
@@ -248,6 +252,7 @@
 
       if(value.trim() != '') {
         $.post('{{ URL::route("comment_mobile") }}', { id : "{{ $art->id }}", body : value }, function(data) {
+          $('.empty-section').hide();
           $('.comments-mobile-real').append(data);
           $('#comment-field').val('');
           $('.comments-mobile-real li:last-child').flash();
