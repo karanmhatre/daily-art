@@ -80,7 +80,7 @@ return array(
 	|
 	*/
 
-	'username' => 'bladefury3@gmail.com',
+	'username' => 'karan@onesquarepixel.com',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return array(
 	|
 	*/
 
-	'password' => 'IbK3lf3ihCe4zlQSnH02Tg',
+	'password' => 'VzF9JUmEVCCqzhSoIewx7Q',
 
 	/*
 	|--------------------------------------------------------------------------

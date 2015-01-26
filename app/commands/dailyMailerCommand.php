@@ -38,16 +38,19 @@ class dailyMailerCommand extends Command {
 	public function fire()
 	{
 		$theme = Theme::today()->theme;
-		$arts = Art::where('theme_id', Theme::today()->id - 1)->take(5)->get();
-		$users = User::all();
+		$arts = Art::where('theme_id', Theme::today()->id)->orderBy('likes','DESC')->take(3)->get();
+
+		$users = User::where('id', '=', '1')->get();
+
 		foreach ($users as $key => $user) {
 			$data['arts'] = $arts;
 			$data['name'] = $user->name;
 			$data['email'] = $user->email;
 			$data['theme'] = $theme;
 			Mail::send('emails.reminder', $data, function($message) use ($data){
-	      $message->to($data['email'], $data['name'])->subject($data['theme'] . ': Topic for today');
-	    });					
+	      $message->to($data['email'], $data['name'])->subject('Topic for today - ' . $data['theme']);
+	    });
+	    $this->line('Mail sent.');
 		}
 	}
 

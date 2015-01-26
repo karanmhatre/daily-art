@@ -103,22 +103,44 @@
 
 	<script type="text/javascript">
 
-		$('.images_container').hide();
+		// $('.images_container').hide();
 
-		$(window).load(function() {
+		// $(window).load(function() {
 
-			$('.images_container').fadeIn();
-			$('.loader').hide();
+		// 	$('.images_container').fadeIn();
+		// 	$('.loader').hide();
 
-	    $('.images_container').each(function() {
+	 //    $('.images_container').each(function() {
 
-	    	$(this).masonry({
-		       itemSelector : '.item',
-		       "gutter" : 5
+	 //    	$(this).masonry({
+		//        itemSelector : '.item',
+		//        "gutter" : 5
+		//    	});
+
+		// 	});
+		// });
+
+		// $('#content').masonry({
+		//   columnWidth: 320,
+		//   itemSelector: '.item'
+  // 		}).imagesLoaded(function() {
+  //  			$('#content').masonry('reload');
+  // 	});
+
+			$('.images_container').each(function() {
+				var $container = $(this);
+
+				$container.imagesLoaded(function() {
+					$container.masonry({
+		        itemSelector : '.item',
+		        "gutter" : 5
+		   		});
+
+		   		$container.siblings('.loader').hide();
 		   	});
 
 			});
-		});
+
 
 		$('.like-btn').click(function() {
 
