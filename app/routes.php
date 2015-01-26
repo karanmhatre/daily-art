@@ -49,6 +49,9 @@ Route::group(array('before' => 'auth'), function() {
 	Route::post('suggestions', array('uses' => 'SuggestionsController@store', 'as' => 'suggestions.store'));
 
 	Route::post('like', array('as' => 'like', 'uses' => 'ArtController@like'));
+
+	Route::post('comment', array('as' => 'comment', 'uses' => 'ArtController@comment'));
+
 	Route::post('unlike', array('as' => 'unlike', 'uses' => 'ArtController@unlike'));
 });
 

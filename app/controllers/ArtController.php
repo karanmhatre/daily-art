@@ -6,9 +6,9 @@
 class ArtController extends BaseController
 {
 
-	function show($id)
+	public function show($id)
 	{
-		$art = Art::with('theme')->find($id);
+		$art = Art::with('theme')->with('user')->with('like_users')->with('comments')->find($id);
 
     $theme = $art->theme->id;
 
@@ -25,7 +25,7 @@ class ArtController extends BaseController
 		return View::make('home.single', compact('art', 'prev', 'next', 'liked'));
 	}
 
-  function like()
+  public function like()
   {
     $id = Input::get('id');
 
@@ -38,7 +38,7 @@ class ArtController extends BaseController
     return "true";
   }
 
-  function unlike()
+  public function unlike()
   {
     $id = Input::get('id');
 
@@ -49,6 +49,22 @@ class ArtController extends BaseController
     $art->save();
 
     return "true";
+  }
+
+  public function comment()
+  {
+    $id = Input::get('id');
+    $body = Input::get('body');
+
+    $comment = Comment::create([
+      'art_id' => $id,
+      'user_id' => Auth::user()->id,
+      'body' => $body
+    ]);
+
+    $art = Art::find($id);
+
+    return View::make('layouts.comment')->with(compact('comment', 'art'));
   }
 }
 

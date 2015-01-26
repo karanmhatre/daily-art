@@ -9,11 +9,11 @@
 
 
   <!-- for Facebook -->
-  <meta property="og:title" content="'{{ $art->theme->theme }}' by {{ $art->user->name }}" />
+  <meta property="og:title" content="'Daily Art for {{ date('d M, Y', strtotime($art->theme->date)) }} on '{{ $art->theme->name }}' by {{ $art->user->name }}." />
   <meta property="og:type" content="article" />
   <meta property="og:image" content="{{ URL::asset($art->image) }}" />
   <meta property="og:url" content="{{URL::route('art.show', [$art->id])}}" />
-  <meta property="og:description" content="Daily Art for {{ date('d M, Y', strtotime($art->theme->date)) }} on '{{ $art->theme->name }}' by {{ $art->user->name }}." />
+  <meta property="og:description" content="{{ $art->caption }}" />
 
   <!-- for Twitter -->
   <meta name="twitter:card" content="summary" />
@@ -30,7 +30,7 @@
     </div>
   @endif
 
-	<div class="day_container">
+	<div class="margin-top">
 		<div class="row">
       <div class="large-8 columns">
         <div class="single-image">
@@ -79,7 +79,58 @@
         <a class="twitter_share share_btn" href="http://twitter.com/share?url={{URL::route('art.show', [$art->id])}}&text=Daily Art submission by {{ $art->user->name }}&hashtags=dailyart, genii" target="_blank">Tweet karo</a>
 			</div>
 		</div>
-	</div>
+    <div class="comment-bg">
+      <div class="row">
+        <div class="large-8 columns">
+          <div class="comments-container">
+            <h1>Comments</h1>
+            @if(!count($art->comments))
+              <div class="empty-section">
+                <p>No comments have been posted yet. Show some love, start a conversation.</p>
+              </div>
+            @endif
+            <ul class="comments-list">
+              <div class="comments-real">
+                @if(count($art->comments))
+                  @foreach ($art->comments as $comment)
+                    @include('layouts.comment')
+                  @endforeach
+                @endif
+              </div>
+
+              @if(Auth::check())
+                <li>
+                  <div class="comment-main-level">
+                    <div class="comment-avatar">
+                      @if(empty(Auth::user()->avatar))
+                        <img src="{{ URL::asset('img/default-avatar.png') }}" alt="Default avatar">
+                      @else
+                        <img src="{{ URL::asset(Auth::user()->avatar) }}" alt="{{ Auth::user()->name }}">
+                      @endif
+                    </div>
+                    <div class="comment-box">
+                      <div class="comment-head">
+                        <h6 class="comment-name
+                          @if(Auth::user()->id == $art->user->id)
+                            by-author
+                          @endif
+                        "><a href="http://creaticode.com/blog">{{ Auth::user()->name }}</a></h6>
+                        <span>Add a new comment</span>
+                      </div>
+                      <div class="comment-content">
+                        <textarea name="comment" id="comment-field" cols="30" rows="15"></textarea>
+                        <button class="btn btn-primary" id="comment-submit">Comment</button>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              @endif
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 @stop
 
 @section('scripts')
@@ -95,6 +146,13 @@
   </script>
 
   <script>
+
+  $.fn.extend({
+    flash: function () {
+      var $this = $(this);
+      $this.addClass('animate-flash');
+    }
+  });
 
   $(function() {
     $('.like-btn').click(function() {
@@ -116,6 +174,32 @@
           $('.likes-count').html(likes - 1);
         });
       }
+    });
+
+    $('#comment-submit').click(function() {
+      var value = $('#comment-field').val();
+
+      if(value.trim() != '') {
+        $.post('{{ URL::route("comment") }}', { id : "{{ $art->id }}", body : value }, function(data) {
+          $('.comments-real').append(data);
+          $('#comment-field').val('');
+          $('.comments-real li:last-child').flash();
+        });
+      }
+    });
+
+    $('#comment-field').keyup(function(e){
+
+      var value = $('#comment-field').val();
+
+      if(e.keyCode == 13 && value.trim() != '') {
+        $.post('{{ URL::route("comment") }}', { id : "{{ $art->id }}", body : value }, function(data) {
+          $('.comments-real').append(data);
+          $('#comment-field').val('');
+          $('.comments-real li:last-child .comment-box .comment-content').flash();
+        });
+      }
+
     });
   });
   </script>

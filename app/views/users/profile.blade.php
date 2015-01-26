@@ -48,27 +48,73 @@
               <a class="single_image swipebox" href="{{ URL::to('art', $art->id) }}">
                 {{ HTML::image($art->image, $art->caption, ['title' => ''] ) }}
               </a>
-              <a class="item-meta" href="#">
+              <div class="item-meta">
                 {{ $art->theme->theme }}
-              </a>
+              </div>
             </div>
           </li>
   			@endforeach
   		</ul>
   	</div>
+    <div class="loader">
+      <div class="cube">
+        <div class="plane-1">
+          <div class="top-left"></div>
+          <div class="top-middle"></div>
+          <div class="top-right"></div>
+          <div class="middle-left"></div>
+          <div class="middle-middle"></div>
+          <div class="middle-right"></div>
+          <div class="bottom-left"></div>
+          <div class="bottom-middle"></div>
+          <div class="bottom-right"></div>
+        </div>
+        <div class="plane-2">
+          <div class="top-left"></div>
+          <div class="top-middle"></div>
+          <div class="top-right"></div>
+          <div class="middle-left"></div>
+          <div class="middle-middle"></div>
+          <div class="middle-right"></div>
+          <div class="bottom-left"></div>
+          <div class="bottom-middle"></div>
+          <div class="bottom-right"></div>
+        </div>
+        <div class="plane-3">
+          <div class="top-left"></div>
+          <div class="top-middle"></div>
+          <div class="top-right"></div>
+          <div class="middle-left"></div>
+          <div class="middle-middle"></div>
+          <div class="middle-right"></div>
+          <div class="bottom-left"></div>
+          <div class="bottom-middle"></div>
+          <div class="bottom-right"></div>
+        </div>
+      </div>
+    </div>
 @stop
 
 @section('scripts')
 
 	<script type="text/javascript">
-		$(window).load(function() {
-	    $('.images_container').each(function() {
-				$(this).masonry({
-				  itemSelector: '.item',
-				  "gutter": 5
-				});
-			});
-		});
+
+    $('.images_container').hide();
+
+    $(window).load(function() {
+
+      $('.images_container').fadeIn();
+      $('.loader').hide();
+
+      $('.images_container').each(function() {
+
+        $(this).masonry({
+           itemSelector : '.item',
+           "gutter" : 5
+        });
+
+      });
+    });
 
 	</script>
 

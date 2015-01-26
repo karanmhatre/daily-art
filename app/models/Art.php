@@ -18,6 +18,11 @@ class Art extends Eloquent {
 		return $this->hasMany('LikeUser');
 	}
 
+	public function comments()
+	{
+		return $this->hasMany('Comment');
+	}
+
 	public static function today()
 	{
 		$today_date = date('H') < 3 ? date('Y-m-d', strtotime('-1 day')) : date('Y-m-d');
