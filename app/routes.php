@@ -63,3 +63,4 @@ Route::group(array('prefix' => 'admin', 'before' => 'admin.auth'), function(){
 	Route::get('suggestions', array('uses' => 'SuggestionsController@index', 'as' => 'suggestions.index'));
 	Route::post('suggestion/{id}', array('uses' => 'SuggestionsController@delete', 'as' => 'suggestions.delete'));
 });
+
