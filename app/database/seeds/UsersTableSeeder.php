@@ -12,25 +12,29 @@ class UsersTableSeeder extends Seeder {
 				'email' => 'karan@genii.in',
 				'name' => 'Karan',
 				'password' => Hash::make('acer321'),
-				'avatar' => 'img/test/dp-1.jpg'
+				'avatar' => 'img/test/dp-1.jpg',
+				'created_at' => date('Y-m-d H:i:s')
 			),
 			array(
 				'email' => 'deven@genii.in',
 				'name' => 'Deven',
 				'password' => Hash::make('peQ7Oe7Z'),
-				'avatar' => 'img/test/dp-2.jpg'
+				'avatar' => 'img/test/dp-2.jpg',
+				'created_at' => date('Y-m-d H:i:s')
 			),
 			array(
 				'email' => 'tarun@genii.in',
 				'name' => 'Tarun',
 				'password' => Hash::make('28W163yU'),
-				'avatar' => null
+				'avatar' => null,
+				'created_at' => date('Y-m-d H:i:s')
 			),
 			array(
 				'email' => 'sidharath@genii.in',
 				'name' => 'Sidhu',
 				'password' => Hash::make('ULQ1JA2c'),
-				'avatar' => 'img/test/dp-3.jpg'
+				'avatar' => 'img/test/dp-3.jpg',
+				'created_at' => date('Y-m-d H:i:s')
 			)
 		);
 
