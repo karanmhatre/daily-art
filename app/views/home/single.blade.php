@@ -184,26 +184,6 @@
   });
 
   $(function() {
-    $('.like-btn').click(function() {
-
-      var $this = $(this),
-          likes = parseInt($('.likes-count').html());
-
-      if($this.hasClass('heart-empty'))
-      {
-        $.post("{{ URL::to('like') }}", { id :  $(this).data('id') }, function() {
-          $this.removeClass('heart-empty').addClass('heart-filled');
-          $('.likes-count').html(likes + 1);
-        });
-      }
-      else
-      {
-        $.post("{{ URL::to('unlike') }}", { id :  $(this).data('id') }, function() {
-          $this.removeClass('heart-filled').addClass('heart-empty');
-          $('.likes-count').html(likes - 1);
-        });
-      }
-    });
 
     $('#comment-submit').click(function() {
       var value = $('#comment-field').val();
@@ -234,19 +214,6 @@
 
     });
 
-    $('#comment-submit').click(function() {
-      var value = $('#comment-field').val();
-
-      if(value.trim() != '') {
-        $.post('{{ URL::route("comment") }}', { id : "{{ $art->id }}", body : value }, function(data) {
-          $('.empty-section').hide();
-          $('.comments-real').append(data);
-          $('#comment-field').val('');
-          $('.comments-real li:last-child').flash();
-        });
-      }
-    });
-
     $('#comment-mobile-submit').click(function() {
       var value = $('#comment-mobile-field').val();
 
@@ -254,7 +221,7 @@
         $.post('{{ URL::route("comment_mobile") }}', { id : "{{ $art->id }}", body : value }, function(data) {
           $('.empty-section').hide();
           $('.comments-mobile-real').append(data);
-          $('#comment-field').val('');
+          $('#comment-mobile-field').val('');
           $('.comments-mobile-real li:last-child').flash();
         });
       }
