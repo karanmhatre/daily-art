@@ -22,7 +22,7 @@ class UserController extends \BaseController {
 		$art->save();
 		Art::resizeImage($art->image);
 
-		return "true";
+		return Redirect::back();
 	}
 
 	public function change($id)
