@@ -19,7 +19,7 @@
 				</form>
 
 				<form action="{{ URL::route('user.upload') }}" method="POST" enctype="multipart/form-data" id="mobile-image-capture">
-					<input type="file" accept="image/*" capture="camera" id="capture-field" />
+					<input type="file" name="file" accept="image/*" capture="camera" id="capture-field" />
 				</form>
 			@else
 				<hr>
