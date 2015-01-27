@@ -18,7 +18,7 @@
   <!-- for Twitter -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="{{ $art->theme->theme }}'s by {{ $art->user->name }}" />
-  <meta name="twitter:description" content="Here's my Daily Art submission for {{ $art->theme->name }}'. #dailyArt" />
+  <meta name="twitter:description" content="Here's my Daily Art submission for {{ $art->theme->name }}. #dailyArt" />
   <meta name="twitter:image" content="{{ URL::asset($art->image) }}" />
 @stop
 
