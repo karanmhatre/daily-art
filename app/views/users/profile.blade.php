@@ -45,14 +45,29 @@
   			@foreach ($arts as $art)
           <li class="item">
             <div class="item-inner">
-              <a class="item-image-container" href="{{ URL::to('art', $art->id) }}">
+              <div class="grid">
+                <figure class="effect-sadie">
+                  {{ HTML::image($art->image, $art->caption) }}
+                  <figcaption>
+
+                    @if(!empty($art->caption))
+                        <p>{{ $art->caption }}</p>
+
+                    @endif
+                    <a href="{{ URL::to('art', $art->id) }}">View more</a>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="clearfix"></div>
+
+<!--               <a class="item-image-container" href="{{ URL::to('art', $art->id) }}">
                 @if(!empty($art->caption))
                   <div class="item-caption">
                     <p>{{ $art->caption }}</p>
                   </div>
                 @endif
                 {{ HTML::image($art->image, $art->caption) }}
-              </a>
+              </a> -->
 
               <div class="item-meta">
                 <a href="#" class="theme-meta">{{ $art->theme->theme }}</a>
