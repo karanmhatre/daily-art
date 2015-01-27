@@ -84,7 +84,7 @@
 								<div class="bottom-right"></div>
 							</div>
 						</div>
-					</div>
+				</div>
 			</div>
 		@endif
 	@endforeach
