@@ -73,11 +73,11 @@
 				<form action="{{ URL::route('updateCaption') }}" method="POST">
 					<div class="row">
 						<div class="large-10 columns">
-							<label for=""><b>Caption</b></label>
-							<input type="text" name="caption" placeholder="Add a caption to your artwork" value="{{ $art_today->caption }}"/>
+							<label for="caption"><b>Caption</b></label>
+							<input type="text" id="caption" name="caption" placeholder="Add a caption to your artwork" value="{{ $art_today->caption }}"/>
 						</div>
 						<div class="large-2 columns">
-							<button type="submit">Save</button>
+							<button type="submit" class="btn margin-top-sm">Save</button>
 						</div>
 					</div>
 				</form>

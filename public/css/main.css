@@ -57,7 +57,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  color: #fff;
+  color: #999;
   background-color: #333;
 }
 
@@ -746,7 +746,7 @@ footer a:hover {
 }
 
 .controls {
-  opacity: 0.2;
+  opacity: 0.4;
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
@@ -755,7 +755,8 @@ footer a:hover {
 .controls a {
   position: absolute;
   display: block;
-  padding: 20px 10px;
+  padding: 30px 15px;
+  font-size: 24px;
   background-color: rgba(0, 0, 0, 1);
   opacity: 0.8;
   color: #FFF;
@@ -1114,6 +1115,10 @@ ul.topics {
 
 .margin-top {
   margin-top: 40px;
+}
+
+.margin-top-sm {
+  margin-top: 22px;
 }
 
 #comment-field {

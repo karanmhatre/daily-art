@@ -36,13 +36,16 @@
         <nav>
           <ul>
             <li>
-              <a href="{{ URL::to('login') }}">Submission</a>
               @if(Auth::user())
                 @if( Request::segment('2') == Auth::user()->id && Request::segment('1') == "users")
+                  <a href="{{ URL::to('user') }}">Submit Art</a>
                   <a href="{{ URL::route('users.edit.profile', Auth::user()->id) }}">Edit Profile</a>
                 @else
+                  <a href="{{ URL::to('user') }}">Submit Art</a>
                   <a href="{{ URL::route('user.profile', Auth::user()->id) }}">View Profile</a>
                 @endif
+              @else
+                <a href="{{ URL::to('login') }}">Login</a>
               @endif
             </li>
           </ul>

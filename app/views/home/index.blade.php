@@ -24,14 +24,12 @@
 									<div class="grid">
 										<figure class="effect-sadie">
 											{{ HTML::image($art->image, $art->caption) }}
-											<figcaption>
-
-												@if(!empty($art->caption))
-														<p>{{ $art->caption }}</p>
-
-												@endif
-												<a href="{{ URL::to('art', $art->id) }}">View more</a>
-											</figcaption>
+											@if(!empty($art->caption))
+												<figcaption>
+													<p>{{ $art->caption }}</p>
+												</figcaption>
+											@endif
+											<a href="{{ URL::to('art', $art->id) }}">View more</a>
 										</figure>
 									</div>
 									<div class="clearfix"></div>

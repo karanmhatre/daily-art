@@ -19,7 +19,7 @@ class ArtsTableSeeder extends Seeder {
       array(
         'user_id' => '2',
         'likes' => '2',
-        'caption' => 'Lorem ipsum something someone. This is a caption text.',
+        'caption' => null,
         'theme_id' => '1',
         'image' => 'img/test/2.jpg',
         'created_at' => date('Y-m-d H:i:s', strtotime("+1 hours"))

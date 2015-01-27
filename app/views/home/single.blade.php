@@ -129,8 +129,8 @@
               @endif
             </ul>
           </div>
-          <h2>Comments</h2>
           <div class="comments-mobile show-on-mobile">
+            <h2>Comments</h2>
             @if(!count($art->comments))
               <div class="empty-section">
                 <p>No comments have been posted yet. Show some love, start a conversation.</p>

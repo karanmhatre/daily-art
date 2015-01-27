@@ -40,7 +40,7 @@ class dailyMailerCommand extends Command {
 		$theme = Theme::today()->theme;
 		$arts = Art::where('theme_id', Theme::today()->id)->orderBy('likes','DESC')->take(3)->get();
 
-		$users = User::where('id', '=', '1')->get();
+		$users = User::get();
 
 		foreach ($users as $key => $user) {
 			$data['arts'] = $arts;
@@ -50,7 +50,6 @@ class dailyMailerCommand extends Command {
 			Mail::send('emails.reminder', $data, function($message) use ($data){
 	      $message->to($data['email'], $data['name'])->subject('Topic for today - ' . $data['theme']);
 	    });
-	    $this->line('Mail sent.');
 		}
 	}
 
