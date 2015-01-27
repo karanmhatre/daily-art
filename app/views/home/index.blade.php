@@ -15,19 +15,26 @@
 						<h3 class="date"> {{ date('d M, Y', strtotime($theme->date)) }} | <span class="theme">{{ $theme->theme }}</span></h3>
 					</div>
 				</div>
+
 				<div class="images_container">
 					<ul>
 						@foreach ($theme->art()->orderBy('likes', 'DESC')->get() as $art)
 							<li class="item">
 								<div class="item-inner">
-									<a class="item-image-container" href="{{ URL::to('art', $art->id) }}">
-										@if(!empty($art->caption))
-											<div class="item-caption">
-												<p>{{ $art->caption }}</p>
-											</div>
-										@endif
-										{{ HTML::image($art->image, $art->caption) }}
-									</a>
+									<div class="grid">
+										<figure class="effect-sadie">
+											{{ HTML::image($art->image, $art->caption) }}
+											<figcaption>
+
+												@if(!empty($art->caption))
+														<p>{{ $art->caption }}</p>
+
+												@endif
+												<a href="{{ URL::to('art', $art->id) }}">View more</a>
+											</figcaption>
+										</figure>
+									</div>
+									<div class="clearfix"></div>
 									<div class="item-meta">
 										@if(empty($art->user->avatar))
 					            <img src="{{ URL::asset('img/default-avatar.png') }}" alt="Default avatar">
@@ -84,7 +91,7 @@
 								<div class="bottom-right"></div>
 							</div>
 						</div>
-					</div>
+				</div>
 			</div>
 		@endif
 	@endforeach

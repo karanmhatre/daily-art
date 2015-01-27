@@ -21,6 +21,7 @@
     {{ HTML::style('css/font-awesome.min.css') }}
     {{ HTML::style('css/dropzone.css') }}
     {{ HTML::style('css/swipebox.min.css') }}
+    {{ HTML::style('css/hover-effect.css') }}
 
     {{ HTML::style('css/main.css') }}
     @yield('meta-tags')

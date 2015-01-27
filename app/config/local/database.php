@@ -23,9 +23,9 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'daily-art',
+			'database'  => 'daily_art',
 			'username'  => 'root',
-			'password'  => '',
+			'password'  => 'Qwerty123!',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
