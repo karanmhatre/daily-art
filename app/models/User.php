@@ -187,4 +187,16 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 			$this->update(['avatar' => uploadFile(Input::file('avatar'))]);
 		return true;
 	}
+	
+	public function hasArtToday()
+	{
+		if(!is_null($this->artworks->last())){
+			if($this->artworks->last()->theme_id == Theme::today()->id)
+				return true;
+			else
+				return false;
+		}
+		else
+			return false;
+	}
 }
