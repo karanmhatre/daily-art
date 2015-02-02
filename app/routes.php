@@ -60,6 +60,7 @@ Route::group(array('before' => 'auth'), function() {
 Route::group(array('prefix' => 'admin', 'before' => 'admin.auth'), function(){
 	Route::get('/', array('uses' => 'AdminController@invitePage', 'as' => 'get.user.invite'));
 	Route::post('user/invite', array('uses' => 'AdminController@inviteUser', 'as' => 'store.user.invite'));
+	Route::get('user/invite/{id}', array('uses' => 'AdminController@directInvite', 'as' => 'admin.invite.direct'));
 	Route::get('topics', array('uses' => 'TopicController@index', 'as' => 'topics.index'));
 	Route::post('topics', array('uses' => 'TopicController@store', 'as' => 'topics.store'));
 	Route::get('suggestions', array('uses' => 'SuggestionsController@index', 'as' => 'suggestions.index'));

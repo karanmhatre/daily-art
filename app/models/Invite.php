@@ -34,4 +34,14 @@ class Invite extends Eloquent {
 		else
 			return true;
 	}
+
+	public function invited()
+	{
+		$invited = User::checkUser($this->email);
+		if(!$invited)
+			return "<i class='fa fa-check'></i>";
+		else
+			return "<a href=".URL::route('admin.invite.direct', $this->id) ." class='pure-button'>Invite</a>";
+
+	}
 }
