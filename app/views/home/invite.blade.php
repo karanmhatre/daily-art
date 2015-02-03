@@ -11,7 +11,7 @@
     @endforeach
   </div>
   <div class="row">
-    <div class="small-6 large-centered columns" id="login-container">
+    <div class="large-6 small-12 large-centered columns" id="login-container">
       <h2>Request an Invite</h2>
 
       {{ Form::open(array('route' => 'user.storeInvite','files' => 'true')) }}

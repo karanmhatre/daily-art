@@ -42,9 +42,17 @@ nav ul{
   overflow: hidden;
 }
 
+li.right-links a {
+  padding: 14px;
+}
+
+li.right-links a:last-child {
+  border-left: 1px solid #666;
+}
+
 nav ul li a {
   font-weight: 500;
-  font-size: 13px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 1px;
   padding: 10px;
@@ -54,6 +62,7 @@ nav ul li a {
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
+  border-right: 1px solid #666;
 }
 
 nav ul li a:hover {
@@ -67,20 +76,21 @@ body {
 }
 
 h1{
-  font-/*f*/amily: 'Raleway', sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 .main_heading {
-	font-size: 44px;
-	letter-spacing: 34px;
+	font-size: 16px;
+  float: left;
+	letter-spacing: 10px;
 	font-weight: 800;
 	text-transform: uppercase;
 	text-align: center;
-	color: #333;
-	padding: 18px 0px;
+	color: #fff;
+  border: 0;
 	margin-bottom: 0px;
-	border-bottom: 1px dashed #ccc;
 	transition: 0.3s;
+  margin-left: 10px;
 }
 
 .main_heading .fa {
@@ -93,7 +103,7 @@ h1{
 }
 
 .main_heading:hover .fa {
-	color: #333;
+	color: #fff;
 }
 
 h3.date {
@@ -745,6 +755,28 @@ footer a:hover {
   border: none;
 }
 
+.message-box {
+  margin-bottom: 0;
+  text-align: left;
+  background-color: #FFC200;
+  font-size: 14px;
+  padding: 30px;
+  color: #333;
+  border: none;
+  overflow: hidden;
+}
+
+.message-box p {
+  margin: 0;
+  width: 80%;
+  float: left;
+}
+
+.message-box p a {
+  border-bottom: 1px dashed #333;
+  color: #333;
+}
+
 .controls {
   opacity: 0.4;
   -webkit-transition: 0.3s;
@@ -1139,6 +1171,27 @@ button.btn {
   padding: 10px 15px;
 }
 
+.close-btn {
+  padding: 8px;
+  text-align: center;
+  background-color: #DFAA03;
+  color: #fff;
+  border-radius: 40px;
+  width: 30px;
+  height: 30px;
+  display: block;
+  float: right;
+  box-sizing: border-box;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.close-btn:hover {
+  color: #fff;
+  background-color: #999;
+}
+
 .animate-flash {
   animation: flash 1s ease-out;
   -webkit-animation: flash 1s ease-out;
@@ -1246,7 +1299,33 @@ button.btn {
     float: none;
   }
 
+  .right-links {
+    margin: auto;
+    float: none;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+  }
+
+  .message-box p {
+    font-size: 13px;
+  }
+
+  .right-links a {
+    display: inline-block;
+    float: none;
+    margin-left: -6px;
+    padding: 10px;
+    font-size: 10px;
+  }
+
+  .right-links a:last-child {
+    border-right: 0px;
+  }
+
   .main_heading {
+    text-align: center;
+    float: none;
     font-size: 24px;
     letter-spacing: 16px;
   }
@@ -1326,5 +1405,9 @@ button.btn {
     font-size: 54px;
     color: #ddd;
     text-align: center;
+  }
+
+  .invite-bg {
+   display: none;
   }
 }

@@ -35,22 +35,19 @@
       <header>
         <nav>
           <ul>
-            <li>
-              @if(Auth::user())
-                @if( Request::segment('2') == Auth::user()->id && Request::segment('1') == "users")
-                  <a href="{{ URL::to('user') }}">Submit Art</a>
-                  <a href="{{ URL::route('users.edit.profile', Auth::user()->id) }}">Edit Profile</a>
-                @else
-                  <a href="{{ URL::to('user') }}">Submit Art</a>
-                  <a href="{{ URL::route('user.profile', Auth::user()->id) }}">View Profile</a>
-                @endif
+            <li><a href="{{ URL::to('/') }}" class="main_heading">Daily<i class="fa fa-pencil"></i>Art</a></li>
+            <li class="right-links">
+              @if(Auth::check())
+                <a href="{{ URL::route('suggestions.new') }}" class="invite-link" alt="Suggest a topic for the day">Suggest a topic</a>
+                <a href="{{ URL::to('user') }}">Submit Art</a>
+                <a href="{{ URL::route('users.edit.profile', Auth::user()->id) }}">Edit Profile</a>
               @else
+                <a href="{{ URL::to('request/invite') }}" class="invite-link" alt="Request an invite to become a member">Request Invite</a>
                 <a href="{{ URL::to('login') }}">Login</a>
               @endif
             </li>
           </ul>
         </nav>
-        <a href="{{ URL::to('/') }}"><h1 class="main_heading">Daily<i class="fa fa-pencil"></i>Art</h1></a>
       </header>
 
       <div id="content">
@@ -72,9 +69,7 @@
       <footer>
         <div class="row">
           <div class="small-10 large-6 columns footer-links">
-            <a href="{{ URL::to('request/invite') }}" class="invite-link">Request Invite</a> |
-            <!-- <a href="{{ URL::route('archives.index') }}" class="invite-link">Archives</a> | -->
-            <a href="{{ URL::route('suggestions.new') }}" class="invite-link">Suggest a topic</a>
+            Daily Art
           </div>
           <div class="small-2 large-6 columns">
             <a href="http://genii.in" class="logo"><img src="{{ URL::asset('img/genii-logo.png')}}" alt="Genii"></a>
@@ -122,6 +117,10 @@
           version    : 'v2.2'
         });
       };
+
+      $('.close-btn').click(function() {
+        $('.message-box').slideUp();
+      });
 
       (function(d, s, id){
          var js, fjs = d.getElementsByTagName(s)[0];

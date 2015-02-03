@@ -2,6 +2,13 @@
 
 @section('content')
 
+	@if(Auth::guest())
+    <div class="message-box">
+      <p>The idea behind Daily Art is to make something around a daily theme. Be it a sketch, graphic design, photograph, origami, or even a dance interpretation. We want you to get creative! <a href="{{ URL::to('request/invite') }}">Request an invite.</a></p>
+      <a href="javascript:void(0);" class="close-btn"><i class="fa fa-times"></i></a>
+    </div>
+  @endif
+
   <div class="todays-topic">
   	<p>Today's topic is “<b>{{ $theme->theme }}</b>”</p>
   </div>
