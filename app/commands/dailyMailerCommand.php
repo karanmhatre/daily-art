@@ -43,13 +43,15 @@ class dailyMailerCommand extends Command {
 		$users = User::get();
 
 		foreach ($users as $key => $user) {
-			$data['arts'] = $arts;
-			$data['name'] = $user->name;
-			$data['email'] = $user->email;
-			$data['theme'] = $theme;
-			Mail::send('emails.reminder', $data, function($message) use ($data){
-	      $message->to($data['email'], $data['name'])->subject('Topic for today - ' . $data['theme']);
-	    });
+			if(!$user->hasArtToday()){
+				$data['arts'] = $arts;
+				$data['name'] = $user->name;
+				$data['email'] = $user->email;
+				$data['theme'] = $theme;
+				Mail::send('emails.reminder', $data, function($message) use ($data){
+		      $message->to($data['email'], $data['name'])->subject('Topic for today - ' . $data['theme']);
+		    });
+			}
 		}
 	}
 

@@ -32,6 +32,7 @@
                 <th>#</th>
                 <th>Name</th>
                 <th>Email</th>
+                <th>Status</th>
             </thead>
             <tbody>
                 @foreach($invites as  $invite)
@@ -39,6 +40,7 @@
                     <td>{{ $invite->id }}</td>
                     <td>{{ $invite->name }}</td>
                     <td>{{ $invite->email }}</td>
+                    <td>{{ $invite->invited() }}</td>
                 </tr>
                 @endforeach
             </tbody>
