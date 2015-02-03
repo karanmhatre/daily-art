@@ -12,7 +12,7 @@
       <title>Daily Art | Make art, daily.</title>
     @endif
     <meta name="description" content="The idea behind Daily Art is to make something around a daily theme. Be it a sketch, graphic design, photograph, origami, or even a dance interpretation. We want you to get creative!">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, maximum-scale=1">
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800' rel='stylesheet' type='text/css'>
