@@ -36,7 +36,7 @@
             </div>
           </div>
         </div>
-        <div class="small-10 large-centered columns">
+        <div class="large-10 small-12 large-centered columns">
           <div class="row">
             <div class="small-4 columns">
               <input type="submit" class="button" value="Login">

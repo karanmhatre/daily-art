@@ -1410,4 +1410,8 @@ button.btn {
   .invite-bg {
    display: none;
   }
+
+  #login-container {
+    margin-top: 0;
+  }
 }
