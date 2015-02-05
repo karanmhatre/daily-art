@@ -75,7 +75,7 @@
           @else
             <a href="javascript:void(0);" data-id="{{ $art->id }}" class ="{{ (($liked) ? 'heart-filled' : 'heart-empty') }}"><i class="fa fa-heart"></i> <span class="likes-count">{{ $art->likes }}</span></a>
           @endif
-          @if(count($post_liked_by_users_liked))
+          @if($post_liked_by_users_liked == "")
             <div class="liked_users">
               <p>Liked by {{ $post_liked_by_users_liked }}</p>
             </div>
