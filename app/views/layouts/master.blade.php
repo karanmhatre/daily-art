@@ -41,6 +41,14 @@
                 <a href="{{ URL::route('suggestions.new') }}" class="invite-link" alt="Suggest a topic for the day">Suggest a topic</a>
                 <a href="{{ URL::to('user') }}">Submit Art</a>
                 <a href="{{ URL::route('users.edit.profile', Auth::user()->id) }}">Edit Profile</a>
+                @if(count($notifications))
+                  <a href="javascript:void(0);" class="notification-btn" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false"><span>{{ count($notifications) }}</span></a>
+                  <ul id="drop1" class="f-dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
+                    @foreach ($notifications as $notification)
+                      <li><a href="{{ URL::to('art', $notification->art_id) }}?n=1#comments">New comments on your submission for "{{ $notification->art->theme->theme }}"</a></li>
+                    @endforeach
+                  </ul>
+                @endif
               @else
                 <a href="{{ URL::to('request/invite') }}" class="invite-link" alt="Request an invite to become a member">Request Invite</a>
                 <a href="{{ URL::to('login') }}">Login</a>
@@ -51,14 +59,9 @@
       </header>
 
       <div id="content">
-        @if(Session::has('message'))
-          <div class="alert-box danger">
-            {{ Session::get('message') }}
-          </div>
-        @endif
         @if(Session::has('notice'))
           <div class="alert-box">
-            {{ Session::get('message') }}
+            {{ Session::get('notice') }}
           </div>
         @endif
 
@@ -69,7 +72,8 @@
       <footer>
         <div class="row">
           <div class="small-10 large-6 columns footer-links">
-            Daily Art
+            Daily Art |
+            <a href="{{ URL::to('logout') }}" class="logo">Logout</a>
           </div>
           <div class="small-2 large-6 columns">
             <a href="http://genii.in" class="logo"><img src="{{ URL::asset('img/genii-logo.png')}}" alt="Genii"></a>

@@ -67,3 +67,12 @@ Route::group(array('prefix' => 'admin', 'before' => 'admin.auth'), function(){
 	Route::post('suggestion/{id}', array('uses' => 'SuggestionsController@delete', 'as' => 'suggestions.delete'));
 });
 
+View::composer('layouts.master', function($view)
+{
+	if(Auth::check())
+		$notifications = Notification::whereUserId(Auth::user()->id)->whereRead('0')->get();
+	else
+		$notifications = null;
+
+	$view->with('notifications', $notifications);
+});

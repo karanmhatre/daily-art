@@ -31,6 +31,22 @@ footer {
   color: #999;
 }
 
+.liked_users {
+  margin-top: 12px;
+}
+
+.liked_users p {
+  font-size: 14px;
+}
+
+.liked_users a {
+  color: #008CBA;
+  font-size: 12px;
+}
+
+.liked_users a:hover {
+  color: #11C4FF;
+}
 
 nav {
   background-color: #333;
@@ -50,7 +66,7 @@ li.right-links a:last-child {
   border-left: 1px solid #666;
 }
 
-nav ul li a {
+nav > ul > li > a {
   font-weight: 500;
   font-size: 12px;
   text-transform: uppercase;
@@ -65,9 +81,14 @@ nav ul li a {
   border-right: 1px solid #666;
 }
 
-nav ul li a:hover {
+nav > ul > li > a:hover {
   color: #999;
   background-color: #333;
+}
+
+.f-dropdown {
+  width: 300px;
+  max-width: 9999px;
 }
 
 body {
@@ -363,7 +384,7 @@ a.theme-meta {
   color: #FFC200;
 }
 
-.item-meta a.heart {
+.item-meta a.heart, .item-meta a.comment {
   float: right;
   font-size: 18px;
   padding-top: 6px;
@@ -372,6 +393,11 @@ a.theme-meta {
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
+}
+
+.item-meta a.comment {
+  margin-right: 10px;
+  cursor: default;
 }
 
 .item-meta a.heart.heart-filled {
@@ -850,7 +876,7 @@ footer a:hover {
   display: block;
 }
 
-.image-stats a {
+.image-stats a.like-btn {
   font-size: 24px;
   color: #ccc;
 }
@@ -878,6 +904,11 @@ footer a:hover {
   height: 400px;
   overflow: hidden;
   position: relative;
+}
+
+.user-info img.rounded {
+  width: 80px;
+  height: 80px;
 }
 
 .suggestion-topics:before {
@@ -1265,6 +1296,34 @@ button.btn {
 
 .show-on-mobile {
   display: none;
+}
+
+a:focus {
+  outline: none;
+}
+
+
+li.right-links a.notification-btn {
+  font-size: 18px;
+  padding: 10px 25px;
+  position: relative;
+}
+
+li.right-links a.notification-btn span {
+  color: #fff;
+  border-radius: 40px;
+  font-size: 12px;
+  font-weight: bold;
+  width: 25px;
+  display: block;
+  height: 25px;
+  padding: 2px 3px;
+  /*padding: 5px 5px;*/
+  text-align: center;
+  background-color: red;
+  /*position: absolute;*/
+  /*top: 10px;*/
+  /*right: 10px;*/
 }
 
 

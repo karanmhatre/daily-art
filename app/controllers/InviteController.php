@@ -16,7 +16,7 @@ class InviteController extends BaseController {
 		if($invite)
 			return Redirect::to("/")->with('notice','Your Request has been submitted');
 		else
-			return Redirect::back()->with('message','The email is already in use');
+			return Redirect::back()->with('notice','The email is already in use');
 
 	}
 }

@@ -1,9 +1,18 @@
 @extends('layouts.master')
 
 @section('content')
+  <div class="invite-bg">
+    @foreach ($arts as $art)
+      <div class="art">
+        <a href="{{ URL::to('art', $art->id) }}">
+          <img src="{{ URL::asset($art->image) }}" alt="{{ $art->caption }}">
+        </a>
+      </div>
+    @endforeach
+  </div>
   <div class="row">
     <div class="small-6 large-centered columns" id="login-container">
-      <h2>Daily<i class="fa fa-pencil"></i>Art Register</h2>
+      <h2>Only One Step away</h2>
 
       @if(Session::has('message'))
         <div class="alert-box danger">
@@ -40,7 +49,7 @@
               <label for="right-label" class="right inline">Avatar</label>
             </div>
             <div class="small-9 columns">
-              <input type="file" name="avatar" required>
+              <input type="file" name="avatar">
             </div>
           </div>
         </div>
@@ -54,13 +63,12 @@
             </div>
           </div>
         </div>
-        <div class="small-10 large-centered columns">
+        <div class="large-10 small-12 large-centered columns">
           <div class="row">
             <div class="small-3 columns">
             </div>
             <div class="small-9 columns">
               <input type="submit" class="button" value="Register"><br>
-              <p>Todays topic “<b>{{ $theme }}</b>”.</p>
             </div>
           </div>
         </div>

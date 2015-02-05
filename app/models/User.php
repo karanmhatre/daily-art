@@ -78,13 +78,13 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		{
 			$user = User::create(['name' => $input['name'], 'email' => $input['email']]);
 			$user->sendInviteMail($user);
-			return true;	
+			return true;
 		}
 		else
 		{
 			return false;
 		}
-		
+
 	}
 
 	public static function checkUser($email)
@@ -123,7 +123,10 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		$user->register_code = "";
 		$user->name = $input['name'];
 		$user->password = Hash::make($input['password']);
-		$user->avatar = uploadFile($input['avatar']);
+
+		if($input['avatar'] != null)
+			$user->avatar = uploadFile($input['avatar']);
+
 		$user->save();
 		Auth::login($user);
 		return true;
@@ -187,7 +190,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 			$this->update(['avatar' => uploadFile(Input::file('avatar'))]);
 		return true;
 	}
-	
+
 	public function hasArtToday()
 	{
 		if(!is_null($this->artworks->last())){

@@ -75,13 +75,16 @@
           @else
             <a href="javascript:void(0);" data-id="{{ $art->id }}" class ="{{ (($liked) ? 'heart-filled' : 'heart-empty') }}"><i class="fa fa-heart"></i> <span class="likes-count">{{ $art->likes }}</span></a>
           @endif
+          <div class="liked_users">
+            <p>Liked by {{ $post_liked_by_users_liked }}</p>
+          </div>
         </div>
         <hr>
         <a class="facebook_share share_btn" href="http://www.facebook.com/sharer.php?u={{URL::route('art.show', [$art->id])}}" target="_blank">Facebook Share karo</a>
         <a class="twitter_share share_btn" href="http://twitter.com/share?url={{URL::route('art.show', [$art->id])}}&text=Daily Art submission by {{ $art->user->name }}&hashtags=dailyart, genii" target="_blank">Tweet karo</a>
 			</div>
 		</div>
-    <div class="comment-bg">
+    <div class="comment-bg" id="comments">
       <div class="row">
         <div class="large-8 small-12 columns">
           <div class="comments-container hide-on-mobile">

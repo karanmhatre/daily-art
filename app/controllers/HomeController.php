@@ -39,7 +39,7 @@ class HomeController extends BaseController {
 		if(Auth::attempt(Input::except('_token'), true))
 			return Redirect::to('user');
 		else
-			return Redirect::back()->withInput()->with('message','Invalid credentials');
+			return Redirect::back()->withInput()->with('notice','Invalid credentials');
 	}
 
 	public function logout()
@@ -50,11 +50,14 @@ class HomeController extends BaseController {
 
 	public function getRegisterUser($token)
 	{
+		$arts = Art::orderBy('created_at', 'DESC')->take(50)->get();
+
 		$theme = Theme::today()->theme;
 		$user = User::getRegisterUser($token);
+
 		if($user)
 		{
-			return View::make('home.register',compact('user','theme'));
+			return View::make('home.register',compact('user','theme', 'arts'));
 		}
 		else
 			return Redirect::to('/');
@@ -67,6 +70,6 @@ class HomeController extends BaseController {
 		if($user)
 			return Redirect::to('/');
 		else
-			return Redirect::back()->with('message','There was some error in registration');
+			return Redirect::back()->with('notice','There was some error in registration');
 	}
 }
