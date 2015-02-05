@@ -25,7 +25,7 @@ class ArtController extends BaseController
       $post_liked_by_users_liked[] = '<a href="' . URL::route("user.profile", [$liked_user->id, Str::slug($liked_user->name)]) . '">' . $liked_user->name. '</a>';
     }
 
-    $post_liked_by_users_liked = implode($post_liked_by_users_liked, ',');
+    $post_liked_by_users_liked = implode($post_liked_by_users_liked, ', ');
 
     if(Auth::check())
       $like_user = LikeUser::where('user_id', '=', Auth::user()->id)->where('art_id', '=', $id)->first();
