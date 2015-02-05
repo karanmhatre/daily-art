@@ -75,9 +75,11 @@
           @else
             <a href="javascript:void(0);" data-id="{{ $art->id }}" class ="{{ (($liked) ? 'heart-filled' : 'heart-empty') }}"><i class="fa fa-heart"></i> <span class="likes-count">{{ $art->likes }}</span></a>
           @endif
-          <div class="liked_users">
-            <p>Liked by {{ $post_liked_by_users_liked }}</p>
-          </div>
+          @if(count($post_liked_by_users_liked))
+            <div class="liked_users">
+              <p>Liked by {{ $post_liked_by_users_liked }}</p>
+            </div>
+          @endif
         </div>
         <hr>
         <a class="facebook_share share_btn" href="http://www.facebook.com/sharer.php?u={{URL::route('art.show', [$art->id])}}" target="_blank">Facebook Share karo</a>
