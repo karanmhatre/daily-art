@@ -44,11 +44,21 @@ class ArtController extends BaseController
   {
     $id = Input::get('id');
 
-    LikeUser::create(['user_id' => Auth::user()->id, 'art_id' => $id]);
+    $like_user = LikeUser::where('user_id', '=', Auth::user()->id)->where('art_id', '=', $id)->first();
 
-    $art = Art::find($id);
-    $art->likes = $art->likes + 1;
-    $art->save();
+     if(Auth::check())
+      $like_user = LikeUser::where('user_id', '=', Auth::user()->id)->where('art_id', '=', $id)->first();
+    else
+      $like_user = null;
+
+    $liked = !is_null($like_user);
+
+    if(!$liked) {
+      LikeUser::create(['user_id' => Auth::user()->id, 'art_id' => $id]);
+      $art = Art::find($id);
+      $art->likes = $art->likes + 1;
+      $art->save();
+    }
 
     return "true";
   }
