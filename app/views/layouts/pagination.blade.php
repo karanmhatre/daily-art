@@ -18,7 +18,7 @@
           <i class="fa fa-chevron-right"></i>
         </a>
       @else
-        <a href="{{ $paginator->getUrl($paginator->getCurrentPage()+1) }}">
+        <a href="{{ $paginator->getUrl($paginator->getCurrentPage()+1) }}" style="padding-left: 6px;">
           <i class="fa fa-chevron-right"></i>
         </a>
       @endif
