@@ -88,6 +88,7 @@
     {{ HTML::script('js/vendor/jquery.js') }}
     {{ HTML::script('js/vendor/masonry.pkgd.min.js') }}
     {{ HTML::script('js/vendor/imagesloaded.pkgd.min.js') }}
+    {{ HTML::script('js/vendor/salvattore.min.js') }}
     {{ HTML::script('js/vendor/foundation.min.js') }}
     {{ HTML::script('js/vendor/dropzone.js') }}
 

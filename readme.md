@@ -7,7 +7,7 @@ Daily Art is an invite-based system where a daily topic is given and members can
 - Run the Migrations
 - Seed the Database with dummy content
 
-## Roapmap
+## Roadmap
 - About "Daily Art" page
 - Design for "Invite" page
 - Design for suggestions page

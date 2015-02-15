@@ -13,7 +13,6 @@
   	<p>Today's topic is “<b>{{ $theme->theme }}</b>”</p>
   </div>
 
-
 	@foreach ($themes as $index => $theme)
 		@if(count($theme->art))
 			<div class="day_container">
@@ -23,10 +22,9 @@
 					</div>
 				</div>
 
-				<div class="images_container">
-					<ul>
+				<div class="images_container split-row cf" data-columns>
 						@foreach ($theme->art()->orderBy('likes', 'DESC')->get() as $art)
-							<li class="item">
+							<div class="item">
 								<div class="item-inner">
 									<div class="grid">
 										<figure class="effect-sadie">
@@ -42,25 +40,27 @@
 									<div class="clearfix"></div>
 									<div class="item-meta">
 										@if(empty($art->user->avatar))
-					            <img src="{{ URL::asset('img/default-avatar.png') }}" alt="Default avatar">
-					          @else
-					            <img src="{{ URL::asset($art->user->avatar) }}" alt="{{ $art->user->name }}">
-					          @endif
-					          <a href="{{ URL::route('user.profile', [$art->user->id, Str::slug($art->user->name)]) }}">{{ $art->user->name }}</a>
+					            			<img src="{{ URL::asset('img/default-avatar.png') }}" alt="Default avatar">
+					          			@else
+					            			<img src="{{ URL::asset($art->user->avatar) }}" alt="{{ $art->user->name }}">
+					          			@endif
+				          				<a class="author-name" href="{{ URL::route('user.profile', [$art->user->id, Str::slug($art->user->name)]) }}">{{ $art->user->name }}</a>
 
-										@if(Auth::check())
-											<a href="javascript:void(0);" data-id="{{ $art->id }}" data-likes="{{ $art->likes }}" class="like-btn heart {{ ((array_search(Auth::user()->id, $art->like_users()->lists('user_id')) !== false ) ? 'heart-filled' : 'heart-empty') }}"><i class="fa fa-heart"></i> <span class="likes-count">{{ $art->likes }}</span></a>
-											<a href="javascript:void(0);" class="comment"><i class="fa fa-comment"></i> <span class="likes-count">{{ $art->comments()->count() }}</span></a>
-										@else
-											<a href="javascript:void(0);" class="heart heart-empty"><i class="fa fa-heart"></i> <span class="likes-count">{{ $art->likes }}</span></a>
-											<a href="javascript:void(0);" class="comment"><i class="fa fa-comment"></i> <span class="likes-count">{{ $art->comments()->count() }}</span></a>
-										@endif
+				          				<div class="stat-meta">
+				          					@if(Auth::check())
+				          						<a href="javascript:void(0);" data-id="{{ $art->id }}" data-likes="{{ $art->likes }}" class="like-btn heart {{ ((array_search(Auth::user()->id, $art->like_users()->lists('user_id')) !== false ) ? 'heart-filled' : 'heart-empty') }}"><i class="fa fa-heart"></i> <span class="likes-count">{{ $art->likes }}</span></a>
+				          						<a href="javascript:void(0);" class="comment"><i class="fa fa-comment"></i> <span class="likes-count">{{ $art->comments()->count() }}</span></a>
+				          					@else
+				          						<a href="javascript:void(0);" class="heart heart-empty"><i class="fa fa-heart"></i> <span class="likes-count">{{ $art->likes }}</span></a>
+				          						<a href="javascript:void(0);" class="comment"><i class="fa fa-comment"></i> <span class="likes-count">{{ $art->comments()->count() }}</span></a>
+				          					@endif
+				          				</div>
 									</div>
 								</div>
-		          </li>
+		          </div>
 						@endforeach
-					</ul>
 				</div>
+<!-- 
 				<div class="loader">
 						<div class="cube">
 							<div class="plane-1">
@@ -98,6 +98,7 @@
 							</div>
 						</div>
 				</div>
+ -->
 			</div>
 		@endif
 	@endforeach
@@ -116,19 +117,19 @@
 
 	<script type="text/javascript">
 
-		$('.images_container').each(function() {
-			var $container = $(this);
+		// $('.images_container').each(function() {
+		// 	var $container = $(this);
 
-			$container.imagesLoaded(function() {
-				$container.masonry({
-	        itemSelector : '.item',
-	        "gutter" : 5
-	   		});
+		// 	$container.imagesLoaded(function() {
+		// 		$container.masonry({
+		//         itemSelector : '.item',
+		//         "gutter" : 5
+	 //   		});
 
-	   		$container.siblings('.loader').hide();
-	   	});
+	 //   		$container.siblings('.loader').hide();
+	 //   	});
 
-		});
+		// });
 
 	</script>
 
