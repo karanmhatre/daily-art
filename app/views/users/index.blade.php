@@ -84,7 +84,6 @@
 				<hr>
 				{{ HTML::image($art_today->image) }}
 			@endif
-			<p style="text-align: center; margin-top: 15px;"><a href="{{ URL::to('logout') }}">Logout? Fine, leave!</a></p>
 		</div>
 	</div>
 @stop
