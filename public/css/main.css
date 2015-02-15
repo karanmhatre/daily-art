@@ -408,10 +408,10 @@ button:hover, .button:hover {
   position: relative;
 }
 
-.stat-meta {
-  /*position: absolute;*/
-  /*right: 15px;*/
-  /*top: 50%;*/
+.item-meta .stat-meta {
+  position: absolute;
+  right: 15px;
+  top: 50%;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);

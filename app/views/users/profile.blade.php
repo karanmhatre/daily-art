@@ -2,11 +2,6 @@
 
 @section('content')
 
- @if(Session::has('notice'))
-    <div class="alert-box danger">
-      {{ Session::get('notice') }}
-    </div>
-  @endif
   	<div class="profile-container">
       <div class="image-bg">
         @if($arts_array)
@@ -40,51 +35,38 @@
       </div>
   	</div>
     <h3 class="date"> Artwork by {{$user->name}} </h3>
-  	<div class="images_container">
-  		<ul>
+  	<div class="images_container split-row cf" data-columns>
+  		<div>
   			@foreach ($arts as $art)
-          <li class="item">
+          <div class="item">
             <div class="item-inner">
               <div class="grid">
                 <figure class="effect-sadie">
                   {{ HTML::image($art->image, $art->caption) }}
                   <figcaption>
-
                     @if(!empty($art->caption))
-                        <p>{{ $art->caption }}</p>
-
+                      <p>{{ $art->caption }}</p>
                     @endif
                     <a href="{{ URL::to('art', $art->id) }}">View more</a>
                   </figcaption>
                 </figure>
               </div>
               <div class="clearfix"></div>
-
-<!--               <a class="item-image-container" href="{{ URL::to('art', $art->id) }}">
-                @if(!empty($art->caption))
-                  <div class="item-caption">
-                    <p>{{ $art->caption }}</p>
-                  </div>
-                @endif
-                {{ HTML::image($art->image, $art->caption) }}
-              </a> -->
-
               <div class="item-meta">
                 <a href="#" class="theme-meta">{{ $art->theme->theme }}</a>
-
                 @if(Auth::check())
                   <a href="javascript:void(0);" data-id="{{ $art->id }}" data-likes="{{ $art->likes }}" class="like-btn heart {{ ((array_search(Auth::user()->id, $art->like_users()->lists('user_id')) !== false ) ? 'heart-filled' : 'heart-empty') }}"><i class="fa fa-heart"></i> <span class="likes-count">{{ $art->likes }}</span></a>
                 @else
                   <a href="javascript:void(0);" class="heart heart-empty"><i class="fa fa-heart"></i> <span class="likes-count">{{ $art->likes }}</span></a>
                 @endif
-
               </div>
             </div>
-          </li>
+          </div>
   			@endforeach
-  		</ul>
+  		</div>
   	</div>
-    <div class="loader">
+
+    <!-- <div class="loader">
       <div class="cube">
         <div class="plane-1">
           <div class="top-left"></div>
@@ -120,29 +102,29 @@
           <div class="bottom-right"></div>
         </div>
       </div>
-    </div>
+    </div> -->
 @stop
 
 @section('scripts')
 
 	<script type="text/javascript">
 
-    $('.images_container').hide();
+    // $('.images_container').hide();
 
-    $(window).load(function() {
+    // $(window).load(function() {
 
-      $('.images_container').fadeIn();
-      $('.loader').hide();
+    //   $('.images_container').fadeIn();
+    //   $('.loader').hide();
 
-      $('.images_container').each(function() {
+    //   $('.images_container').each(function() {
 
-        $(this).masonry({
-           itemSelector : '.item',
-           "gutter" : 5
-        });
+    //     $(this).masonry({
+    //        itemSelector : '.item',
+    //        "gutter" : 5
+    //     });
 
-      });
-    });
+    //   });
+    // });
 
 	</script>
 
