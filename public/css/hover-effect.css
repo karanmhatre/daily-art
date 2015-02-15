@@ -30,6 +30,7 @@
   background: #fff;
   text-align: center;
   cursor: pointer;
+  max-height: 300px;
 }
 
 .grid figure img {
@@ -37,7 +38,6 @@
   display: block;
   /*min-height: 100%;*/
   max-width: 100%;
-  max-height: 300px;
   opacity: 1.0;
 }
 
