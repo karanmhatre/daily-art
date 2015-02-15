@@ -83,7 +83,7 @@
 				</form>
 				<hr>
 				{{ HTML::image($art_today->image) }}
-				<br><br>
+				<br><br><br><br>
 			@endif
 		</div>
 	</div>
