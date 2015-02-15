@@ -406,6 +406,7 @@ button:hover, .button:hover {
 .item-meta {
   padding: 15px;
   position: relative;
+  overflow: hidden;
 }
 
 .item-meta .stat-meta {
@@ -435,8 +436,8 @@ button:hover, .button:hover {
 }
 
 a.theme-meta {
-  display: inline-block;
-  float: left;
+  display: inline;
+  /*float: left;*/
   padding: 10px 0px 15px 10px;
 }
 
