@@ -60,7 +60,7 @@
 		          </div>
 						@endforeach
 				</div>
-<!-- 
+<!--
 				<div class="loader">
 						<div class="cube">
 							<div class="plane-1">
