@@ -2,11 +2,6 @@
 
 @section('content')
 
- @if(Session::has('notice'))
-    <div class="alert-box danger">
-      {{ Session::get('notice') }}
-    </div>
-  @endif
   <div class="profile-container">
     <div class="profile-inner-box">
       <div class="profile-picture-container">
