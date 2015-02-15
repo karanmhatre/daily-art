@@ -320,11 +320,58 @@ button:hover, .button:hover {
 	display: none;
 }
 
-.item {
-  min-width: 350px;
-	width: 33%;
-	margin-top: 5px;
-}
+  .images_container[data-columns]::before {
+    content: '1 .split-1';
+  }
+
+  @media screen and (min-width: 800px) {
+    .images_container[data-columns]::before {
+      content: '3 .split-3';
+    }
+  }
+
+  @media (min-width: 600px) and (max-width: 800px) {
+      .images_container[data-columns]::before {
+        content: '2 .split-2';
+      }
+  }
+
+  .split-row {
+    font-size: 0px;
+    display: inline-block;
+    width: 100%;
+  }
+
+  .split-3, .split-2, .split-1 {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .split-3 {
+    width: 33.33%;
+  }
+
+  .split-2 {
+    width: 50%;
+  }
+
+  .split-1 {
+    width: 100%;
+  }
+
+  .left {
+    text-align: left;
+  }
+
+  .right {
+    text-align: right;
+  }
+
+  .item {
+    width: 100%;
+    display: inline-block;
+  }
+
 
 .item .meta {
 	top: 100%;
@@ -357,10 +404,34 @@ button:hover, .button:hover {
 }
 
 .item-meta {
-  padding: 10px;
-  font-size: 12px;
-  font-weight: bold;
-  display: block;
+  padding: 15px;
+  position: relative;
+}
+
+.stat-meta {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.item-meta .author-name {
+  color: #222;
+}
+
+.item-meta a {
+  font-size: 16px;
+  color: #ccc;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.stat-meta a {
+  margin-left: 15px;
 }
 
 a.theme-meta {
@@ -369,35 +440,8 @@ a.theme-meta {
   padding: 10px 0px 15px 10px;
 }
 
-.item-meta a {
-  font-size: 15px;
-/*  text-transform: uppercase;
-  letter-spacing: 1px;*/
-  font-weight: 600;
-  color: #333;
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
-}
-
 .item-meta a:hover {
   color: #FFC200;
-}
-
-.item-meta a.heart, .item-meta a.comment {
-  float: right;
-  font-size: 18px;
-  padding-top: 6px;
-  padding-right: 10px;
-  color: #ccc;
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
-}
-
-.item-meta a.comment {
-  margin-right: 10px;
-  cursor: default;
 }
 
 .item-meta a.heart.heart-filled {
@@ -1350,12 +1394,6 @@ li.right-links a.notification-btn span {
 
   .reply-list .comment-box {
     width: 320px;
-  }
-
-  .item {
-    width: 100%;
-    margin: auto;
-    float: none;
   }
 
   .right-links {
