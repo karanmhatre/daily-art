@@ -72,8 +72,11 @@
       <footer>
         <div class="row">
           <div class="small-10 large-6 columns footer-links">
-            Daily Art |
-            <a href="{{ URL::to('logout') }}">Logout</a>
+            Daily Art
+            @if(Auth::check())
+              |
+              <a href="{{ URL::to('logout') }}">Logout</a>
+            @endif
           </div>
           <div class="small-2 large-6 columns">
             <a href="http://genii.in" class="logo"><img src="{{ URL::asset('img/genii-logo.png')}}" alt="Genii"></a>
