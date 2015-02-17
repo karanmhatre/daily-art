@@ -1253,7 +1253,7 @@ ul.topics {
 
 .comment-box .comment-name.by-author, .comment-box .comment-name.by-author a {color: #333;}
 .comment-box .comment-name.by-author:after {
-  content: 'author';
+  content: 'artist';
   background: #FFC200;
   color: #FFF;
   font-size: 12px;
