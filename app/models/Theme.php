@@ -8,7 +8,6 @@ class Theme extends Eloquent {
 		return $this->hasMany('Art');
 	}
 
-
 	public static function today()
 	{
 		$today_date = date('H') < 3 ? date('Y-m-d', strtotime('-1 day')) : date('Y-m-d');

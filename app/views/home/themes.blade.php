@@ -100,20 +100,25 @@
             var s = $(this).data('theme').toLowerCase();
             if(s.indexOf(q) == -1)
               $(this).fadeOut();
-            else
+            else {
+              $(this).fadeIn();
               search_flag = 1;
+            }
           });
 
           if(!search_flag)
             topicNotFound(q);
-          else
+          else {
             $('#suggest_topic').hide();
+          }
         }
         else {
           $('.theme-list-item').fadeIn();
           $('#suggest_topic').hide();
         }
+
         search_flag = 0;
+
       });
     });
   </script>
