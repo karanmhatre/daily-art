@@ -25,4 +25,15 @@ class Theme extends Eloquent {
 			$theme = Theme::where('date', '<=', \Carbon\Carbon::today())->where('date', '>=', $date)->get();
 		return count($theme);
 	}
+
+	public static function getTopicFromSuggestion()
+	{
+		$suggestion = Suggestion::orderBy(DB::raw('RAND()'))->first();
+		if(!is_null($suggestion)){
+			Theme::create(['theme' => $suggestion->topic, 'date' => \Carbon\Carbon::today()]);
+			$suggestion->delete();
+			return true;
+		}else
+			return false;
+	}
 }

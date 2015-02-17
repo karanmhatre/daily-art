@@ -19,6 +19,18 @@ class HomeController extends BaseController {
 	{
 		$themes = Theme::with('art')->with('art.like_users')->with('art.user')->where('date', '<=', \Carbon\Carbon::today())->orderBy('date', 'DESC')->paginate(3);
 		$theme = Theme::today();
+		if(is_null($theme)){
+			$result = Theme::getTopicFromSuggestion();
+			if(Auth::user() && !$result){
+				$themes = Theme::get();
+				return View::make('suggestions.new', compact('themes'));				
+			}elseif(!Auth::user())
+			{
+				$theme = Theme::orderBy('id','desc')->first();
+				return View::make('home.index')->with(compact('themes','theme'));
+			}
+			return Redirect::to('/');
+		}
 		return View::make('home.index')->with(compact('themes','theme'));
 	}
 
