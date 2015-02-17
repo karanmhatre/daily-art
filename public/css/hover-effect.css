@@ -33,6 +33,10 @@
   max-height: 450px;
 }
 
+.item-small .grid figure {
+  max-height: 200px;
+}
+
 .grid figure img {
   position: relative;
   display: block;

@@ -21,7 +21,7 @@
         <div class="small-10 large-centered columns">
           <div class="row">
             <div class="small-12 columns">
-              <input id="topic" name="topic" type="text" placeholder="Topic" required>
+              <input id="topic" name="topic" type="text" placeholder="Topic" required value="{{ Input::get('q') }}">
             </div>
           </div>
         </div>

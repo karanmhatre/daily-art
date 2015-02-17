@@ -36,6 +36,11 @@
         <nav>
           <ul>
             <li><a href="{{ URL::to('/') }}" class="main_heading">Daily<i class="fa fa-pencil"></i>Art</a></li>
+            <li class="left-links">
+              <a href="{{ URL::to('themes') }}">Themes</a>
+              <a href="{{ URL::to('members') }}">Members</a>
+              <!-- <a href="#">Leaderboard</a> -->
+            </li>
             <li class="right-links">
               @if(Auth::check())
                 <a href="{{ URL::route('suggestions.new') }}" class="invite-link" alt="Suggest a topic for the day">Suggest a topic</a>

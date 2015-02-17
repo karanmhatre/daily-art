@@ -72,4 +72,24 @@ class HomeController extends BaseController {
 		else
 			return Redirect::back()->with('notice','There was some error in registration');
 	}
+
+	public function members()
+	{
+		$users = User::get();
+		return View::make('home.members')->with(compact('users'));
+	}
+
+	public function themes()
+	{
+		$themes = Theme::with('art')->with('art.like_users')->with('art.user')->get();
+
+		return View::make('home.themes')->with(compact('themes'));
+	}
+
+	public function singleTheme($id)
+	{
+		$theme = Theme::with('art')->with('art.like_users')->with('art.user')->find($id);
+
+		return View::make('home.single_theme')->with(compact('theme'));
+	}
 }

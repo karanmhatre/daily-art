@@ -28,9 +28,9 @@ class Art extends Eloquent {
 
 	public static function today()
 	{
-		$today_date = date('H') < 3 ? date('Y-m-d', strtotime('-1 day')) : date('Y-m-d');
-
-		$art = Art::whereUserId(Auth::user()->id)->where('created_at', '>=', $today_date)->first();
+		// $today_date = date('H') < 3 ? date('Y-m-d', strtotime('-1 day')) : date('Y-m-d');
+		$art = Theme::today()->art->first();
+		// $art = Art::whereUserId(Auth::user()->id)->where('created_at', '>=', $today_date)->first();
 		return $art;
 	}
 

@@ -12,6 +12,8 @@
 */
 
 Route::get('/', 'HomeController@index');
+Route::get('members', 'HomeController@members');
+Route::get('themes', 'HomeController@themes');
 
 Route::get('login', 'HomeController@login');
 Route::post('login', array('as' => 'login' ,'uses' => 'HomeController@do_login'));
@@ -30,6 +32,9 @@ Route::post('/request/invite', array('uses' => 'InviteController@storeInvite', '
 Route::get('art/{id}', array('uses' => 'ArtController@show', 'as' => 'art.show'));
 // PUBLIC PROFILE
 Route::get('users/{id}/{slug?}', array('uses' => 'UserController@show', 'as' => 'user.profile'));
+
+Route::get('themes/{id}/{slug?}', array('uses' => 'HomeController@singleTheme', 'as' => 'theme.single'));
+
 // ARCHIVES PER MONTH
 Route::get('archives', array('uses' => 'ArchivesController@index', 'as' => 'archives.index'));
 Route::get('archives/{year}/{month}', array('uses' => 'ArchivesController@show', 'as' => 'archives.show'));

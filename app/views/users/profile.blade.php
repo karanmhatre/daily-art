@@ -25,6 +25,8 @@
               @else
                 <p class="profile-date">Joined {{ date('d M, Y', strtotime($user->created_at)) }}</p>
               @endif
+            @else
+              <p class="profile-date">Joined {{ date('d M, Y', strtotime($user->created_at)) }}</p>
             @endif
           </div>
           <div class="profile-numbers">
