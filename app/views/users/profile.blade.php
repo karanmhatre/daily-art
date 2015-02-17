@@ -56,7 +56,7 @@
             </div>
             <div class="clearfix"></div>
             <div class="item-meta">
-              <a href="#" class="theme-meta">{{ $art->theme->theme }}</a>
+              <a href="{{ URL::route('theme.single', [$art->theme->id, Str::slug($art->theme->theme)]) }}" class="theme-meta">{{ $art->theme->theme }}</a>
               <div class="stat-meta">
                 @if(Auth::check())
                   <a href="javascript:void(0);" data-id="{{ $art->id }}" data-likes="{{ $art->likes }}" class="like-btn heart {{ ((array_search(Auth::user()->id, $art->like_users()->lists('user_id')) !== false ) ? 'heart-filled' : 'heart-empty') }}"><i class="fa fa-heart"></i> <span class="likes-count">{{ $art->likes }}</span></a>
