@@ -182,6 +182,7 @@ h3.date {
 }
 
 .profile-name {
+  text-align: center;
   height: 50%;
   border-bottom: 1px solid #ddd;
   padding: 21px 2px;
