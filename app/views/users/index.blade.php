@@ -123,7 +123,8 @@
 	    	$('#mobile-image-gallery').hide();
 	    	Dropzone.options.myAwesomeDropzone = {
 		      maxFiles: 1,
-		      complete: function() {
+		      complete: function(data) {
+		      	// console.log(data);
 		        location.reload();
 		      }
     		}
