@@ -52,6 +52,7 @@ class Art extends Eloquent {
 
 	public static function resizeImage($path)
 	{
+		dd($path);
     $image = Imagine::open(public_path() . '/' . $path);
     $image = $image->resize($image->getSize()->widen(700));
 
