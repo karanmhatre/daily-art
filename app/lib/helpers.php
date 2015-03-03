@@ -1,16 +1,17 @@
 <?php
-  
+
   function uploadFile($file)
   {
     if(!empty($file)) {
       $destinationPath = public_path() . '/upload/';
       $filename = date('ymdhis') . $file->getClientOriginalName();
       $file->move($destinationPath, $filename);
-      return 'upload/' . $filename;    
-    }    
+      return 'upload/' . $filename;
+    }
   }
+
   function imageEdit($image, $field_name = 'image' ,$model){
-  if(is_null($image)){
+  if(is_null($image)) {
     return $model->$field_name;
   }else{
     $image = uploadFile($image);
@@ -83,7 +84,7 @@ function imageStore($image){
       $g = hexdec(substr($hex,1,1).substr($hex,1,1));
       $b = hexdec(substr($hex,2,1).substr($hex,2,1));
     }
-   else 
+   else
    {
       $r = hexdec(substr($hex,0,2));
       $g = hexdec(substr($hex,2,2));
