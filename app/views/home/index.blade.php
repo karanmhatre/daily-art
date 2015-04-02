@@ -8,7 +8,8 @@
   	</div>
     @if(Auth::guest())
       <div class="streak-meter">
-        <p>The idea behind Daily Art is to make something around a daily theme. Be it a sketch, graphic design, photograph, origami, or even a dance interpretation. We want you to get creative! <a href="{{ URL::to('request/invite') }}">Request an invite.</p>
+        <p>The idea behind Daily Art is to make something around a daily theme. Be it a sketch, graphic design, photograph, origami, or even a dance interpretation. We want you to get creative! <a href="{{ URL::to('request/invite') }}">Request an invite.</a>
+        </p>
       </div>
     @else
     	<div class="streak-meter">
