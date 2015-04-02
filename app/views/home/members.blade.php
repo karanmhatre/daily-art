@@ -19,7 +19,7 @@
           <div class="fleft">
             <h4 class="profile-name">{{ $user->name }}</h4>
             <div>
-              <h3 class="profile-stats">5 <span>Current streak</span></h3>
+              <h3 class="profile-stats">{{ $user->current_streak }} <span>Current streak</span></h3>
             </div>
           </div>
         </a>
