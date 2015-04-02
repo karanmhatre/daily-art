@@ -1113,7 +1113,7 @@ ul.topics {
 
 .invite-bg {
   position: absolute;
-  z-index: -1;
+  /*z-index: -1;*/
   background-color: #000;
   height: 100%;
   overflow: hidden;
