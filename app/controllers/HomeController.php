@@ -75,7 +75,7 @@ class HomeController extends BaseController {
 
 	public function members()
 	{
-		$users = User::orderBy('current_streak')->get();
+		$users = User::orderBy('current_streak', 'DESC')->get();
 		return View::make('home.members')->with(compact('users'));
 	}
 

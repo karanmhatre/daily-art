@@ -7,11 +7,11 @@
   	</div>
   	<div class="streak-meter">
   		<div class="labels">
-	  		<p>Current streak - 1/5</p>
-	  		<p>Longest streak - 2</p>
+	  		<p>Current streak - {{ Auth::user()->current_streak }}/10</p>
+	  		<p>Longest streak - {{ Auth::user()->longest_streak }}</p>
   		</div>
   		<div class="progress-bar">
-  			<div class="filled"></div>
+  			<div class="filled" style="width: {{ (Auth::user()->current_streak/10)*100 }}%;"></div>
   		</div>
   	</div>
   </div>
