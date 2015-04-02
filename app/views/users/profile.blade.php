@@ -2,42 +2,30 @@
 
 @section('content')
 
-  	<div class="profile-container">
-      <div class="image-bg">
-        @if($arts_array)
-          <img src="{{ URL::asset($arts_array[$random]['image']) }}" alt="">
-        @endif
-      </div>
-      <div class="profile-inner-box">
-        <div class="profile-picture-container">
-          @if(empty($user->avatar))
-            <img src="{{ URL::asset('img/default-avatar.png') }}" alt="Default avatar" class="profile-picture">
-          @else
-            <img src="{{ URL::asset($user->avatar) }}" alt="{{ $user->name }}" class="profile-picture"><br>
-          @endif
-        </div>
-        <div class="profile-stats">
-          <div class="profile-name">
-            <h4>{{ $user->name }}</h4>
-            @if(Auth::check())
-              @if(Auth::user()->id == $user->id)
-                <p class="profile-date"><a href="{{ URL::route('users.edit.profile', Auth::user()->id) }}">Edit Profile</a></p>
-              @else
-                <p class="profile-date">Joined {{ date('d M, Y', strtotime($user->created_at)) }}</p>
-              @endif
-            @else
-              <p class="profile-date">Joined {{ date('d M, Y', strtotime($user->created_at)) }}</p>
-            @endif
-          </div>
-          <div class="profile-numbers">
-            <div class="profile-single-number">{{ $user->getDaysSubmitted($user) }}<br><span class="stat-meta">Arts</span></div>
-            <div class="profile-single-number">{{ $user->getDaysBunked($user) }}<br><span class="stat-meta">Bunks</span></div>
+    <div class="image-bg">
+      <div class="row">
+        <div class="large-8 columns large-centered">
+          <div class="row">
+            <div class="large-4 columns">
+              <div class="profile-picture-container">
+                @if(empty($user->avatar))
+                  <img src="{{ URL::asset('img/default-avatar.png') }}" alt="Default avatar" class="profile-picture">
+                @else
+                  <img src="{{ URL::asset($user->avatar) }}" alt="{{ $user->name }}" class="profile-picture"><br>
+                @endif
+              </div>
+            </div>
+            <div class="large-8 columns">
+              <h4 class="profile-name">{{ $user->name }}</h4>
+              <div>
+                <h3 class="profile-stats">{{ $user->current_streak }} <span>Current streak</span></h3>
+                <h3 class="profile-stats">{{ $user->longest_streak }} <span>Longest streak</span></h3>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-  	</div>
-
-    <h3 class="date"> Artwork by {{$user->name}} </h3>
+    </div>
 
     <div class="images_container split-row cf" data-columns>
 			@foreach ($arts as $art)

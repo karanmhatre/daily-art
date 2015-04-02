@@ -1,12 +1,9 @@
 @extends('layouts.master')
 
 @section('content')
-  <div class="day_container">
-    <div class="row">
-      <div class="large-12 large-centered columns user-list">
-        <input type="text" class="member-search" placeholder="Search for an old theme">
-      </div>
-    </div>
+  <div class="member-search-container">
+    <i class="fa fa-search"></i>
+    <input type="text" class="member-search" placeholder="Search for an old theme">
   </div>
 
   <div class="day_container hide" id="suggest_topic">
@@ -21,11 +18,7 @@
     <div class="theme-list-item" data-theme="{{ $theme->theme }}">
       @if(count($theme->art))
         <div class="day_container">
-          <div class="row">
-            <div class="large-12 columns">
-              <h3 class="date"> {{ date('d M, Y', strtotime($theme->date)) }} | <span class="theme">{{ $theme->theme }}</span></h3>
-            </div>
-          </div>
+          <h3 class="date"><span class="theme">{{ $theme->theme }}</span> - {{ date('d M, Y', strtotime($theme->date)) }}</h3>
 
           <div class="images_container split-row cf" data-columns>
             @foreach ($theme->art()->orderBy('likes', 'DESC')->take(2)->get() as $art)

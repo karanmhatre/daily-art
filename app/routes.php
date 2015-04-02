@@ -11,6 +11,14 @@
 |
 */
 
+Route::get('test', function() {
+	return View::make('home.test');
+});
+
+Route::get('unsubscribe/{token}', 'HomeController@unsubscribe');
+
+Route::post('do-unsubscribe', ['as' => 'do_unsubscribe', 'uses' => 'HomeController@do_unsubscribe']);
+
 Route::get('/', 'HomeController@index');
 Route::get('members', 'HomeController@members');
 Route::get('themes', 'HomeController@themes');

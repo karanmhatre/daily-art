@@ -2,26 +2,33 @@
 
 @section('content')
 
-	@if(Auth::guest())
-    <div class="message-box">
-      <p>The idea behind Daily Art is to make something around a daily theme. Be it a sketch, graphic design, photograph, origami, or even a dance interpretation. We want you to get creative! <a href="{{ URL::to('request/invite') }}">Request an invite.</a></p>
-      <a href="javascript:void(0);" class="close-btn"><i class="fa fa-times"></i></a>
-    </div>
-  @endif
-
   <div class="todays-topic">
-  	<p>Today's topic is “<b>{{ $theme->theme }}</b>”</p>
+  	<div class="topic">
+  		<p class="{{ Auth::guest() ? 'guest_topic' : '' }}">Today's topic is “<b>{{ $theme->theme }}</b>”</p>
+  	</div>
+    @if(Auth::guest())
+      <div class="streak-meter">
+        <p>The idea behind Daily Art is to make something around a daily theme. Be it a sketch, graphic design, photograph, origami, or even a dance interpretation. We want you to get creative! <a href="{{ URL::to('request/invite') }}">Request an invite.</p>
+      </div>
+    @else
+    	<div class="streak-meter">
+    		<div class="labels">
+  	  		<p>Current streak - {{ Auth::user()->current_streak }}/10</p>
+  	  		<p>Longest streak - {{ Auth::user()->longest_streak }}</p>
+    		</div>
+    		<div class="progress-bar">
+    			<div class="filled" style="width: {{ (Auth::user()->current_streak/10)*100 }}%;"></div>
+    		</div>
+    	</div>
+    @endif
   </div>
 
 	@foreach ($themes as $index => $theme)
 		@if(count($theme->art))
 			<div class="day_container">
-				<div class="row">
-					<div class="large-12 columns">
-						<h3 class="date"> {{ date('d M, Y', strtotime($theme->date)) }} | <span class="theme">{{ $theme->theme }}</span></h3>
-					</div>
-				</div>
-
+				<h3 class="date">
+					<span class="theme">{{ $theme->theme }}</span> - {{ date('d M, Y', strtotime($theme->date)) }}
+				</h3>
 				<div class="images_container split-row cf" data-columns>
 						@foreach ($theme->art()->orderBy('likes', 'DESC')->get() as $art)
 							<div class="item">

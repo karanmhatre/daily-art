@@ -16,8 +16,10 @@ class UserController extends \BaseController {
 	public function upload()
 	{
 		$art = new Art();
+		$user = Auth::user();
+
 		$art->theme_id = Theme::today()->id;
-		$art->user_id = Auth::user()->id;
+		$art->user_id = $user->id;
 		$art->image = uploadFile(Input::file('file'));
 		$art->save();
 
@@ -25,6 +27,13 @@ class UserController extends \BaseController {
 
 		if($image->getClientOriginalExtension() != "gif")
 			Art::resizeImage($art->image);
+
+		$user->current_streak = $user->current_streak + 1;
+
+		if($user->current_streak > $user->longest_streak)
+			$user->longest_streak = $user->current_streak;
+
+		$user->save();
 
 		return Redirect::back();
 	}

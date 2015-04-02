@@ -1,13 +1,26 @@
 @extends('layouts.master')
 
 @section('content')
+	<div class="todays-topic">
+  	<div class="topic">
+  		<p>Today's topic is “<b>{{ Theme::today()->theme }}</b>”</p>
+  	</div>
+  	<div class="streak-meter">
+  		<div class="labels">
+	  		<p>Current streak - 1/5</p>
+	  		<p>Longest streak - 2</p>
+  		</div>
+  		<div class="progress-bar">
+  			<div class="filled"></div>
+  		</div>
+  	</div>
+  </div>
 	<div class="row">
 		<div class="large-12 columns user-page-theme">
-			<h3>Today's theme is '{{ Theme::today()->theme }}'</h3>
 			@if(is_null($art_today))
 				<h5>Upload your artwork for the day below.</h5>
 			@else
-				<h5>Your submission for today. {{ HTML::linkRoute('user.change', 'Change?', array('id' => $art_today->id)) }}</h5>
+				<h5>Congratutions! You've made it today. {{ HTML::linkRoute('user.change', 'Change?', array('id' => $art_today->id)) }}</h5>
 			@endif
 		</div>
 	</div>

@@ -17,7 +17,7 @@ class HomeController extends BaseController {
 
 	public function index()
 	{
-		$themes = Theme::with('art')->with('art.like_users')->with('art.user')->where('date', '<=', \Carbon\Carbon::today())->orderBy('date', 'DESC')->paginate(3);
+		$themes = Theme::with('art')->with('art.like_users')->with('art.user')->where('date', '<=', \Carbon\Carbon::today())->orderBy('date', 'DESC')->paginate(5);
 		$theme = Theme::today();
 		return View::make('home.index')->with(compact('themes','theme'));
 	}
@@ -75,7 +75,7 @@ class HomeController extends BaseController {
 
 	public function members()
 	{
-		$users = User::get();
+		$users = User::orderBy('current_streak')->get();
 		return View::make('home.members')->with(compact('users'));
 	}
 
@@ -89,7 +89,21 @@ class HomeController extends BaseController {
 	public function singleTheme($id)
 	{
 		$theme = Theme::with('art')->with('art.like_users')->with('art.user')->find($id);
-
 		return View::make('home.single_theme')->with(compact('theme'));
+	}
+
+	public function unsubscribe($token)
+	{
+		$arts = Art::orderBy('created_at', 'DESC')->take(50)->get();
+		return View::make('home.unsubscribe')->with(compact('arts', 'token'));
+	}
+
+	public function do_unsubscribe()
+	{
+		$user = User::where('remember_token', '=', $id)->first();
+		$user->update(['subscribe' => '0']);
+		$user->save();
+
+		return Redirect::to('/')->with('notice', 'You have successfully unsubscribed from our newsletters.');
 	}
 }

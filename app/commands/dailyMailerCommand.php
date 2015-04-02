@@ -40,7 +40,7 @@ class dailyMailerCommand extends Command {
 		$theme = Theme::today()->theme;
 		$arts = Art::where('theme_id', Theme::today()->id)->orderBy('likes','DESC')->take(3)->get();
 
-		$users = User::get();
+		$users = User::where('subscribe', '=', '1')->get();
 
 		foreach ($users as $key => $user) {
 			if(!$user->hasArtToday()){
