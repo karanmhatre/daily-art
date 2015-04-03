@@ -48,6 +48,8 @@ class dailyMailerCommand extends Command {
 				$data['name'] = $user->name;
 				$data['email'] = $user->email;
 				$data['theme'] = $theme;
+				$data['token'] = $users->remember_token;
+
 				Mail::send('emails.reminder', $data, function($message) use ($data){
 		      $message->to($data['email'], $data['name'])->subject('Topic for today - ' . $data['theme']);
 		    });
