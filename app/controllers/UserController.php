@@ -42,6 +42,8 @@ class UserController extends \BaseController {
 	{
 		$art = Art::find($id);
 
+		$user = Auth::user();
+
 		$user->current_streak = $user->current_streak - 1;
 
 		if($art->user_id == Auth::user()->id)
