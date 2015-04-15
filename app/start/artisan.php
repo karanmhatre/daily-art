@@ -12,3 +12,4 @@
 */
 
 Artisan::add(new dailyMailerCommand);
+Artisan::add(new dailyStreakCommand);
