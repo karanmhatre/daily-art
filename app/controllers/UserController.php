@@ -45,6 +45,7 @@ class UserController extends \BaseController {
 		$user = Auth::user();
 
 		$user->current_streak = $user->current_streak - 1;
+		$user->save();
 
 		if($art->user_id == Auth::user()->id)
 			Art::find($id)->delete();
