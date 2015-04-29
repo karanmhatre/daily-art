@@ -117,7 +117,8 @@ class UserController extends \BaseController {
 
 	public function update($id)
 	{
-		$user = User::find($id);
+		$user = Auth::user();
+
 		$input = Input::all();
 		$result = $user->updateUser($input);
 		if($result)
