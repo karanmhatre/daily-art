@@ -1172,6 +1172,14 @@ ul.topics {
   left: -55px;
 }
 
+.beta-notice {
+  width: 340px;
+  margin: auto;
+  font-size: 14px;
+  margin-bottom: 30px;
+  margin-top: -10px;
+}
+
 
 .comments-list li {
   margin-bottom: 15px;

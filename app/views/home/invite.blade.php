@@ -13,7 +13,7 @@
   <div class="row">
     <div class="large-6 small-12 large-centered columns" id="login-container">
       <h2>Request an Invite</h2>
-      <p>We are still in beta, so you need to request for an invite before you can start posting. Don't worry the process is easy.</p>
+      <p class="beta-notice">We are still in beta, so you need to request for an invite before you can start posting. Don't worry the process is easy.</p>
 
       {{ Form::open(array('route' => 'user.storeInvite','files' => 'true')) }}
         <div class="small-10 large-centered columns">
