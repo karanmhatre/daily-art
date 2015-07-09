@@ -314,6 +314,11 @@ input[type="text"].member-search {
   top: 15px;
 }
 
+.member-search-container {
+  position: relative;
+  border-top: 1px solid #DDD;
+}
+
 .single-image {
 	display: block;
 	overflow: hidden;
