@@ -2,9 +2,6 @@
 
 @section('content')
   <div class="todays-topic">
-    <div class="topic">
-      <p class="{{ Auth::guest() ? 'guest_topic' : '' }}">Today's topic is “<b>{{ $theme->theme }}</b>”</p>
-    </div>
     @if(Auth::guest())
       <div class="streak-meter">
         <p>The idea behind Daily Art is to make something around a daily theme. Be it a sketch, graphic design, photograph, origami, or even a dance interpretation. We want you to get creative! <a href="{{ URL::to('request/invite') }}">Request an invite.</a>
