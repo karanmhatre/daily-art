@@ -37,7 +37,7 @@
           <ul>
             <li><a href="{{ URL::to('/') }}" class="main_heading">Daily<i class="fa fa-pencil"></i>Art</a></li>
             <li class="left-links">
-              <a href="{{ URL::to('themes') }}">Archives</a>
+              {{-- <a href="{{ URL::to('themes') }}">Archives</a> --}}
               <a href="{{ URL::to('members') }}">Members</a>
               <!-- <a href="#">Leaderboard</a> -->
             </li>
