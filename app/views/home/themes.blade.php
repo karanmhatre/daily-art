@@ -1,22 +1,28 @@
 @extends('layouts.master')
 
 @section('content')
-  @if(Auth::guest())
-    <div class="streak-meter">
-      <p>The idea behind Daily Art is to make something around a daily theme. Be it a sketch, graphic design, photograph, origami, or even a dance interpretation. We want you to get creative! <a href="{{ URL::to('request/invite') }}">Request an invite.</a>
-      </p>
+  <div class="todays-topic">
+    <div class="topic">
+      <p class="{{ Auth::guest() ? 'guest_topic' : '' }}">Today's topic is “<b>{{ $theme->theme }}</b>”</p>
     </div>
-  @else
-    <div class="streak-meter">
-      <div class="labels">
-        <p>Current streak - {{ Auth::user()->current_streak }}/30</p>
-        <p>Longest streak - {{ Auth::user()->longest_streak }}</p>
+    @if(Auth::guest())
+      <div class="streak-meter">
+        <p>The idea behind Daily Art is to make something around a daily theme. Be it a sketch, graphic design, photograph, origami, or even a dance interpretation. We want you to get creative! <a href="{{ URL::to('request/invite') }}">Request an invite.</a>
+        </p>
       </div>
-      <div class="progress-bar">
-        <div class="filled" style="width: {{ (Auth::user()->current_streak/30)*100 }}%;"></div>
+    @else
+      <div class="streak-meter">
+        <div class="labels">
+          <p>Current streak - {{ Auth::user()->current_streak }}/30</p>
+          <p>Longest streak - {{ Auth::user()->longest_streak }}</p>
+        </div>
+        <div class="progress-bar">
+          <div class="filled" style="width: {{ (Auth::user()->current_streak/30)*100 }}%;"></div>
+        </div>
       </div>
-    </div>
-  @endif
+    @endif
+  </div>
+
   <div class="member-search-container">
     <i class="fa fa-search"></i>
     <input type="text" class="member-search" placeholder="Search for an old theme">
